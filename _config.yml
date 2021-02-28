@@ -1,0 +1,233 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title:  没有气的汽水
+subtitle: 腹有诗书气自华，读书万卷始通神
+name: 没有气的汽水 
+email: meetyifan@gmail.com
+description: 
+keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek.
+encoding: "utf-8"
+
+repository: oreoft/oreoft.github.io
+url: http://mysite.com
+github_url: https://github.com/oreoft
+enforce_ssl: meety.top
+
+## Gem
+plugins:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+host: 0.0.0.0
+
+source:      .
+destination: ./_site
+
+quiet:    false
+defaults: []
+
+kramdown:
+  input: GFM
+  enable_coderay: true
+  syntax_highlighter: rouge
+
+syntax_highlighter_opts:
+   coderay_line_numbers:  nil
+
+# Pagination
+paginate: 12
+paginate_path: 'page:num'
+
+# Navigation. top menu list
+# _blank表示新网页，_self小时在本页
+menus:
+
+  -
+    href: /
+    label: Home
+    target: _self  
+
+  -
+    href: /about
+    label: About
+    target: _self   
+
+  -
+    href: /link
+    label: FriendLink
+    target: _self
+
+  -
+    href: /archives
+    label: Archives
+    target: _self
+
+  # -
+  #   href: “”
+  #   label: 位置5
+  #   target: _self
+
+  # -
+  #   href: “”
+  #   label: 位置6
+  #   target: _self
+
+  # -
+  #   href: “”
+  #   label: 位置7
+  #   target: _self
+
+# Navigation. main menu list
+# subnav可以加二级分类
+navs:
+
+  -
+    href: /
+    label: Code
+    subnav:
+      -
+        subHref: /java
+        subLabel: Java
+
+      -
+        subHref: /spring boot
+        subLabel: Spring Boot
+
+      -
+        subHref: /linux
+        subLabel: Linux
+
+      -
+        subHref: /middleware
+        subLabel: Middleware
+
+  -
+    href: /zheten
+    label: 折腾
+    target: _self
+
+  -
+    href: /
+    label: 分享
+    target: _self
+    subnav:
+      -
+        subHref: /cc
+        subLabel: 通俗计组
+      -
+        subHref: /ds
+        subLabel: 数据结构
+      -
+        subHref: /ee
+        subLabel: 电工知识
+      -
+        subHref: recommend
+        subLabel: 软件推荐
+
+  -
+    href: /other
+    label: 其他
+    target: _self
+
+
+
+# labels. my blog key words
+labels:
+
+  -
+    href: “”
+    label:   
+    target: _self
+
+  -
+    href: “”
+    label: 
+    target: _self
+
+  -
+    href: “”
+    label: 
+    target: _blank
+
+# selected articles
+classes:
+  -
+    href: /patriotic
+    name: 爱国强国专区
+    describe: 位卑未敢忘忧国，哪怕无人知我
+
+  -
+    href: /zheten/2020/10/03/m73
+    name: 联想m73黑苹果折腾记
+    describe: 为什么电子垃圾往往会有第二春
+
+# soft
+
+soft: 
+  -
+    href: /
+    name: 暂时没有开源项目
+    description: 生活就是故事，故事就是生活
+
+
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# Sidebar to show popular repo
+side_bar_repo_limit: 6 # Number of repos to show
+
+# Google Analytics
+# analytics :
+# provider : google
+#   google :
+#     tracking_id : ''  # ex. UA-72165600-X
+
+
+# For about.html. Fell free to create your own!
+skill_software_keywords: [Java, MySQL, Oracle, Design Patterns]
+skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
+skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, NodeJS, ExpressJS, MongoDB, Redis, PHP,  Boostrap]
+skill_mobile_app_keywords: [vuejs, hyhird app]
+
+# 我先暂时不用，所以都注释了
+# # ---------------- #
+# #      Comments    #
+# # ---------------- #
+# # support provider: disqus, gitment, gitalk
+# comments_provider: gitalk
+# # !!!重要!!! 请修改下面这些信息为你自己申请的
+# # !!!Important!!! Please modify infos below to yours
+# # https://disqus.com
+# disqus:
+#     username: ityouknow
+# # https://imsun.net/posts/gitment-introduction/
+# gitment:
+#     owner: ityouknow
+#     repo: blog-comments
+#     oauth:
+#         client_id: 61bfc53d957e74e78f8f
+#         client_secret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
+# # https://github.com/gitalk/gitalk#install
+# gitalk:
+#     owner: ityouknow
+#     repo: blog-comments
+#     clientID: 61bfc53d957e74e78f8f
+#     clientSecret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
+# # 在使用其它评论组件时可点击显示 Disqus
+# lazy_load_disqus : true
