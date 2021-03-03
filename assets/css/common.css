@@ -36,7 +36,7 @@
 }
 
 .site-header a:hover {
-    color: cadetblue;
+    color: #4183c4;
 }
 
 #site-header-brand, #site-header-brand .octicon {
@@ -302,7 +302,7 @@ blockquote {
     border-radius: 0 0 5px 5px;
 }
 .site-header-nav-item .submenu li a:hover {
-    color: cadetblue !important;
+    color: #4183c4 !important;
     background: #f6f6f6;
 }
 .site-header-topbar {
