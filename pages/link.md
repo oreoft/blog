@@ -14,10 +14,9 @@ permalink: /link
 
 - [百度](http://www.baidu.com) - 中国本liu土mang化做的最好的的搜索引擎
 
+## 联系方式
 
-## 个人链接
-
-- 暂时无
+- 邮箱：meetyifan@gmail.com
 
 ## 其它  
 
