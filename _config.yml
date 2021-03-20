@@ -15,9 +15,9 @@ keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代�
 encoding: "utf-8"
 
 repository: oreoft/oreoft.github.io
-url: http://mysite.com
+url: https://www.someget.cn
 github_url: https://github.com/oreoft
-enforce_ssl: meety.top
+enforce_ssl: https://www.someget.cn
 
 ## Gem
 plugins:
@@ -31,7 +31,8 @@ markdown: kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
-host: 0.0.0.0
+host: 127.0.0.1
+port: 4000
 
 source:      .
 destination: ./_site
@@ -103,43 +104,57 @@ navs:
         subLabel: Java
 
       -
-        subHref: /spring boot
+        subHref: /spring_boot
         subLabel: Spring Boot
 
+
+  -
+    href: /
+    label: Base
+    target: _self
+    subnav:
+      -
+        subHref: /cc
+        subLabel: 通俗计组
+
+      -
+        subHref: /ds
+        subLabel: 数据结构
+      
+      -
+        subHref: /cn
+        subLabel: 计算机网络
+      # -
+      #   subHref: /ee
+      #   subLabel: 电工知识
+      # -
+      #   subHref: recommend
+      #   subLabel: 软件推荐
+
+  -
+    href: /
+    label: Mix
+    target: _self
+    subnav:
       -
         subHref: /linux
         subLabel: Linux
 
       -
         subHref: /middleware
-        subLabel: Middleware
+        subLabel: 中间件
 
+      - 
+        subHref: /design
+        subLabel: 设计模式
   -
-    href: /zheten
-    label: 折腾
+    href: /tools
+    label: Tools
     target: _self
-
-  -
-    href: /
-    label: 分享
-    target: _self
-    subnav:
-      -
-        subHref: /cc
-        subLabel: 通俗计组
-      -
-        subHref: /ds
-        subLabel: 数据结构
-      -
-        subHref: /ee
-        subLabel: 电工知识
-      -
-        subHref: recommend
-        subLabel: 软件推荐
 
   -
     href: /other
-    label: 其他
+    label: Other
     target: _self
 
 
@@ -165,9 +180,9 @@ labels:
 # selected articles
 classes:
   -
-    href: /patriotic
-    name: 爱国强国专区
-    describe: 位卑未敢忘忧国，哪怕无人知我
+    href: /cc/2020/10/10/CPU1
+    name: 消费级电脑的CPU选择（1）
+    describe: 厂商选择
 
   -
     href: /zheten/2020/10/03/m73
@@ -178,8 +193,8 @@ classes:
 
 soft: 
   -
-    href: /
-    name: 暂时没有开源项目
+    html_url: https://github.com/oreoft
+    name: 前往我的GitHub~
     description: 生活就是故事，故事就是生活
 
 

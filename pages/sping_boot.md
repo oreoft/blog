@@ -1,12 +1,12 @@
 ---
 layout: page
-title: 中间件学习记录
-titlebar: 中间件学习记录
-subtitle: <span class="mega-octicon octicon-git-commit"></span>&nbsp;&nbsp;
-     <a>一些主流中间件学习记录我会放这里，希望学得越多写的越多懂得越多，嘿嘿😋</a><br/>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+title: Spring Boot 学习记录
+titlebar: spring_boot
+subtitle: <span class="mega-octicon octicon-eye"></span>&nbsp;&nbsp;
+     <a>Sring Boot是目前java平台最热门的框架，下面都是我的学习记录，希望能对你有所帮助，一起进步。</a><br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /middleware
+permalink: /spring_boot
 ---
 
 <div class="row">
@@ -15,8 +15,7 @@ permalink: /middleware
 
         <ul id="posts-list">
             {% for post in site.posts %}
-            <!-- 以后完善了更多的中间价需要在这里加入，把这个包进去 -->
-                {% if post.category=='middleware' or post.keywords contains 'redis' or post.keywords contains 'mysql' or post.keywords contains 'redis' or post.keywords contains 'redis' or post.keywords contains 'redis' %}
+                {% if post.category=='springboot' or post.keywords contains 'spring' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>

@@ -1,12 +1,12 @@
 ---
 layout: page
-title: 中间件学习记录
-titlebar: 中间件学习记录
-subtitle: <span class="mega-octicon octicon-git-commit"></span>&nbsp;&nbsp;
-     <a>一些主流中间件学习记录我会放这里，希望学得越多写的越多懂得越多，嘿嘿😋</a><br/>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+title: 设计模式
+titlebar: 优雅养成中
+subtitle: <span class="mega-octicon octicon-pulse"></span>&nbsp;&nbsp;
+     <a>上班有一段时间了，代码也写了不少，有时想优化一些代码结构没什么思路。现在系统学习一遍设计模式，吸取前人的智慧，开拓自己的视野，让代码更优雅和灵活</a><br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /middleware
+permalink: /design
 ---
 
 <div class="row">
@@ -15,8 +15,7 @@ permalink: /middleware
 
         <ul id="posts-list">
             {% for post in site.posts %}
-            <!-- 以后完善了更多的中间价需要在这里加入，把这个包进去 -->
-                {% if post.category=='middleware' or post.keywords contains 'redis' or post.keywords contains 'mysql' or post.keywords contains 'redis' or post.keywords contains 'redis' or post.keywords contains 'redis' %}
+                {% if post.category=='design' or post.keywords contains 'design' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
