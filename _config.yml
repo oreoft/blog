@@ -180,14 +180,19 @@ labels:
 # selected articles
 classes:
   -
-    href: /cc/2020/10/10/CPU1
-    name: 消费级电脑的CPU选择（1）
-    describe: 厂商选择
+    href: /other/2021/04/10/about_criticizemd
+    name: 关于大家的一些批评
+    describe: 虚心接受
 
   -
-    href: /zheten/2020/10/03/m73
+    href: /other/2020/10/03/m73
     name: 联想m73黑苹果折腾记
     describe: 为什么电子垃圾往往会有第二春
+
+  -
+    href: /other/2021/02/04/reflection_1
+    name: 纯技术开发人最重要的阶段
+    describe: 纯技术, 不谈管理、架构
 
 # soft
 
