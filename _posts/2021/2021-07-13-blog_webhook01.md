@@ -129,7 +129,9 @@ chmod u+x /usr/local/sbin/github-webhook
 
    ![image-20210714190228913](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210714190228.png)
 
-              <center>查看输出日志</center>
+<center>查看输出日志</center>
+
+
 
 ## 后言
 
