@@ -125,6 +125,12 @@ chmod u+x /usr/local/sbin/github-webhook
 
 ![image-20210714173309303](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210714173309.png)
 
-2.    
+2. 我们查看输出日志，发现是执行成功的，当然啦，你们看到这篇文章肯定是微博
 
-​              
+   ![image-20210714190228913](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210714190228.png)
+
+              <center>查看输出日志</center>
+
+## 后言
+
+以后写好笔记可以直接提，然后会自动部署，太方便啦，爱啦，爱啦
