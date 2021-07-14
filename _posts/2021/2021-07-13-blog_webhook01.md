@@ -120,3 +120,10 @@ chmod u+x /usr/local/sbin/github-webhook
 #### 提交你的代码
 
 现在我把这篇文章的代码提交，看看会发生什么
+
+1. 首先我同样配置了一个webhook的钉钉机器人，它给我提醒啦
+
+![image-20210714173309303](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210714173309.png)
+
+2.    
+
