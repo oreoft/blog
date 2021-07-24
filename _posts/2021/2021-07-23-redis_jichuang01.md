@@ -26,7 +26,7 @@ keywords: middleware, redis
 
 
 
-## ###缓存击穿应对方法
+## 缓存击穿应对方法
 
 ### key永不过期过期时间
 
