@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  如何构建好纯技术开发人最重要的阶段
-excerpt:  分享一下我认为纯技术人最重要的阶段（不谈管理、架构）
+title: 如何构建好纯技术开发人最重要的阶段
+excerpt: 分享一下我认为纯技术人最重要的阶段（不谈管理、架构）
 category: other
 keywords: other
 ---

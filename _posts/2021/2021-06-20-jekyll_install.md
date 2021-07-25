@@ -2,7 +2,7 @@
 layout: post
 title: Linux安装jekyll
 excerpt: jekyll搭建博客yyds
-category: other, tools, linux
+category: other,tools,linux
 keywords: other, tools, linux
 ---
 
