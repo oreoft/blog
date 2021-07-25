@@ -180,9 +180,9 @@ labels:
 # selected articles
 classes:
   -
-    href: /other/2021/04/10/about_criticizemd
-    name: 关于大家的一些批评
-    describe: 虚心接受
+    href: /other/2021/01/11/510smin_1
+    name: 2021年买的最值的东西
+    describe: 联想510smini小主机
 
   -
     href: /other/2020/10/03/m73
@@ -190,9 +190,9 @@ classes:
     describe: 为什么电子垃圾往往会有第二春
 
   -
-    href: /other/2021/02/04/reflection_1
-    name: 纯技术开发人最重要的阶段
-    describe: 纯技术, 不谈管理、架构
+    href: /other/2021/06/20/jekyll_install
+    name: Linux安装jekyll
+    describe: 自己建站的一些经验
 
 # soft
 
