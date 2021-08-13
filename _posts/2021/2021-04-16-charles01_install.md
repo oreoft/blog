@@ -2,7 +2,7 @@
 layout: post
 title: macOS下抓包神器-Charles
 excerpt: charles简单介绍使用
-category: macos, tools, others
+category: macos, tools, other
 keywords: macos, tools, Charles
 ---
 

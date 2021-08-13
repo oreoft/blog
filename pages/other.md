@@ -13,10 +13,10 @@ permalink: /other
 <div class="row">
 
     <div class="col-md-12">
-
+    
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='other' or post.keywords contains 'other' %}
+                {% if post.category=='other' or post.keywords contains 'other' or post.category=='others' or post.keywords contains 'others' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
@@ -27,10 +27,10 @@ permalink: /other
                 {% endif %}
             {% endfor %}
         </ul> 
-
+    
         <!-- Pagination -->
         {% include pagination.html %}
-
+    
         <!-- Comments -->
        <div class="comment">
          {% include comments.html %}
@@ -43,6 +43,6 @@ permalink: /other
 
         // Enable bootstrap tooltip
         $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-
+    
     });
 </script>
