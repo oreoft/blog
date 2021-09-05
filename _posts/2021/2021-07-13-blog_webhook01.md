@@ -2,7 +2,7 @@
 layout: post
 title: 使用webhook进行方便的blog部署
 excerpt: WebHook超方便的~~~~
-category: other, linux
+category: linux
 keywords: other, linux
 ---
 

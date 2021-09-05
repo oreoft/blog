@@ -2,7 +2,7 @@
 layout: post
 title: 快速连接上linux
 excerpt: 比免密登陆再快一点
-category: other, linux
+category: linux
 keywords: linux, other, macos
 ---
 
