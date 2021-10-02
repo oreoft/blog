@@ -190,7 +190,7 @@ classes:
     describe: 为什么电子垃圾往往会有第二春
 
   -
-    href: /other,tools,linux/2021/06/20/jekyll_install
+    href: /linux/2021/06/20/jekyll_install
     name: Linux安装jekyll
     describe: 自己建站的一些经验
 
