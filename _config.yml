@@ -185,14 +185,14 @@ classes:
     describe: 联想510smini小主机
 
   -
-  href: /linux/2021/06/20/jekyll_install
-  name: Linux安装jekyll
-  describe: 自己建站的一些经验
+    href: /linux/2021/06/20/jekyll_install
+    name: Linux安装jekyll
+    describe: 自己建站的一些经验
 
   -
-  href: /other/2021/10/05/coding_name01
-  name: 工程实践中关于命名那些事
-  describe: 自己总结的命名规范希望能给大家参考
+    href: /other/2021/10/05/coding_name01
+    name: 工程实践中关于命名那些事
+    describe: 自己总结的命名规范希望能给大家参考
 
 
   -
