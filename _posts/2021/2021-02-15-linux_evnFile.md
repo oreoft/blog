@@ -2,7 +2,7 @@
 layout: post
 title: Linux的环境配置文件(startup文件)
 excerpt: bash_profile和bashrc的区别
-category: linux, other
+category: linux
 keywords: linux, Mac, other
 ---
 
