@@ -116,4 +116,4 @@ keywords: linux, Mac, other
 
 在不同的发行版中会有略微的不同，centos下大致如此，想要更加详细的探究，不放在相应的配置文件里面echo一些话来亲自测试验证。
 
-最后对于众多不单一的startup文件，我的建议是如果你想对bash的功能进行设置或者是定义一些别名，推荐你修改~/.bashrc文件，这样无论你以何种方式打开shell，你的配置都会生效。而如果你要更改一些环境变量，推荐你修改~/.bash_profile文件。具体这类启动文件可以做什么[跳转点击](https://www.someget.cn/other,%20linux/2020/06/02/linux_evnFile)
+最后对于众多不单一的startup文件，我的建议是如果你想对bash的功能进行设置或者是定义一些别名，推荐你修改~/.bashrc文件，这样无论你以何种方式打开shell，你的配置都会生效。而如果你要更改一些环境变量，推荐你修改~/.bash_profile文件。具体这类启动文件可以做什么[跳转点击](https://www.someget.cn/linux/2021/02/12/linux2_envVar.html)
