@@ -136,7 +136,7 @@ public class DemoController {
 
 至此已经引入成功，这些组件都已经封装的很好了，理论上可以做到开箱即用，这里列举一些我遇到的问题。
 
-1. java.lang.NoSuchMethodError: reactor.netty.http.client.HttpClient.chunkedTransfer(Z)Lreactor/netty/http/client/HttpClient;
+- java.lang.NoSuchMethodError: reactor.netty.http.client.HttpClient.chunkedTransfer(Z)Lreactor/netty/http/client/HttpClient;
 
 ![image-20211019215037551](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019215037.png)
 
@@ -144,7 +144,7 @@ public class DemoController {
 
 我的推测：版本问题(springboot版本高了)，可以换``2.1.6.RELEASE``试试
 
-2. java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$NettyConfiguration.gatewayHttpClient
+- java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.gateway.config.GatewayAutoConfiguration$NettyConfiguration.gatewayHttpClient
 
 ![image-20211019215506845](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019215506.png)
 
@@ -152,7 +152,7 @@ public class DemoController {
 
 我的推测：版本问题(gateway版本高了)，可以换``2.1.1.RELEASE``试试
 
-3. Parameter 0 of method modifyRequestBodyGatewayFilterFactory in org.springframework.cloud.gateway.config.GatewayAutoConfiguration required a bean of type 'org.springframework.http.codec.ServerCodecConfigurer' that could not be found.
+- Parameter 0 of method modifyRequestBodyGatewayFilterFactory in org.springframework.cloud.gateway.config.GatewayAutoConfiguration required a bean of type 'org.springframework.http.codec.ServerCodecConfigurer' that could not be found.
 
 ![image-20211019225320971](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019225321.png)
 
@@ -188,7 +188,7 @@ public class DemoController {
     </dependency>
 ```
 
-4. 服务启动成功，但是访问报错**503**
+- 服务启动成功，但是访问报错**503**
 
 排除服务刚刚启动它没来得及就被你访问了导致503后
 
@@ -199,8 +199,9 @@ public class DemoController {
 
 </br>
 
-5. 服务启动成功，但是访问报错**404**
-6. 检查配置文件
+- 服务启动成功，但是访问报错**404**
+
+1. 检查配置文件
 
 ![image-20211019223058086](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019223058.png)
 
