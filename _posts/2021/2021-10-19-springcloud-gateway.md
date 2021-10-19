@@ -132,7 +132,7 @@ public class DemoController {
 
 ![image-20211019233046301](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019233046.png)
 
-</br>
+<br>
 
 至此已经引入成功，这些组件都已经封装的很好了，理论上可以做到开箱即用，这里列举一些我遇到的问题。
 
@@ -140,7 +140,7 @@ public class DemoController {
 
 ![image-20211019215037551](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019215037.png)
 
-</br>
+<br>
 
 我的推测：版本问题(springboot版本高了)，可以换``2.1.6.RELEASE``试试
 
@@ -148,7 +148,7 @@ public class DemoController {
 
 ![image-20211019215506845](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019215506.png)
 
-</br>
+<br>
 
 我的推测：版本问题(gateway版本高了)，可以换``2.1.1.RELEASE``试试
 
@@ -156,7 +156,7 @@ public class DemoController {
 
 ![image-20211019225320971](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019225321.png)
 
-</br>
+<br>
 
 我的推测：web依赖和webflux依赖冲突
 
@@ -197,7 +197,7 @@ public class DemoController {
 
 ![image-20211019224852952](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019224853.png)
 
-</br>
+<br>
 
 - 服务启动成功，但是访问报错**404**
 
@@ -207,7 +207,7 @@ public class DemoController {
 
 <center>是否有开启注册中心创建路由</center>
 
-</br>
+<br>
 
 ```xml
  gateway:
