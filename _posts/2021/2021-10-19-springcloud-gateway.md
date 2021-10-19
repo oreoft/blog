@@ -12,7 +12,7 @@ keywords: spring_boot, java
 
 首先就是把注册中心(Nacos)和网关接入(Gateway)，然后服务的rpc调用框架(OpenFeign)。其实springboot相关的生态已经做的很开箱即用了，但是在引入的过程中还是遇到一些小小的问题，尤其是引入Gateway过程中花了无谓的一下午时间，现在看来只要导入依赖和设置路由配置就好了。所以特意记录一下，给大家避避坑。
 
-我写一个简单的QuicStart，并且把项目放到Github上
+我写一个简单的QuicStart，并且把项目放到[Github](https://github.com/oreoft/quickstart-gateway)上
 
 ### 项目结构
 
@@ -132,11 +132,15 @@ public class DemoController {
 
 ![image-20211019233046301](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019233046.png)
 
+</br>
+
 至此已经引入成功，这些组件都已经封装的很好了，理论上可以做到开箱即用，这里列举一些我遇到的问题。
 
 1. java.lang.NoSuchMethodError: reactor.netty.http.client.HttpClient.chunkedTransfer(Z)Lreactor/netty/http/client/HttpClient;
 
 ![image-20211019215037551](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019215037.png)
+
+</br>
 
 我的推测：版本问题(springboot版本高了)，可以换``2.1.6.RELEASE``试试
 
@@ -144,11 +148,15 @@ public class DemoController {
 
 ![image-20211019215506845](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019215506.png)
 
+</br>
+
 我的推测：版本问题(gateway版本高了)，可以换``2.1.1.RELEASE``试试
 
 3. Parameter 0 of method modifyRequestBodyGatewayFilterFactory in org.springframework.cloud.gateway.config.GatewayAutoConfiguration required a bean of type 'org.springframework.http.codec.ServerCodecConfigurer' that could not be found.
 
 ![image-20211019225320971](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019225321.png)
+
+</br>
 
 我的推测：web依赖和webflux依赖冲突
 
@@ -189,13 +197,16 @@ public class DemoController {
 
 ![image-20211019224852952](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019224853.png)
 
-5. 服务启动成功，但是访问报错**404**
+</br>
 
-1. 检查配置文件
+5. 服务启动成功，但是访问报错**404**
+6. 检查配置文件
 
 ![image-20211019223058086](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019223058.png)
 
 <center>是否有开启注册中心创建路由</center>
+
+</br>
 
 ```xml
  gateway:
@@ -212,3 +223,4 @@ routes:
 	filters:
 		-StripPrefix=N(这个N是数字)
 ```
+
