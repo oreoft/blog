@@ -26,23 +26,42 @@ keywords: spring_boot, java
 
 ### pom坐标
 
-SpringBoot的版本(这个在父模块)
+设置SpringBoot的版本(这个在父模块)
 
 ```xml
 <parent>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-parent</artifactId>
-  <version>2.1.6.RELEASE</version>
+  <version>2.3.4.RELEASE</version>
 </parent>
 ```
 
-Gateway我选择的版本(这个只在demo-gateway模块)
+设置dependencyManagement(在父模块，规定cloud和springboot相对应的版本号)
+
+```xml
+  <properties>
+    <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+  </properties>
+<dependencyManagement>
+    <!-- 指定cloud的版本 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>${spring-cloud.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+Gateway我选择的版本(这个只在demo-gateway模块，代码里面我使用的dependencyManagement来管理子模块的版本号)
 
 ```xml
 <dependency>
   <groupId>org.springframework.cloud</groupId>
   <artifactId>spring-cloud-starter-gateway</artifactId>
-  <version>2.1.1.RELEASE</version>
+  <version>2.2.7.RELEASE</version>
 </dependency>
 ```
 
@@ -159,6 +178,24 @@ public class DemoController {
 ![image-20211019225320971](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211019225321.png)
 
 <br>
+
+上面这个版本问题强烈建议使用``dependencyManagement``来管理。在这[官网](https://spring.io/projects/spring-cloud)找到自己springboot版本对应的cloud版本，如下图
+
+![image-20211020212848601](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211020212848.png)
+
+<center>左侧是cloud版本(点进去有版本，原来是英文地铁站命名)，右侧是boot版本</center>
+
+比如我用的是2.3.4的boot版本，我看到[Hoxton](https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-Hoxton-Release-Notes)里面如下告诉我，我的2.3.x是需要用以下的组件版本。
+
+![image-20211020213046180](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211020213046.png)
+
+然后你在pom里面设置``dependencyManagement``，它会帮你管理成如下的版本，你只需要导入就行了不用管版本号。
+
+![image-20211020213334390](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211020213334.png)
+
+
+
+- 服务启动成功，但是访问报错**404**
 
 我的推测：web依赖和webflux依赖冲突
 
