@@ -24,7 +24,7 @@ keywords: other
 
 <center>效果很蠢</center>
 
-最后我在idea的文档中发现了有一个叫postfix Completion功能，我去idea一搜。把我吓一跳，原来我心心念念var.sout的实现，在这里！！！
+最后我在idea的文档中发现了有一个叫postfix Completion功能，我去idea一搜。把我吓一跳，原来我心心念念.var/.sout的实现，在这里！！！
 
 ![image-20210404184658588](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210404184658.png)
 
