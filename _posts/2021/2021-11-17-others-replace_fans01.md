@@ -232,7 +232,7 @@ Deskmini-h470的**高度是`46mm`**，所以我想在范围内尽可能的选择
 
 ## 后言
 
-![image-20211127214453652](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211127214453.png)
+![image-20211127215952591](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211127215952.png)
 
 <center>左图是更换之前，右图是更换之后</center>
 
