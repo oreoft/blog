@@ -36,7 +36,7 @@ keywords: other, macos
 
 ![key爆了](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211204105320.png)
 
-<center>具体定位的结点</center>
+<center>具体定位的结点</center><br>
 
 当时推断应该是某些userId的组合成的key被shard到这个节点，当时这个节点已经超过redis配置的内存限制了，并且永不过期的key也超过了这个内存限制，然后再写入的数据就直接会被淘汰掉。
 
@@ -44,13 +44,13 @@ keywords: other, macos
 
 ![redis](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211204110251.png)
 
-<center>分析的结果</center>
+<center>分析的结果</center><br>
 
 看到这个结果，大概率是有bigKey的产生，紧接着又进行key分析，看是否真的是有bigKey。是技术上没处理好，还是业务上没有打散。最终定位结果是一个记录log的哈希key，单key就占用超过redis的配置上限了。
 
 ![redis详情](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211204110541.png)
 
-<center>定位到的bigKey</center>
+<center>定位到的bigKey</center><br>
 
 询问写入这个key的责任人，结果是仅测试环境使用的，上生产的时候忘记删掉了....然后问了下上游其他同事是否用到这个key，发现都没有使用到，然后直接就删掉了。
 
@@ -64,7 +64,7 @@ keywords: other, macos
 
 ![image-20211204111805640](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20211204111805.png)
 
-<center>reids的驱逐策略配置</center>
+<center>reids的驱逐策略配置</center><br>
 
 这里复习一下，这八种驱逐策略作为ending(在redis的config中，这个参数名字叫`maxmemory-policy`)
 
