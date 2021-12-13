@@ -56,7 +56,7 @@ keywords: linux, Mac, other
 
    <center>移动到自己的bin文件夹</center>
 
-   2. 修改PATH, 因为我linux是bash，所以建议在~/.bash_profle上把路径加到PATH上，如果你不清除我在说什么，可以看一下我原来写过的介绍[linux的startup篇](https://www.someget.cn/other,%20linux/2020/06/02/linux_evnFile)和[linux的环境变量篇-----](https://www.someget.cn/other,%20linux/2020/06/02/linux2_envVar)---```vim ~/.bash_profile```
+   2. 修改PATH, 因为我linux是bash，所以建议在~/.bash_profle上把路径加到PATH上，如果你不清除我在说什么，可以看一下我原来写过的介绍[linux的startup篇](https://someget.cn/linux/2021/02/15/linux_evnFile.html)和[linux的环境变量篇-----](https://someget.cn/linux/2021/02/12/linux2_envVar.html)---```vim ~/.bash_profile```
 
    ![image-20210601202221960](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210601202222.png)
 
