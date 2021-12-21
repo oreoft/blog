@@ -41,7 +41,7 @@ keywords: tools
            </RuleState>
          </list>
        </option>
-       </component>
+   </component>
    ```
 
 5. 因为.idea是隐藏文件，win下各位coder一般会把隐藏文件打开，但是mac下面显示隐藏文件比较难看，所以大家一般都没有打开，win按照下面直接操作就好，mac我是使用终端去操作vim添加的。
@@ -50,7 +50,8 @@ keywords: tools
 
 <center>项目根目录进入idea，然后vim进入这workspace.xml</center><br/>
 
-	![image-20210320150438895](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210320150438.png)
+![image-20210320150438895](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210320150438.png)
+
 <center>插入后，按esc然后输入:wq，保存</center><br/>
 6. 写入后重启idea，然后再打开idea并且打开这个项目会提示下列提示，选择第一个show run***
 
@@ -59,4 +60,3 @@ keywords: tools
 7. 然后你就可以看到dashboard了，如果你还是没看到，请再进workspace.xml检查是否有RunDashboard这个标签。
 
 	![image-20210320151138794](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210320151138.png)
-
