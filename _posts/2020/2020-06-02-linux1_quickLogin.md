@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 快速连接上linux
+title: 快速登陆linux服务器
 excerpt: 比免密登陆再快一点
 category: linux
 keywords: linux, other, macos
@@ -65,4 +65,3 @@ mac直接```sudo vim /etc/hosts```修改即可，具体操作和格式如下
 
 
 **全文END**
-
