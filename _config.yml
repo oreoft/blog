@@ -34,12 +34,13 @@ lsi:         false
 excerpt_separator: "\n\n"
 host: 127.0.0.1
 port: 4000
-
 source:      .
 destination: ./_site
 
 quiet:    false
 defaults: []
+include:
+  - zh
 
 kramdown:
   input: GFM
@@ -56,46 +57,46 @@ paginate_path: 'page:num'
 # Navigation. top menu list
 # _blank表示新网页，_self小时在本页
 menus:
+  en:
+    -
+      href: /
+      label: Home
+      target: _self
 
-  -
-    href: /
-    label: Home
-    target: _self  
+    -
+      href: /about
+      label: About
+      target: _self
 
-  -
-    href: /about
-    label: About
-    target: _self   
+    -
+      href: /link
+      label: FriendLink
+      target: _self
 
-  -
-    href: /link
-    label: FriendLink
-    target: _self
+    -
+      href: /archives
+      label: Archives
+      target: _self
+  zh:
+      - href: /zh
+        label: Home
+        target: _self
 
-  -
-    href: /archives
-    label: Archives
-    target: _self
+      - href: /zh/about
+        label: About
+        target: _self
 
-  # -
-  #   href: “”
-  #   label: 位置5
-  #   target: _self
+      - href: /zh/link
+        label: FriendLink
+        target: _self
 
-  # -
-  #   href: “”
-  #   label: 位置6
-  #   target: _self
-
-  # -
-  #   href: “”
-  #   label: 位置7
-  #   target: _self
+      - href: /zh/archives
+        label: Archives
+        target: _self
 
 # Navigation. main menu list
 # subnav可以加二级分类
 navs:
-
   -
     href: /
     label: Code
@@ -103,7 +104,6 @@ navs:
       -
         subHref: /java
         subLabel: Java
-
       -
         subHref: /spring_boot
         subLabel: Spring Boot
@@ -117,11 +117,9 @@ navs:
       -
         subHref: /cc
         subLabel: 通俗计组
-
       -
         subHref: /ds
         subLabel: 数据结构
-      
       -
         subHref: /cn
         subLabel: 计算机网络
@@ -140,11 +138,9 @@ navs:
       -
         subHref: /linux
         subLabel: Linux
-
       -
         subHref: /middleware
         subLabel: 中间件
-
       - 
         subHref: /design
         subLabel: 设计模式
@@ -152,7 +148,6 @@ navs:
     href: /tools
     label: Tools
     target: _self
-
   -
     href: /other
     label: Other
@@ -162,17 +157,14 @@ navs:
 
 # labels. my blog key words
 labels:
-
   -
     href: “”
     label:   
     target: _self
-
   -
     href: “”
     label: 
     target: _self
-
   -
     href: “”
     label: 
@@ -184,27 +176,21 @@ classes:
     href: /other/2021/01/11/510smin_1
     name: 2021年买的最值的东西
     describe: 联想510smini小主机
-
   -
     href: /linux/2021/06/20/jekyll_install
     name: Linux安装jekyll
     describe: 自己建站的一些经验
-
   -
     href: /other/2021/10/05/coding_name01
     name: 工程实践中关于命名那些事
     describe: 自己总结的命名规范希望能给大家参考
-
-
   -
     href: /other/2020/10/03/m73
     name: 联想m73黑苹果折腾记
     describe: 为什么电子垃圾往往会有第二春
 
 
-
 # soft
-
 soft: 
   -
     html_url: https://github.com/oreoft

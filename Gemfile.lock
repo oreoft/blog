@@ -77,6 +77,8 @@ GEM
     jekyll-geo-pattern (0.4.1)
       geo_pattern (~> 1.2.1)
       jekyll
+    jekyll-multiple-languages-plugin (1.8.0)
+      jekyll (>= 2.0, < 5.0)
     jekyll-octicons (12.1.0)
       jekyll (>= 3.6, < 5.0)
       octicons (= 12.1.0)
@@ -179,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll-geo-pattern
+  jekyll-multiple-languages-plugin
   jekyll-octicons
   jekyll-paginate
   kramdown

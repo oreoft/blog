@@ -2,24 +2,25 @@
 layout: default
 menu: home
 css: ['index.css', 'sidebar-popular-repo.css']
-lang: en
+lang: zh
 ---
 <section class="jumbotron">
     <div class="container">
         <h1 id="header"></h1>
         <script>
             let rand = Math.random() >= 0.5
-            document.getElementById("header").innerHTML = rand ? ' en ' : ' en '
+            document.getElementById("header").innerHTML = rand ? ' zh ' : ' zh '
         </script>
         <div id="jumbotron-meta-info">
-             {% for nav in site.labels %}
-                <span class="meta-info-index hvr-grow">
+            {% for nav in site.labels %}
+            <span class="meta-info-index hvr-grow">
                     <a href="{{ nav.href }}" title="{{ nav.label }}" target="{{ nav.target | default: _self }}">{{ nav.label }}</a>
                 </span>
             {% endfor %}
         </div>
     </div>
 </section>
+
 <section class="content container">
 
     <div class="row">
@@ -28,8 +29,9 @@ lang: en
         <div class="col-md-8">
 
             <ol class="post-list">
+                <p>{{paginator.posts}}</p>
                 {% for post in paginator.posts %}
-                 {% if post.lang == 'en' %}
+                 {% if post.lang == 'zh' %}
                     <li class="post-list-item">
                         <h2 class="post-list-title">
                             <a class="hvr-underline-from-center" href="{{ post.url }}">{{ post.title }}</a>
