@@ -28,7 +28,27 @@ lang: en
         <div class="col-md-8">
 
             <ol class="post-list">
-                {% for post in paginator.posts %}
+<!--             全量的数据-->
+                {% assign posts = site.posts | where:"lang", "en" %}
+<!--             // 每页请求数量-->
+                {% assign paging_size = site.paginate | default: 6 %}
+<!--             // 初始化当前页数 -->
+                {% assign current_page = 1 %}
+<!--                // 如果全量数量大于当前请求 计算当前数量 -->
+                {% if posts.size > paging_size %}
+<!--                // 目前请求第几页-->
+                    {% if page.url contains '/page' %}
+                        {% assign current_page = page.url | split: '/' | last | replace: 'page', '' | plus: 0 %}
+                    {% endif %}
+                    {% assign offset = current_page | minus: 1 | times: paging_size %}
+<!--                // 把值取出来-->
+                    {% assign posts_on_current_page = posts | reverse | slice: offset, paging_size %}
+                {% else %}
+<!--                否则全量返回-->
+                    {% assign posts_on_current_page = posts %}
+                {% endif %}
+
+                {% for post in posts_on_current_page %}
                  {% if post.lang == 'en' %}
                     <li class="post-list-item">
                         <h2 class="post-list-title">
