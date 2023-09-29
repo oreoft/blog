@@ -29,8 +29,8 @@
 </div>
 
 <h3 class="sidebar-title">精选文章</h3>
-
-{% for article in site.classes  %}
+{% assign current_lang = page.lang | default: 'en' %}
+{% for article in site.classes[current_lang]  %}
 <div class="card text-center">
     <div class="thumbnail">
         <div class="card-image geopattern" data-pattern-id="{{ article.name }}">
@@ -51,7 +51,8 @@
 
 <br/>
 <h3 class="sidebar-title">开源软件</h3>
-{% for repo in site.soft | limit: site.side_bar_repo_limit %}
+{% assign current_lang = page.lang | default: 'en' %}
+{% for repo in site.soft[current_lang] | limit: site.side_bar_repo_limit %}
 <div class="card text-center">
     <div class="thumbnail">
         <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">

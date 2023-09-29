@@ -33,7 +33,8 @@
             {{ site.name }}
         </a>
         <nav class="site-header-nav" role="navigation">
-            {% for nav in site.navs %}
+            {% assign current_lang = page.lang | default: 'en' %}
+            {% for nav in site.navs[current_lang] %}
             <div class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
                 <a href="{{ nav.href }}"
                    target="{{ nav.target | default: _self }}"

@@ -29,7 +29,7 @@ lang: en
 
             <ol class="post-list">
 <!--             全量的数据-->
-                {% assign posts = site.posts | where:"lang", "en" %}
+                {% assign posts = site.posts | where:"lang", "en"  %}
 <!--             // 每页请求数量-->
                 {% assign paging_size = site.paginate | default: 6 %}
 <!--             // 初始化当前页数 -->
@@ -42,7 +42,7 @@ lang: en
                     {% endif %}
                     {% assign offset = current_page | minus: 1 | times: paging_size %}
 <!--                // 把值取出来-->
-                    {% assign posts_on_current_page = posts | reverse | slice: offset, paging_size %}
+                    {% assign posts_on_current_page = posts | slice: offset, paging_size %}
                 {% else %}
 <!--                否则全量返回-->
                     {% assign posts_on_current_page = posts %}
