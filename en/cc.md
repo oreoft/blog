@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 实用一点的计算机组成
-titlebar: 通俗计组
+title: Practical computer composition
+titlebar: group of laymen
 subtitle: <span class="mega-octicon octicon-gear"></span>&nbsp;&nbsp;
-     <a>因为平时装机比较多，可能会去花时间研究多一些计算机硬件相关的知识
-     <br/>简单介绍计算机组成，不谈原理</a><br/>
+     <a>Because usually install more, may go to spend time to research more computer hardware related knowledge
+     <br/>A brief introduction to computer components, not principles</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /cc
@@ -16,7 +16,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='cc' or post.keywords contains 'cc' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

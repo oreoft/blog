@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Java学习
-titlebar: Java学习记录
+title: Java Learning
+titlebar: Java Learning Record
 subtitle: <span class="mega-octicon octicon-code"></span>&nbsp;&nbsp;
-     <a>现在框架的发展，已经到弱化语言的程度，但是我依然认为语言基础是很重要的，尤其是一些触类旁通的思想
-     非常值得学习，下面是我java语言学习记录。</a><br/>
+     <a>Nowadays, frameworks have evolved to the point of weakening the language, but I still think the language foundation is important, especially some of the touchy-feely ideas
+  very worth learning, the following is my java language learning records.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /java
@@ -17,7 +17,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='java' or post.keywords contains 'java' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

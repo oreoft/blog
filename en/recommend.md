@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 推荐分享
-titlebar: 推荐！推荐！
+title: Recommended Sharing
+titlebar: Recommended! Recommended!
 subtitle: <span class="mega-octicon octicon-git-compare"></span>&nbsp;&nbsp;
-     <a>这里是我私藏的一些非常好用，可以提高效率或者达到特殊功能的软件或网站，希望你们可以喜欢。
-     <br/>如果你们有更好用的，也一定要分享给我哦。</a><br/>
+     <a>Here are some of my private stash of very good software or websites that can be used to improve efficiency or achieve special functions, I hope you can enjoy them.
+     <br/>If you guys have one that works better, be sure to share it with me too!</a><br/>
      <br/>Give people wonderful tools And they'll do wonderful things
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 css: ['blog-page.css']
@@ -17,7 +17,8 @@ lang: en
     <div class="col-md-12">
     
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='recommend' or post.keywords contains 'recommend' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

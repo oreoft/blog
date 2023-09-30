@@ -15,7 +15,8 @@ lang: zh
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+                {% assign posts = site.posts | where:"lang", "zh"  %}
+                {% for post in posts %}
             <!-- 以后完善了更多的中间价需要在这里加入，把这个包进去 -->
                 {% if post.category=='middleware' or post.keywords contains 'redis' or post.keywords contains 'mysql' or post.keywords contains 'redis' or post.keywords contains 'redis' or post.keywords contains 'redis' %}
                 <li class="posts-list-item">

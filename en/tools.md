@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 工具
-titlebar: 工具
+title: artifact
+titlebar: artifact
 subtitle: <span class="mega-octicon octicon-pulse"></span>&nbsp;&nbsp;
-     <a>对效率工具情有独钟，喜欢探索更多玩法不仅仅满足简单使用，这么好用，为什么要重复造轮子呢</a><br/>
+     <a>Fascinated by efficiency tools, like to explore more ways to play not only to meet the simple use, so good to use, why repeat the building of the wheel?</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /tools
@@ -15,7 +15,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='tools' or post.keywords contains 'tools' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

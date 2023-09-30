@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 设计模式
-titlebar: 优雅养成中
+title: design pattern
+titlebar: Elegance in the making
 subtitle: <span class="mega-octicon octicon-pulse"></span>&nbsp;&nbsp;
-     <a>上班有一段时间了，代码也写了不少，有时想优化一些代码结构没什么思路。现在系统学习一遍设计模式，吸取前人的智慧，开拓自己的视野，让代码更优雅和灵活</a><br/>
+     <a>Work for a period of time, the code has also written a lot, sometimes want to optimize some code structure has no idea. Now systematically study the design patterns again, absorb the wisdom of the past, open up their own horizons, so that the code is more elegant and flexible!</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /design
@@ -15,7 +15,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='design' or post.keywords contains 'design' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

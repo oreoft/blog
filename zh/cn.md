@@ -15,7 +15,8 @@ lang: zh
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+                {% assign posts = site.posts | where:"lang", "zh"  %}
+                {% for post in posts %}
                 {% if post.category=='cn' or post.keywords contains 'cn' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

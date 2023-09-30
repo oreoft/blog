@@ -13,7 +13,7 @@
         <a target="_blank" href="https://www.zhihu.com/">
           <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa  fa-stack-1x fa-inverse">知</i>
+            <i class="fa fa-envelope  fa-stack-1x fa-inverse"></i>
           </span>
         </a>
       </li>
@@ -28,8 +28,12 @@
   </ul>
 </div>
 
-<h3 class="sidebar-title">精选文章</h3>
 {% assign current_lang = page.lang | default: 'en' %}
+{% if current_lang == 'en' %}
+<h3 class="sidebar-title">Selected articles</h3>
+{% elsif current_lang == 'zh' %}
+<h3 class="sidebar-title">精选文章</h3>
+{% endif %}
 {% for article in site.classes[current_lang]  %}
 <div class="card text-center">
     <div class="thumbnail">
@@ -50,8 +54,12 @@
 {% endfor %}
 
 <br/>
+
+{% if current_lang == 'en' %}
+<h3 class="sidebar-title">Open source software</h3>
+{% elsif current_lang == 'zh' %}
 <h3 class="sidebar-title">开源软件</h3>
-{% assign current_lang = page.lang | default: 'en' %}
+{% endif %}
 {% for repo in site.soft[current_lang] | limit: site.side_bar_repo_limit %}
 <div class="card text-center">
     <div class="thumbnail">

@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 其 他
-titlebar: 乱七八糟
+title: Others
+titlebar: Others
 subtitle: <span class="mega-octicon octicon-list-unordered"></span>&nbsp;&nbsp;
-     <a >我不知道分类的就会放这里....</a><br/>
+     <a >I'll put it here if I don't know the categories ....</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 css: ['blog-page.css']
 permalink: /other
@@ -16,7 +16,8 @@ lang: en
     <div class="col-md-12">
     
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='other' or post.keywords contains 'other' or post.category=='others' or post.keywords contains 'others' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

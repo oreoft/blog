@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 折腾分享记录
-titlebar: 瞎折腾
+title: Toss Sharing Records
+titlebar: lit. toss aside blindly
 subtitle: <span class="mega-octicon octicon-pulse"></span>&nbsp;&nbsp;
-     <a>下面是我工作闲暇之余的一些爱好，如果你也感兴趣，欢迎和我一起交流。</a><br/>
+     <a>Here are some of my hobbies in my spare time at work, if you are interested too, feel free to share them with me.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /zheten
@@ -15,7 +15,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='zheten' or post.keywords contains 'zheten' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

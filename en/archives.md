@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 一网打尽
-titlebar: 汇总
+title: Catch All
+titlebar: Gather
 subtitle: <span class="mega-octicon octicon-calendar"></span>&nbsp;&nbsp;
-     <a>本站所有的文章都会不分类按照实际时间展示在此</a><br/>
+     <a>All the articles on this site will be displayed here according to the actual time without categorization.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /archives.html
@@ -11,7 +11,8 @@ lang: en
 ---
 
 <ul class="archives-list">
-  {% for post in site.posts %}
+  {% assign posts = site.posts | where:"lang", "en"  %}
+  {% for post in posts %}
 
     {% unless post.next %}
       <h3>{{ post.date | date: '%Y' }}</h3>

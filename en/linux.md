@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Linux的学习记录
-titlebar: Linux快到碗里来
+title: Linux Learning Record
+titlebar: Linux in the bowl!
 subtitle: <span class="mega-octicon octicon-terminal"></span>&nbsp;&nbsp;
-     <a>对终端的黑乎乎的框框有着着魔的热爱，linux学习不是一蹴而就，需要反复的实践积累，
-     <br/>下面是我学到的知识和命令积攒记录起来，你愿意和我一起学习吗？</a><br/>
+     <a>I have a magical love for the black box of the terminal, linux learning is not a quick fix, you need to repeatedly practice and accumulate.
+  <br/>The following is the knowledge I learned and command accumulation record up, are you willing to learn with me?</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /linux
@@ -17,7 +17,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='linux' or post.keywords contains 'linux' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

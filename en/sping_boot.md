@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Spring Boot 学习记录
+title: Spring Boot Learning Record
 titlebar: spring_boot
 subtitle: <span class="mega-octicon octicon-eye"></span>&nbsp;&nbsp;
-     <a>Sring Boot是目前java平台最热门的框架，下面都是我的学习记录，希望能对你有所帮助，一起进步。</a><br/>
+     <a>Sring Boot is currently the hottest framework for the java platform, the following are all my learning records, I hope to help you, together to make progress.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /spring_boot
@@ -15,7 +15,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='springboot' or post.keywords contains 'spring' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

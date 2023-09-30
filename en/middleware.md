@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 中间件学习记录
-titlebar: 中间件学习记录
+title: Middleware Learning Record
+titlebar: Middleware Learning Record
 subtitle: <span class="mega-octicon octicon-git-commit"></span>&nbsp;&nbsp;
-     <a>一些主流中间件学习记录我会放这里，希望学得越多写的越多懂得越多，嘿嘿😋</a><br/>
+     <a>Some mainstream middleware learning records I will put here, I hope to learn more write more know more, hehehe 😋</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 css: ['blog-page.css']
 permalink: /middleware
@@ -15,7 +15,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
             <!-- 以后完善了更多的中间价需要在这里加入，把这个包进去 -->
                 {% if post.category=='middleware' or post.keywords contains 'redis' or post.keywords contains 'mysql' or post.keywords contains 'redis' or post.keywords contains 'redis' or post.keywords contains 'redis' %}
                 <li class="posts-list-item">

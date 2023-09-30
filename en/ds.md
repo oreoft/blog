@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 数据结构学习记录
-titlebar: 数据结构
+title: Data Structures Learning Record
+titlebar: data structure
 subtitle: <span class="mega-octicon octicon-database"></span>&nbsp;&nbsp;
-     <a>数据结构，永远滴神</a><br/>
+     <a>Data Structures, God forever.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /ds
@@ -15,7 +15,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='ds' or post.keywords contains 'ds' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

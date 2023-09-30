@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 电工基础
-titlebar: 一丢丢电工知识
+title: Fundamentals of Electricity
+titlebar: A little bit of electrical knowledge.
 subtitle: <span class="mega-octicon octicon-tools"></span>&nbsp;&nbsp;
-     <a>天天听B站南桥赌神的笔记本维修厮的绿波电龙，对这块很好奇，所以会找资料学习。
-     <br/>可能有一些经授权的学习文章会转载到这里</a><br/>
+     <a>Day after day listening to B station Nambashi gambling god's laptop repair guy's green wave electric dragon, curious about this piece, so will look for information to learn.
+     <br/>There may be some authorized learning articles reprinted here</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
 permalink: /ee
@@ -16,7 +16,8 @@ lang: en
     <div class="col-md-12">
 
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", "en"  %}
+            {% for post in posts %}
                 {% if post.category=='ee' or post.keywords contains 'ee' %}
                 <li class="posts-list-item">
                     <div class="posts-content">

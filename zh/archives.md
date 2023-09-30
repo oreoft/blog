@@ -11,8 +11,8 @@ lang: zh
 ---
 
 <ul class="archives-list">
-  {% for post in site.posts %}
-
+    {% assign posts = site.posts | where:"lang", "zh"  %}
+    {% for post in posts %}
     {% unless post.next %}
       <h3>{{ post.date | date: '%Y' }}</h3>
     {% else %}
