@@ -25,3 +25,11 @@ default 只有文字，连banner都没有
 page 有banner 没有版权和目录
 about 有banner 有目录 没有版权
 post 有banner  有目录 有版权
+
+```text
+{% if page.lang == 'en' %}
+
+{% elsif page.lang == 'zh' %}
+
+{% endif %}
+```

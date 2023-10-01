@@ -1,10 +1,16 @@
 <div class="row">
 
-    <div class="col-md-9">
-
-        <!-- Blog list -->
+    <div class="col-md-12">
         <ul id="posts-list">
-            {% for post in site.posts %}
+            {% assign posts = site.posts | where:"lang", page.lang %}
+            <!--            拿到这个page的对应关键词-->
+            {% assign pageKeysArray = page.keys | replace "", " " | split: "," %}
+            <!--            遍历所有对应语言文章-->
+            {% for post in posts %}
+            <!--            过滤出重叠的关键词-->
+            {% assign intersected_array = post.keywords | replace "", " " | split: "," | intersect: pageKeysArray | size %}
+            <!--            如果类型有包含或者关键词有重叠 则过滤出-->
+            {% if pageKeysArray contains post.category or intersected_array > 0 %}
             <li class="posts-list-item">
                 <div class="posts-content">
                     <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
@@ -12,29 +18,20 @@
                     <span class='circle'></span>
                 </div>
             </li>
+            {% endif %}
             {% endfor %}
         </ul>
 
-        <!-- Pagination -->
-        {% include pagination.html %}
-
         <!-- Comments -->
-       <div class="comment">
-         {% include comments.html %}
-       </div>
-
+        <div class="comment">
+            {% include comments.html %}
+        </div>
     </div>
-
-    <div class="col-md-3">
-        {% include sidebar-post-tag.html %}
-    </div>
-
 </div>
+
 <script>
     $(document).ready(function(){
-
         // Enable bootstrap tooltip
         $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-
     });
 </script>

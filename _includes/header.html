@@ -13,8 +13,7 @@
     <div class="site-header-topbar">
         <div class="container">
             <div class="topbar-menu">
-                {% assign current_lang = page.lang | default: 'en' %}
-                {% assign current_menu = site.menus[current_lang] | default: site.menus.en %}
+                {% assign current_menu = site.menus[page.lang] | default: site.menus.en %}
                 {% for menu in current_menu %}
                 <div class="item">
                     <a href="{{ menu.href }}"
@@ -24,6 +23,20 @@
                     </a>
                 </div>
                 {% endfor %}
+<!--                切换中英文菜单-->
+                {% if page.lang == 'en' %}
+                <div class="item">
+                    <a href="/zh">
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="" class="naviation__lang_img">
+                    </a>
+                </div>
+                {% elsif page.lang == 'zh' %}
+                <div class="item">
+                    <a href="/">
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="" class="naviation__lang_img">
+                    </a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -34,7 +47,7 @@
         </a>
         <nav class="site-header-nav" role="navigation">
             {% assign current_lang = page.lang | default: 'en' %}
-            {% for nav in site.navs[current_lang] %}
+            {% for nav in site.navs[page.lang] %}
             <div class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
                 <a href="{{ nav.href }}"
                    target="{{ nav.target | default: _self }}"
