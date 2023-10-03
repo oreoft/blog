@@ -41,10 +41,18 @@
         </div>
     </div>
     <div class="container">
-        <a id="site-header-brand" href="/" title="{{ site.name }}">
-            <span class="octicon octicon-thumbsup"></span>
-            {{ site.name }}
-        </a>
+        {% if page.lang == 'en' %}
+            <a id="site-header-brand" href="/" title="{{ site.name }}">
+                <span class="octicon octicon-thumbsup"></span>
+                {{ site.name }}
+            </a>
+        {% elsif page.lang == 'zh' %}
+            <a id="site-header-brand" href="/zh" title="{{ site.name }}">
+                <span class="octicon octicon-thumbsup"></span>
+                {{ site.name_zh }}
+            </a>
+        {% endif %}
+
         <nav class="site-header-nav" role="navigation">
             {% assign current_lang = page.lang | default: 'en' %}
             {% for nav in site.navs[page.lang] %}
