@@ -2,16 +2,17 @@
 ### 怕忘记
 1. 很多东西都是在config.yml里面配
 2. 东西是在_posts里面写
-3. pages里面是一些模板，他会生成对应的html，在config里面可以配置映射关系（但是还没搞清内容怎么来）
-4. layouts是一些排版格式， 写md需要指明哪一种排版（具体在研究）
-5. includes我也没搞明白， 但是改了一些样式，会有变化，貌似是对pages里面写的补充
+3. pages里面是一些模板，他会生成对应的html，
+4. layouts是一些排版格式，
+5. includes是固定的框架样式
+6. 
 
 posts 博客内容
 _pages 其他需要生成的网页，如About页
 _layouts 网页排版模板
 _includes 被模板包含的HTML片段，可在_config.yml中修改位置
-assets 辅助资源 css布局 js脚本 图片等
-_data 动态数据
+    -blog-page是分类的布局
+    -jumbotron是封面页的布局
 _sites 最终生成的静态网页
 _config.yml 网站的一些配置信息
 index.html 网站的入口

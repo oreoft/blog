@@ -104,24 +104,25 @@ menus:
 # subnav可以加二级分类
 navs:
   en:
-    - href: /
+    - href: /code
       label: Code
-      subnav:
-        - subHref: /java
-          subLabel: Java
-        - subHref: /spring_boot
-          subLabel: Spring Boot
+      target: _self
+#      subnav:
+#        - subHref: /java
+#          subLabel: Java
+#        - subHref: /spring_boot
+#          subLabel: Spring Boot
 
     - href: /
       label: Base
       target: _self
-      subnav:
-        - subHref: /cc
-          subLabel: group of laymen
-        - subHref: /ds
-          subLabel: data structure
-        - subHref: /cn
-          subLabel: computer network
+#      subnav:
+#        - subHref: /cc
+#          subLabel: group of laymen
+#        - subHref: /ds
+#          subLabel: data structure
+#        - subHref: /cn
+#          subLabel: computer network
         # -
         #   subHref: /ee
         #   subLabel: 电工知识
@@ -136,9 +137,9 @@ navs:
         - subHref: /linux
           subLabel: Linux
         - subHref: /middleware
-          subLabel: middleware
-        - subHref: /design
-          subLabel: design pattern
+          subLabel: Middleware
+#        - subHref: /design
+#          subLabel: design pattern
     - href: /tools
       label: Tools
       target: _self
@@ -146,24 +147,25 @@ navs:
       label: Other
       target: _self
   zh:
-    - href: /zh
+    - href: /zh/code
       label: Code
-      subnav:
-        - subHref: /zh/java
-          subLabel: Java
-        - subHref: /zh/spring_boot
-          subLabel: Spring Boot
+      target: _self
+#      subnav:
+#        - subHref: /zh/java
+#          subLabel: Java
+#        - subHref: /zh/spring_boot
+#          subLabel: Spring Boot
 
-    - href: /zh
+    - href: /zh/base
       label: Base
       target: _self
-      subnav:
-        - subHref: /zh/cc
-          subLabel: 通俗计组
-        - subHref: /zh/ds
-          subLabel: 数据结构
-        - subHref: /zh/cn
-          subLabel: 计算机网络
+#      subnav:
+#        - subHref: /zh/cc
+#          subLabel: 通俗计组
+#        - subHref: /zh/ds
+#          subLabel: 数据结构
+#        - subHref: /zh/cn
+#          subLabel: 计算机网络
         # -
         #   subHref: /ee
         #   subLabel: 电工知识
@@ -171,22 +173,17 @@ navs:
         #   subHref: recommend
         #   subLabel: 软件推荐
 
-    - href: /zh
-      label: Mix
-      target: _self
-      subnav:
-        - subHref: /zh/linux
-          subLabel: Linux
-        - subHref: /zh/middleware
-          subLabel: 中间件
-        - subHref: /zh/design
-          subLabel: 设计模式
     - href: /zh/tools
       label: Tools
       target: _self
     - href: /zh/other
       label: Other
       target: _self
+      subnav:
+        - subHref: /zh/linux
+          subLabel: Linux
+        - subHref: /zh/middleware
+          subLabel: Middleware
 
 
 # Sidebar to show popular repo
@@ -216,9 +213,9 @@ classes:
     - href: /other/2021/01/11/510smin_1
       name: 2021年买的最值的东西
       describe: 联想510smini小主机
-    - href: /linux/2021/06/20/jekyll_install
-      name: Linux安装jekyll
-      describe: 自己建站的一些经验
+#    - href: /linux/2021/06/20/jekyll_install
+#      name: Linux安装jekyll
+#      describe: 自己建站的一些经验
     - href: /other/2021/10/05/coding_name01
       name: 工程实践中关于命名那些事
       describe: 自己总结的命名规范希望能给大家参考
@@ -229,9 +226,9 @@ classes:
     - href: /other/2021/01/11/510smin_1
       name: Best Value Buy of 2021
       describe: Lenovo 510smini small host
-    - href: /linux/2021/06/20/jekyll_install
-      name: Linux安装jekyll
-      describe: Some experiences of building your own website
+#    - href: /linux/2021/06/20/jekyll_install
+#      name: Linux安装jekyll
+#      describe: Some experiences of building your own website
     - href: /other/2021/10/05/coding_name01
       name: Naming in Engineering Practice
       describe: The naming convention summarized by myself hopefully can give you a reference
@@ -247,9 +244,9 @@ soft:
       name: Go to my GitHub~
       description: Life is the story and the story is life
   zh:
-    - html_url: https://github.com/oreoft
-      name: 前往我的GitHub~
-      description: 生活就是故事，故事就是生活
+    - html_url: https://github.com/oreoft/cache-anno
+      name: Cache-anno
+      description: 自动缓存方法数据注解
 
 
 # ---------------- #

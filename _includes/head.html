@@ -5,13 +5,21 @@
     <!-- Favicon Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="https://someget.oss-accelerate.aliyuncs.com/assets/images/logo.png">
 
+    {% if page.lang == 'en' %}
     <title>{% if page.titlebar %} {{ page.titlebar | escape }} - Oreoft' blog {% elsif page.title %} {{ page.title | escape }} - Oreoft's blog {% else %}{{ site.title | escape }}{% endif %}</title>
+    {% elsif page.lang == 'zh' %}
+    <title>{% if page.titlebar %} {{ page.titlebar | escape }} - Oreoft' blog {% elsif page.title %} {{ page.title | escape }} - Oreoft's blog {% else %}{{ site.title_zh | escape }}{% endif %}</title>
+    {% endif %}
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
     <meta name="description"
           content="{% if page.excerpt %}{{ page.excerpt | escape }}{% else %}{{ site.description }}{% endif %}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    {% if page.lang == 'en' %}
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+    {% elsif page.lang == 'zh' %}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title_zh }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+    {% endif %}
 
     <!-- Third-Party CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">

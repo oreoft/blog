@@ -3,7 +3,7 @@ layout: post
 title: DeskMini H470更换AXP90散热经验分享
 excerpt: 给我认为东半球最好用的小主机更换散热风扇
 category: other
-keywords: other, macos, cc
+keywords: other, macos
 lang: zh
 ---
 
