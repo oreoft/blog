@@ -13,7 +13,8 @@
     <div class="site-header-topbar">
         <div class="container">
             <div class="topbar-menu">
-                {% for menu in site.menus %}
+                {% assign current_menu = site.menus[page.lang] | default: site.menus.en %}
+                {% for menu in current_menu %}
                 <div class="item">
                     <a href="{{ menu.href }}"
                        target="{{ menu.target | default: _self }}"
@@ -22,16 +23,39 @@
                     </a>
                 </div>
                 {% endfor %}
+<!--                切换中英文菜单-->
+                {% if page.lang == 'en' %}
+                <div class="item">
+                    <a href="/">
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="" class="naviation__lang_img">
+                    </a>
+                </div>
+                {% elsif page.lang == 'zh' %}
+                <div class="item">
+                    <a href="/en">
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="" class="naviation__lang_img">
+                    </a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="container">
-        <a id="site-header-brand" href="/" title="{{ site.name }}">
-            <span class="octicon octicon-thumbsup"></span>
-            {{ site.name }}
-        </a>
+        {% if page.lang == 'en' %}
+            <a id="site-header-brand" href="/en" title="{{ site.name }}">
+                <span class="octicon octicon-thumbsup"></span>
+                {{ site.name_en }}
+            </a>
+        {% elsif page.lang == 'zh' %}
+            <a id="site-header-brand" href="/" title="{{ site.name }}">
+                <span class="octicon octicon-thumbsup"></span>
+                {{ site.name }}
+            </a>
+        {% endif %}
+
         <nav class="site-header-nav" role="navigation">
-            {% for nav in site.navs %}
+            {% assign current_lang = page.lang | default: 'en' %}
+            {% for nav in site.navs[page.lang] %}
             <div class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
                 <a href="{{ nav.href }}"
                    target="{{ nav.target | default: _self }}"

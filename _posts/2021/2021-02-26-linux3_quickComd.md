@@ -4,6 +4,7 @@ title: Linux环境配置文件的一些应用
 excerpt: Linux定制命令，简化指令提升效率
 category: linux
 keywords: linux, Mac, other
+lang: zh
 ---
 
 ## 前言

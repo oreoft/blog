@@ -4,6 +4,7 @@ title:  关于大家的一些批评
 excerpt:  虚心接受
 category: other
 keywords: other
+lang: zh
 ---
 
 ## 前言

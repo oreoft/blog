@@ -4,6 +4,7 @@ title: Springboot的Runner接口
 excerpt: 配置Springboot启动自动执行业务
 category: spring_boot
 keywords: java, spring_boot
+lang: zh
 ---
 
 ## 前言

@@ -4,6 +4,7 @@ title: SpringMVC请求注解总结
 excerpt: 请求注解
 category: spring_boot
 keywords: spring_boot
+lang: zh
 ---
 
 ## 前言

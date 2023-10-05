@@ -4,6 +4,7 @@ title: 项目中引入springcloud网关Gateway
 excerpt: 一个小小的quicStart以及自己遇到的问题汇总
 category: spring_boot
 keywords: spring_boot, java
+lang: zh
 ---
 
 ## 前言

@@ -4,7 +4,7 @@ title: Chrome的强大搜索功能
 excerpt: Chrome的强大搜索功能
 category: other
 keywords: other，tools
-
+lang: zh
 ---
 
 ## 前言

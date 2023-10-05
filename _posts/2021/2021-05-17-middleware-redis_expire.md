@@ -4,6 +4,7 @@ title: redis诡异问题，无缘无故丢key
 excerpt: 真实线上问题记录，redis设置过期时间以后key就直接被删
 category: other
 keywords: other, macos
+lang: zh
 ---
 
 ## 前言

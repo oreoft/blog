@@ -4,6 +4,7 @@ title: 爷青结，idea的postfix功能
 excerpt: 找了很久终于找到优雅的方式了
 category: tools
 keywords: other
+lang: zh
 ---
 
 ## 前言

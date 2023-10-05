@@ -4,6 +4,7 @@ title: Linux安装jekyll
 excerpt: jekyll搭建博客yyds
 category: linux
 keywords: other, tools, linux
+lang: zh
 ---
 
 ## 前言

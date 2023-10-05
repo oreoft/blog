@@ -6,21 +6,29 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
+title_en: Oreoft
+subtitle_en: Believe in the light and become the light
+subtitle2_en: There are no reason why you cannot become an expert in the field you love
+name_en: Oreoft
+description_en: description
+keywords_ne: Developer, Programmer, increase-efficiency, Geek, Coder
+
 title:  没有气的汽水
 subtitle: 是折腾，也是热爱呀
 subtitle2: 你没有理由不成为你热爱领域的专家
 name: 没有气的汽水
-email: meetyifan@gmail.com
-description: 
+description:
 keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek.
-encoding: "utf-8"
 
+# 通用设置相关
+email: meetyifan@gmail.com
+encoding: "utf-8"
 repository: oreoft/oreoft.github.io
 url: https://www.someget.cn
 github_url: https://github.com/oreoft
 enforce_ssl: https://www.someget.cn
 
-## Gem
+## Gem的插件
 plugins:
   - jekyll-paginate
   - jekyll-geo-pattern
@@ -34,145 +42,145 @@ lsi:         false
 excerpt_separator: "\n\n"
 host: 127.0.0.1
 port: 4000
-
 source:      .
 destination: ./_site
-
 quiet:    false
 defaults: []
 
+# 插件相关
 kramdown:
   input: GFM
   enable_coderay: true
   syntax_highlighter: rouge
-
 syntax_highlighter_opts:
    coderay_line_numbers:  nil
-
 # Pagination
-paginate: 12
+paginate: 6
 paginate_path: 'page:num'
 
+
+# 下面基本都是页面配置
 # Navigation. top menu list
 # _blank表示新网页，_self小时在本页
 menus:
+  en:
+    -
+      href: /en
+      label: Home
+      target: _self
 
-  -
-    href: /
-    label: Home
-    target: _self  
+    -
+      href: /en/about
+      label: About
+      target: _self
 
-  -
-    href: /about
-    label: About
-    target: _self   
+    -
+      href: /en/link
+      label: FriendLink
+      target: _self
 
-  -
-    href: /link
-    label: FriendLink
-    target: _self
+    -
+      href: /en/archives
+      label: Archives
+      target: _self
+  zh:
+      - href: /
+        label: Home
+        target: _self
 
-  -
-    href: /archives
-    label: Archives
-    target: _self
+      - href: /about
+        label: About
+        target: _self
 
-  # -
-  #   href: “”
-  #   label: 位置5
-  #   target: _self
+      - href: /link
+        label: FriendLink
+        target: _self
 
-  # -
-  #   href: “”
-  #   label: 位置6
-  #   target: _self
-
-  # -
-  #   href: “”
-  #   label: 位置7
-  #   target: _self
+      - href: /archives
+        label: Archives
+        target: _self
 
 # Navigation. main menu list
 # subnav可以加二级分类
 navs:
+  en:
+    - href: /en/code
+      label: Code
+      target: _self
 
-  -
-    href: /
-    label: Code
-    subnav:
-      -
-        subHref: /java
-        subLabel: Java
+    - href: /en/base
+      label: Base
+      target: _self
 
-      -
-        subHref: /spring_boot
-        subLabel: Spring Boot
+    - href: /en/tools
+      label: Tools
+      target: _self
+
+    - href: /en/other
+      label: Other
+      target: _self
+      subnav:
+        - subHref: /en/linux
+          subLabel: Linux
+        - subHref: /en/middleware
+          subLabel: Middleware
+
+  zh:
+    - href: /code
+      label: Code
+      target: _self
+#      subnav:
+#        - subHref: /zh/java
+#          subLabel: Java
+#        - subHref: /zh/spring_boot
+#          subLabel: Spring Boot
+
+    - href: /base
+      label: Base
+      target: _self
+#      subnav:
+#        - subHref: /zh/cc
+#          subLabel: 通俗计组
+#        - subHref: /zh/ds
+#          subLabel: 数据结构
+#        - subHref: /zh/cn
+#          subLabel: 计算机网络
+        # -
+        #   subHref: /ee
+        #   subLabel: 电工知识
+        # -
+        #   subHref: recommend
+        #   subLabel: 软件推荐
+
+    - href: /tools
+      label: Tools
+      target: _self
+    - href: /other
+      label: Other
+      target: _self
+      subnav:
+        - subHref: /linux
+          subLabel: Linux
+        - subHref: /middleware
+          subLabel: Middleware
 
 
-  -
-    href: /
-    label: Base
-    target: _self
-    subnav:
-      -
-        subHref: /cc
-        subLabel: 通俗计组
+# Sidebar to show popular repo
+side_bar_repo_limit: 6 # Number of repos to show
 
-      -
-        subHref: /ds
-        subLabel: 数据结构
-      
-      -
-        subHref: /cn
-        subLabel: 计算机网络
-      # -
-      #   subHref: /ee
-      #   subLabel: 电工知识
-      # -
-      #   subHref: recommend
-      #   subLabel: 软件推荐
-
-  -
-    href: /
-    label: Mix
-    target: _self
-    subnav:
-      -
-        subHref: /linux
-        subLabel: Linux
-
-      -
-        subHref: /middleware
-        subLabel: 中间件
-
-      - 
-        subHref: /design
-        subLabel: 设计模式
-  -
-    href: /tools
-    label: Tools
-    target: _self
-
-  -
-    href: /other
-    label: Other
-    target: _self
 
 
 
 # labels. my blog key words
 labels:
-
   -
     href: “”
     label:   
     target: _self
-
   -
     href: “”
     label: 
     target: _self
-
   -
     href: “”
     label: 
@@ -180,83 +188,46 @@ labels:
 
 # selected articles
 classes:
-  -
-    href: /other/2021/01/11/510smin_1
-    name: 2021年买的最值的东西
-    describe: 联想510smini小主机
+  zh:
+    - href: /other/2021/01/11/510smin_1
+      name: 2021年买的最值的东西
+      describe: 联想510smini小主机
+#    - href: /linux/2021/06/20/jekyll_install
+#      name: Linux安装jekyll
+#      describe: 自己建站的一些经验
+    - href: /other/2021/10/05/coding_name01
+      name: 工程实践中关于命名那些事
+      describe: 自己总结的命名规范希望能给大家参考
+    - href: /other/2020/10/03/m73
+      name: 联想m73黑苹果折腾记
+      describe: 为什么电子垃圾往往会有第二春
+  en:
+    - href: /en/java/2022/05/15/cache-anno01.html
+      name: Data automatic caching annotations
+      describe: Automatic cache annotation based on AOP implementation
 
-  -
-    href: /linux/2021/06/20/jekyll_install
-    name: Linux安装jekyll
-    describe: 自己建站的一些经验
-
-  -
-    href: /other/2021/10/05/coding_name01
-    name: 工程实践中关于命名那些事
-    describe: 自己总结的命名规范希望能给大家参考
-
-
-  -
-    href: /other/2020/10/03/m73
-    name: 联想m73黑苹果折腾记
-    describe: 为什么电子垃圾往往会有第二春
-
+#    - href: /en/other/2021/10/05/coding_name01
+#      name: Naming in Engineering Practice
+#      describe: The naming convention for coding summarized by myself hopefully can give you a reference
+#
+#    - href: /en/other/2020/10/03/m73
+#      name: Lenovo m73 black apple toss
+#      describe: Why e-waste often has a second life
 
 
 # soft
-
 soft: 
-  -
-    html_url: https://github.com/oreoft
-    name: 前往我的GitHub~
-    description: 生活就是故事，故事就是生活
-
+  en:
+    - html_url: https://github.com/oreoft/cache-anno
+      name: Cache-anno
+      description: Automatically caching method data annotations
+  zh:
+    - html_url: https://github.com/oreoft/cache-anno
+      name: Cache-anno
+      description: 自动缓存方法数据注解
 
 
 # ---------------- #
 #       RSS        #
 # ---------------- #
 subscribe_rss: /feed.xml
-
-# Sidebar to show popular repo
-side_bar_repo_limit: 6 # Number of repos to show
-
-# Google Analytics
-# analytics :
-# provider : google
-#   google :
-#     tracking_id : ''  # ex. UA-72165600-X
-
-
-# For about.html. Fell free to create your own!
-skill_software_keywords: [Java, MySQL, Oracle, Design Patterns]
-skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
-skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, NodeJS, ExpressJS, MongoDB, Redis, PHP,  Boostrap]
-skill_mobile_app_keywords: [vuejs, hyhird app]
-
-# 我先暂时不用，所以都注释了
-# # ---------------- #
-# #      Comments    #
-# # ---------------- #
-# # support provider: disqus, gitment, gitalk
-# comments_provider: gitalk
-# # !!!重要!!! 请修改下面这些信息为你自己申请的
-# # !!!Important!!! Please modify infos below to yours
-# # https://disqus.com
-# disqus:
-#     username: ityouknow
-# # https://imsun.net/posts/gitment-introduction/
-# gitment:
-#     owner: ityouknow
-#     repo: blog-comments
-#     oauth:
-#         client_id: 61bfc53d957e74e78f8f
-#         client_secret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
-# # https://github.com/gitalk/gitalk#install
-# gitalk:
-#     owner: ityouknow
-#     repo: blog-comments
-#     clientID: 61bfc53d957e74e78f8f
-#     clientSecret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
-# # 在使用其它评论组件时可点击显示 Disqus
-# lazy_load_disqus : true

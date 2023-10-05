@@ -4,6 +4,7 @@ title: Java内存模型
 excerpt: Java内存模型
 category: java
 keywords: java, java
+lang: zh
 ---
 
 ## 前言

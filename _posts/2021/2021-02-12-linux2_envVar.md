@@ -4,6 +4,7 @@ title: Mac和Linux环境变量那些事
 excerpt: 常见环境变量文件总结
 category: linux
 keywords: linux, Mac, others
+lang: zh
 ---
 
 ## 前言

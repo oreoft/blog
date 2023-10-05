@@ -4,6 +4,7 @@ title: 快速登陆linux服务器
 excerpt: 比免密登陆再快一点
 category: linux
 keywords: linux, other, macos
+lang: zh
 ---
 
 ## 前言

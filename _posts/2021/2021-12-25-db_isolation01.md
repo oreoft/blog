@@ -4,6 +4,7 @@ title: 数据库的事务隔离级别
 excerpt: 最近总被问特意总结一下
 category: middleware
 keywords: java, middleware, mysql
+lang: zh
 ---
 
 ## 前言

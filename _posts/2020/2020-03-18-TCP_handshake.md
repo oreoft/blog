@@ -4,6 +4,7 @@ title:   TCP三次握手
 excerpt:  对于TCP三次握手的自己理解
 category: cn
 keywords: cn
+lang: zh
 ---
 
 ## 前言

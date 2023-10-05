@@ -4,6 +4,7 @@ title: java的import总结
 excerpt: 两种导入形式和improt static
 category: java, tools
 keywords: java, tools
+lang: zh
 ---
 
 ## 前言

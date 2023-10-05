@@ -4,6 +4,7 @@ title: 使用webhook进行方便的blog部署
 excerpt: WebHook超方便的~~~~
 category: linux
 keywords: other, linux
+lang: zh
 ---
 
 ## 前言

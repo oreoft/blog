@@ -4,6 +4,7 @@ title:  IDEA 无法显示 Run Dashboard 的解决方法
 excerpt:  快速解决
 category: tools
 keywords: tools
+lang: zh
 ---
 
 ## 前言

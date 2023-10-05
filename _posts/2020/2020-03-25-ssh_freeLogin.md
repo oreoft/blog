@@ -4,6 +4,7 @@ title: 配置免密登陆服务器
 excerpt: 搞懂操作和原理，举一反三
 category: linux
 keywords: linux, macos, other
+lang: zh
 ---
 
 ## 前言

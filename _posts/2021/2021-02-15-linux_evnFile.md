@@ -4,6 +4,7 @@ title: Linux的环境配置文件(startup文件)
 excerpt: bash_profile和bashrc的区别
 category: linux
 keywords: linux, Mac, other
+lang: zh
 ---
 
 ## 前言

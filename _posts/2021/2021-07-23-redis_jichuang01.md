@@ -4,6 +4,7 @@ title: Redis的缓存击穿再理解
 excerpt: 近期一次面试暴露我是真的菜
 category: middleware 
 keywords: middleware, redis
+lang: zh
 ---
 
 ## 前言
