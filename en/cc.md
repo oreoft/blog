@@ -7,7 +7,7 @@ subtitle: <span class="mega-octicon octicon-gear"></span>&nbsp;&nbsp;
      <br/>A brief introduction to computer components, not principles</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /cc
+permalink: /en/cc
 lang: en
 keys: cc
 ---

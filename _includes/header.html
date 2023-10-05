@@ -26,13 +26,13 @@
 <!--                切换中英文菜单-->
                 {% if page.lang == 'en' %}
                 <div class="item">
-                    <a href="/zh">
+                    <a href="/">
                         <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="" class="naviation__lang_img">
                     </a>
                 </div>
                 {% elsif page.lang == 'zh' %}
                 <div class="item">
-                    <a href="/">
+                    <a href="/en">
                         <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="" class="naviation__lang_img">
                     </a>
                 </div>
@@ -42,14 +42,14 @@
     </div>
     <div class="container">
         {% if page.lang == 'en' %}
+            <a id="site-header-brand" href="/en" title="{{ site.name }}">
+                <span class="octicon octicon-thumbsup"></span>
+                {{ site.name_en }}
+            </a>
+        {% elsif page.lang == 'zh' %}
             <a id="site-header-brand" href="/" title="{{ site.name }}">
                 <span class="octicon octicon-thumbsup"></span>
                 {{ site.name }}
-            </a>
-        {% elsif page.lang == 'zh' %}
-            <a id="site-header-brand" href="/zh" title="{{ site.name }}">
-                <span class="octicon octicon-thumbsup"></span>
-                {{ site.name_zh }}
             </a>
         {% endif %}
 

@@ -7,7 +7,7 @@ subtitle: <span class="mega-octicon octicon-tools"></span>&nbsp;&nbsp;
      <br/>可能有一些经授权的学习文章会转载到这里</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /zh/ee
+permalink: /ee
 lang: zh
 keys: zh
 ---

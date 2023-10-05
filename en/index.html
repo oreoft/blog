@@ -8,7 +8,7 @@ lang: en
     <div class="container">
         <h1 id="header"></h1>
         <script>
-            let texts = ['{{ site.subtitle }}', '{{ site.subtitle2 }}'];
+            let texts = ['{{ site.subtitle_en }}', '{{ site.subtitle2_en }}'];
             document.getElementById("header").innerHTML = texts[Math.floor(Math.random() * texts.length)];
         </script>
         <div id="jumbotron-meta-info">
@@ -66,7 +66,7 @@ lang: en
             </ol>
 
             <!-- Pagination -->
-            {% include pagination.html %}
+            {% include pagination-en.html %}
 
         </div>
 

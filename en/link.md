@@ -3,7 +3,7 @@ layout: about
 title: Link
 titlebar: 友链
 subtitle: <span class="mega-octicon octicon-organization"></span>&nbsp;&nbsp; Resource link
-permalink: /link
+permalink: /en/link
 lang: en
 ---
 

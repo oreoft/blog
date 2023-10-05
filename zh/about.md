@@ -5,7 +5,7 @@ titlebar: 关于我
 menu: about
 subtitle:  <span class="mega-octicon octicon-octoface"></span>&nbsp;&nbsp; I am a programmer         
 css: ['about.css', 'sidebar-popular-repo.css', '../../bower_components/flag-icon-css/css/flag-icon.min.css']
-permalink: /zh/about
+permalink: /about
 lang: zh
 ---
 
@@ -61,9 +61,10 @@ lang: zh
 可以联系我
 - 邮箱：meetyifan@gmail.com
 
-## 关键节点
+## 本站关键节点
 
 - 2019年，7月，建站并托管于 Github Pages。
 - 2020年，3月，博客迁移到阿里云服务器。
 - 2020年，8月, 博客升级https加密。
 - 2021年，8月，博客添加评论功能
+- 2023年, 10月, 博客开始兼容英文

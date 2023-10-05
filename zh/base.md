@@ -6,7 +6,7 @@ subtitle: <span class="mega-octicon octicon-code"></span>&nbsp;&nbsp;
      <a>平时遇到的一些基础知识积累</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /zh/base
+permalink: /base
 lang: zh
 keys: cc, ds, cn
 ---

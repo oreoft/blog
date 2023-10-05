@@ -2,7 +2,7 @@
 layout: default
 menu: home
 css: ['index.css', 'sidebar-popular-repo.css']
-lang: en
+lang: zh
 ---
 <section class="jumbotron">
     <div class="container">
@@ -29,7 +29,7 @@ lang: en
 
             <ol class="post-list">
 <!--             全量的数据-->
-                {% assign posts = site.posts | where:"lang", "en"  %}
+                {% assign posts = site.posts | where:"lang", "zh"  %}
 <!--             // 每页请求数量-->
                 {% assign paging_size = site.paginate | default: 6 %}
 <!--             // 初始化当前页数 -->
@@ -49,7 +49,7 @@ lang: en
                 {% endif %}
 
                 {% for post in posts_on_current_page %}
-                 {% if post.lang == 'en' %}
+                 {% if post.lang == 'zh' %}
                     <li class="post-list-item">
                         <h2 class="post-list-title">
                             <a class="hvr-underline-from-center" href="{{ post.url }}">{{ post.title }}</a>

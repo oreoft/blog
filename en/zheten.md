@@ -6,7 +6,7 @@ subtitle: <span class="mega-octicon octicon-pulse"></span>&nbsp;&nbsp;
      <a>Here are some of my hobbies in my spare time at work, if you are interested too, feel free to share them with me.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /zheten
+permalink: /en/zheten
 lang: en
 keys: zheten
 ---

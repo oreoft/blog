@@ -6,19 +6,19 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: title
-subtitle: subtitle
-subtitle2: subtitle2
-name: name
-description: description
-keywords: keywords
+title_en: title
+subtitle_en: subtitle
+subtitle2_en: subtitle2
+name_en: name
+description_en: description
+keywords_ne: keywords
 
-title_zh:  没有气的汽水
-subtitle_zh: 是折腾，也是热爱呀
-subtitle2_zh: 你没有理由不成为你热爱领域的专家
-name_zh: 没有气的汽水
-description_zh:
-keywords_zh: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek.
+title:  没有气的汽水
+subtitle: 是折腾，也是热爱呀
+subtitle2: 你没有理由不成为你热爱领域的专家
+name: 没有气的汽水
+description:
+keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek.
 
 # 通用设置相关
 email: meetyifan@gmail.com
@@ -65,38 +65,38 @@ paginate_path: 'page:num'
 menus:
   en:
     -
-      href: /
+      href: /en
       label: Home
       target: _self
 
     -
-      href: /about
+      href: /en/about
       label: About
       target: _self
 
     -
-      href: /link
+      href: /en/link
       label: FriendLink
       target: _self
 
     -
-      href: /archives
+      href: /en/archives
       label: Archives
       target: _self
   zh:
-      - href: /zh
+      - href: /
         label: Home
         target: _self
 
-      - href: /zh/about
+      - href: /about
         label: About
         target: _self
 
-      - href: /zh/link
+      - href: /link
         label: FriendLink
         target: _self
 
-      - href: /zh/archives
+      - href: /archives
         label: Archives
         target: _self
 
@@ -104,50 +104,29 @@ menus:
 # subnav可以加二级分类
 navs:
   en:
-    - href: /code
+    - href: /en/code
       label: Code
       target: _self
-#      subnav:
-#        - subHref: /java
-#          subLabel: Java
-#        - subHref: /spring_boot
-#          subLabel: Spring Boot
 
-    - href: /
+    - href: /en/base
       label: Base
       target: _self
-#      subnav:
-#        - subHref: /cc
-#          subLabel: group of laymen
-#        - subHref: /ds
-#          subLabel: data structure
-#        - subHref: /cn
-#          subLabel: computer network
-        # -
-        #   subHref: /ee
-        #   subLabel: 电工知识
-        # -
-        #   subHref: recommend
-        #   subLabel: 软件推荐
 
-    - href: /
-      label: Mix
-      target: _self
-      subnav:
-        - subHref: /linux
-          subLabel: Linux
-        - subHref: /middleware
-          subLabel: Middleware
-#        - subHref: /design
-#          subLabel: design pattern
-    - href: /tools
+    - href: /en/tools
       label: Tools
       target: _self
-    - href: /other
+
+    - href: /en/other
       label: Other
       target: _self
+      subnav:
+        - subHref: /en/linux
+          subLabel: Linux
+        - subHref: /en/middleware
+          subLabel: Middleware
+
   zh:
-    - href: /zh/code
+    - href: /code
       label: Code
       target: _self
 #      subnav:
@@ -156,7 +135,7 @@ navs:
 #        - subHref: /zh/spring_boot
 #          subLabel: Spring Boot
 
-    - href: /zh/base
+    - href: /base
       label: Base
       target: _self
 #      subnav:
@@ -173,16 +152,16 @@ navs:
         #   subHref: recommend
         #   subLabel: 软件推荐
 
-    - href: /zh/tools
+    - href: /tools
       label: Tools
       target: _self
-    - href: /zh/other
+    - href: /other
       label: Other
       target: _self
       subnav:
-        - subHref: /zh/linux
+        - subHref: /linux
           subLabel: Linux
-        - subHref: /zh/middleware
+        - subHref: /middleware
           subLabel: Middleware
 
 
@@ -223,16 +202,15 @@ classes:
       name: 联想m73黑苹果折腾记
       describe: 为什么电子垃圾往往会有第二春
   en:
-    - href: /other/2021/01/11/510smin_1
+    - href: /en/other/2021/01/11/510smin_1
       name: Best Value Buy of 2021
-      describe: Lenovo 510smini small host
-#    - href: /linux/2021/06/20/jekyll_install
-#      name: Linux安装jekyll
-#      describe: Some experiences of building your own website
-    - href: /other/2021/10/05/coding_name01
+      describe: Lenovo 510s mini small computer
+
+    - href: /en/other/2021/10/05/coding_name01
       name: Naming in Engineering Practice
-      describe: The naming convention summarized by myself hopefully can give you a reference
-    - href: /other/2020/10/03/m73
+      describe: The naming convention for coding summarized by myself hopefully can give you a reference
+
+    - href: /en/other/2020/10/03/m73
       name: Lenovo m73 black apple toss
       describe: Why e-waste often has a second life
 
@@ -240,9 +218,9 @@ classes:
 # soft
 soft: 
   en:
-    - html_url: https://github.com/oreoft
-      name: Go to my GitHub~
-      description: Life is the story and the story is life
+    - html_url: https://github.com/oreoft/cache-anno
+      name: Cache-anno
+      description: Automatically caching method data annotations
   zh:
     - html_url: https://github.com/oreoft/cache-anno
       name: Cache-anno

@@ -8,7 +8,7 @@ lang: zh
     <div class="container">
         <h1 id="header"></h1>
         <script>
-            let texts = ['{{ site.subtitle_zh }}', '{{ site.subtitle2_zh }}'];
+            let texts = ['{{ site.subtitle }}', '{{ site.subtitle2 }}'];
             document.getElementById("header").innerHTML = texts[Math.floor(Math.random() * texts.length)];
         </script>
         <div id="jumbotron-meta-info">
@@ -66,7 +66,7 @@ lang: zh
             </ol>
 
             <!-- Pagination -->
-            {% include pagination-zh.html %}
+            {% include pagination.html %}
 
         </div>
 

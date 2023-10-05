@@ -7,9 +7,9 @@ subtitle: <span class="mega-octicon octicon-code"></span>&nbsp;&nbsp;
   very worth learning, the following is my java language learning records.</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /en/java
+permalink: /en/base
 lang: en
-keys: java
+keys: cc, cn, ds
 ---
 
 {% include blog-page.html %}
