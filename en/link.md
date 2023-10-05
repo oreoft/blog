@@ -1,30 +1,29 @@
 ---
 layout: about
 title: Link
-titlebar: 友链
+titlebar: friendly link
 subtitle: <span class="mega-octicon octicon-organization"></span>&nbsp;&nbsp; Resource link
 permalink: /en/link
 lang: en
 ---
 
-## 友情链接
+## Friendly Link
 
-- [愿星光伴你左右](http://shanks.link/) - 一个很真诚的老哥，字里行间无论对生活还是对技术都能感觉到
+- [Frosty Moon Glaze](https://shoka.lostyu.me) - Lurie's Medical & Programming Notes
 
-## 推荐网站
+## Recommended Sites
 
-- [百度](http://www.baidu.com) - 中国本liu土mang化做的最好的的搜索引擎
-- [美团技术团队](https://tech.meituan.com/) - 每次看都有新收获，真yyds
+- [Google](http://www.Google.com) - The best search engine
 
-## 联系方式
+## Contact Info
 
-- 邮箱：meetyifan@gmail.com
+- Email：meetyifan@gmail.com
 
-## 其它  
+## Others  
 
-*需要展示你的网站，就在本页下面留言吧，也算是一种宣传方式。格式要求如下：*
+*Need to show your website, just leave a comment at the bottom of this page as a way to promote it. The format requirements are as follows:*
 
-- 网站名称：没有气的汽水  
-- 网站链接：https://www.someget.cn
-- 网站描述：没有气的汽水的个人博客，分享技术，热爱生活
+- Website Name：Oreft  
+- Website Link：https://www.someget.cn
+- Site Description：Oreoft's personal blog, sharing technology and loving life!
 

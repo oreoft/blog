@@ -15,7 +15,7 @@ lang: zh
 
     {% for post in posts %}
 
-    `{% unless post.next and post.next.lang == 'zh' %}`
+    {% unless post.next and post.next.lang == 'zh' %}
       <h3>{{ post.date | date: '%Y' }}</h3>
     {% else %}
       {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}

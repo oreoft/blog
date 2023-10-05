@@ -6,12 +6,12 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title_en: title
-subtitle_en: subtitle
-subtitle2_en: subtitle2
-name_en: name
+title_en: Oreoft
+subtitle_en: Believe in the light and become the light
+subtitle2_en: There are no reason why you cannot become an expert in the field you love
+name_en: Oreoft
 description_en: description
-keywords_ne: keywords
+keywords_ne: Developer, Programmer, increase-efficiency, Geek, Coder
 
 title:  没有气的汽水
 subtitle: 是折腾，也是热爱呀
@@ -202,17 +202,17 @@ classes:
       name: 联想m73黑苹果折腾记
       describe: 为什么电子垃圾往往会有第二春
   en:
-    - href: /en/other/2021/01/11/510smin_1
-      name: Best Value Buy of 2021
-      describe: Lenovo 510s mini small computer
+    - href: /en/java/2022/05/15/cache-anno01.html
+      name: Data automatic caching annotations
+      describe: Automatic cache annotation based on AOP implementation
 
-    - href: /en/other/2021/10/05/coding_name01
-      name: Naming in Engineering Practice
-      describe: The naming convention for coding summarized by myself hopefully can give you a reference
-
-    - href: /en/other/2020/10/03/m73
-      name: Lenovo m73 black apple toss
-      describe: Why e-waste often has a second life
+#    - href: /en/other/2021/10/05/coding_name01
+#      name: Naming in Engineering Practice
+#      describe: The naming convention for coding summarized by myself hopefully can give you a reference
+#
+#    - href: /en/other/2020/10/03/m73
+#      name: Lenovo m73 black apple toss
+#      describe: Why e-waste often has a second life
 
 
 # soft

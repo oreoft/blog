@@ -12,7 +12,7 @@ lang: en
 
 ## About me.
 
-I am currently a graduate student in a computer-related field. My goal is to become a good developer.
+I am currently a graduate student in a computer-related field. I love keeping records, English is not my first language, but I'm trying to write in English! My goal is to become a good developer.
 
 I love programming, I love technology, I love learning. I like to indulge in the feeling of using code to make the world obey my orders, coding makes my logic more meticulous and my thinking more flexible. Like from 'zero' to 'one' design process, but also like a master artist like this 'one' carefully carved into '∞'.
 
