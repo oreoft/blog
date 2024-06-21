@@ -4,12 +4,12 @@
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?1b9ee88f4bc6e6e06c479d135c60431c";
-          var s = document.getElementsByTagName("script")[0]; 
+          hm.src = "https://hm.baidu.com/hm.js?672c60c153858ae812087b74c8e9a6a5";
+          var s = document.getElementsByTagName("script")[0];
           s.parentNode.insertBefore(hm, s);
         })();
-    </script>        
-    
+    </script>
+
     <div class="site-header-topbar">
         <div class="container">
             <div class="topbar-menu">
@@ -65,7 +65,7 @@
                 {% if nav.subnav %}
                 <ul class="submenu">
                     {% for subItem in nav.subnav %}
-                    <li><a href="{{ subItem.subHref }}" 
+                    <li><a href="{{ subItem.subHref }}"
                            target="{{ subItem.target | default: _self }}"
                      >{{ subItem.subLabel }}</a></li>
                     {% endfor %}
