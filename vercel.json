@@ -1,0 +1,16 @@
+{
+  "buildCommand": "bundle exec jekyll build",
+  "outputDirectory": "_site",
+  "rewrites": [
+    {
+      "source": "/en/:path*",
+      "destination": "/en/:path*/index.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/:path*/index.html"
+    }
+  ],
+  "trailingSlash": true
+}
+

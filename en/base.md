@@ -6,7 +6,7 @@ subtitle: <span class="mega-octicon octicon-code"></span>&nbsp;&nbsp;
      <a>Accumulate some of the basics that I normally encounter</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /en/base
+permalink: /en/base/
 lang: en
 keys: cc, cn, ds
 ---

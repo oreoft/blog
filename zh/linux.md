@@ -7,7 +7,7 @@ subtitle: <span class="mega-octicon octicon-terminal"></span>&nbsp;&nbsp;
      <br/>下面是我学到的知识和命令积攒记录起来，你愿意和我一起学习吗？</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /linux
+permalink: /linux/
 lang: zh
 keys: linux
 ---

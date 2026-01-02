@@ -9,7 +9,7 @@ subtitle: <span class="mega-octicon octicon-terminal"></span>&nbsp;&nbsp;
   The following is the knowledge I learned and command accumulation record up, are you willing to learn with me?
   </a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /en/linux
+permalink: /en/linux/
 lang: en
 keys: linux
 ---

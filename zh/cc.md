@@ -7,7 +7,7 @@ subtitle: <span class="mega-octicon octicon-gear"></span>&nbsp;&nbsp;
      <br/>简单介绍计算机组成，不谈原理</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /cc
+permalink: /cc/
 lang: zh
 keys: cc
 ---

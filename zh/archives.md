@@ -6,7 +6,7 @@ subtitle: <span class="mega-octicon octicon-calendar"></span>&nbsp;&nbsp;
      <a>本站所有的文章都会不分类按照实际时间展示在此</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /archives.html
+permalink: /archives/
 lang: zh
 ---
 

@@ -7,7 +7,7 @@ subtitle: <span class="mega-octicon octicon-code"></span>&nbsp;&nbsp;
      非常值得学习，下面是我关于语言学习记录。</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /code
+permalink: /code/
 lang: zh
 keys: java, spring_boot, sprintboot
 ---

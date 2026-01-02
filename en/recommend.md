@@ -8,7 +8,7 @@ subtitle: <span class="mega-octicon octicon-git-compare"></span>&nbsp;&nbsp;
      <br/>Give people wonderful tools And they'll do wonderful things
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 css: ['blog-page.css']
-permalink: /en/recommend
+permalink: /en/recommend/
 lang: en
 keys: recommend
 ---

@@ -5,13 +5,13 @@ titlebar: 关于我
 menu: about
 subtitle:  <span class="mega-octicon octicon-octoface"></span>&nbsp;&nbsp; I am a programmer         
 css: ['about.css', 'sidebar-popular-repo.css', '../../bower_components/flag-icon-css/css/flag-icon.min.css']
-permalink: /about
+permalink: /about/
 lang: zh
 ---
 
 ## 关于我
 
-一名2020年毕业正处于奥德赛时期的程序员，目前定位是后端工程师，目标是努力成为一名优秀的开发者。
+一名2020年毕业正处于奥德赛时期的程序员，目标是努力成为一名卓越的开发者。
 
 我热爱编程、热爱技术、热爱学习。喜欢沉醉用代码让世界服从我命令的感觉，coding让我逻辑更加缜密，思维更加灵活。喜欢从‘零’到‘一’的设计过程，也喜欢像一位艺术大师一样把这‘一’精心雕刻成‘∞’。
 

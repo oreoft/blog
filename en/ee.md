@@ -7,7 +7,7 @@ subtitle: <span class="mega-octicon octicon-tools"></span>&nbsp;&nbsp;
      <br/>There may be some authorized learning articles reprinted here</a><br/>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 css: ['blog-page.css']
-permalink: /en/ee
+permalink: /en/ee/
 lang: en
 keys: ee
 ---
