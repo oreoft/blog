@@ -28,6 +28,13 @@ url: https://www.someget.cn
 github_url: https://github.com/oreoft
 enforce_ssl: https://www.someget.cn
 
+# OSS 图片优化配置
+oss_optimization:
+  enable: true
+  domain: "mypicgogo.oss-cn-hangzhou.aliyuncs.com"
+  # 注意：参数前面不需要带 '?'
+  params: "x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80"
+
 ## Gem的插件
 plugins:
   - jekyll-paginate
