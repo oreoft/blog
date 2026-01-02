@@ -12,7 +12,9 @@
 
 ### 用法
 1. **安装依赖**:
-   pip install openai pyyaml frontmatter python-frontmatter
+   # 必须安装 python-frontmatter，不要安装名为 frontmatter 的包
+   pip uninstall frontmatter
+   pip install openai pyyaml python-frontmatter
 
 2. **本地运行（全量补全）**:
    export OPENAI_API_KEY="sk-xxxx"
@@ -27,9 +29,20 @@
 import os
 import sys
 import subprocess
-import frontmatter
+import re
 from pathlib import Path
 from openai import OpenAI
+
+# 尝试导入 frontmatter
+try:
+    import frontmatter
+    # 简单的检查，确保是 python-frontmatter
+    if not hasattr(frontmatter, 'load'):
+        raise ImportError("Installed 'frontmatter' package seems wrong. Please install 'python-frontmatter'.")
+except ImportError as e:
+    print(f"Error: {e}")
+    print("Please run: pip uninstall frontmatter && pip install python-frontmatter")
+    sys.exit(1)
 
 # --- 配置部分 ---
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
@@ -48,6 +61,31 @@ client = OpenAI(
 ) if OPENAI_API_KEY else None
 
 # --- 核心逻辑 ---
+
+def is_valid_post_path(file_path):
+    """
+    判断文件路径是否需要处理
+    规则：必须在 _posts/数字年份/ 目录下
+    例如: 
+    - _posts/2021/abc.md -> True
+    - _posts/2022/def.md -> True
+    - _posts/draft/ghi.md -> False
+    - _posts/README.md -> False
+    """
+    path = Path(file_path)
+    # 检查路径中是否包含 _posts
+    parts = path.parts
+    try:
+        posts_index = parts.index('_posts')
+        # 检查 _posts 的下一级目录是否是数字（年份）
+        if len(parts) > posts_index + 1:
+            year_dir = parts[posts_index + 1]
+            if year_dir.isdigit() and len(year_dir) == 4:
+                return True
+    except ValueError:
+        pass
+    
+    return False
 
 def get_changed_files_from_git():
     """
@@ -74,7 +112,12 @@ def get_changed_files_from_git():
         # 1. 必须是 _posts 下的 markdown 文件
         if line.startswith('_posts/') and line.endswith('.md'):
             full_path = os.path.join(os.getcwd(), line)
-            # 2. 文件必须存在（处理删除的情况）
+            
+            # 2. 必须是有效的年份目录
+            if not is_valid_post_path(full_path):
+                continue
+
+            # 3. 文件必须存在（处理删除的情况）
             if os.path.exists(full_path):
                 if is_chinese_post(full_path):
                     changed.append(full_path)
@@ -142,7 +185,7 @@ def process_post(zh_path, force=False):
         
         # 策略检查
         if en_path.exists() and not force:
-            print(f"Skip {zh_path}: English version exists (use force to overwrite)")
+            # print(f"Skip {zh_path}: English version exists (use force to overwrite)")
             return False
             
         print(f"Translating {zh_path} -> {en_path} ...")
@@ -172,8 +215,14 @@ def process_post(zh_path, force=False):
             
         # 3. 写入文件
         en_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(en_path, 'w', encoding='utf-8') as f:
-            frontmatter.dump(post, f)
+        try:
+            with open(en_path, 'w', encoding='utf-8') as f:
+                f.write(frontmatter.dumps(post))
+        except Exception as e:
+            # 写入失败，删除可能创建的不完整文件
+            if en_path.exists():
+                os.remove(en_path)
+            raise e
             
         print(f"✓ Success: {en_path}")
         return True
@@ -192,6 +241,11 @@ def run_batch_mode():
         for file in files:
             if file.endswith('.md'):
                 full_path = os.path.join(root, file)
+                
+                # 过滤：只处理 _posts/数字年份/ 下的文件
+                if not is_valid_post_path(full_path):
+                    continue
+
                 if is_chinese_post(full_path):
                     # force=False 意味着只翻译不存在的
                     if process_post(full_path, force=False):
