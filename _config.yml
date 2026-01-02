@@ -37,10 +37,13 @@ oss_optimization:
 
 ## Gem的插件
 plugins:
-  - jekyll-paginate
   - jekyll-geo-pattern
   - rouge
   - kramdown
+
+# 分页配置
+# 每页显示的文章数量（中英文共用）
+posts_per_page: 6
 
 # Build settings
 markdown: kramdown
@@ -61,9 +64,6 @@ kramdown:
   syntax_highlighter: rouge
 syntax_highlighter_opts:
    coderay_line_numbers:  nil
-# Pagination
-paginate: 6
-paginate_path: 'page:num'
 
 
 # 下面基本都是页面配置
@@ -232,7 +232,6 @@ soft:
     - html_url: https://github.com/oreoft/cache-anno
       name: Cache-anno
       description: 自动缓存方法数据注解
-
 
 # ---------------- #
 #       RSS        #

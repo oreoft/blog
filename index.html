@@ -28,28 +28,16 @@ lang: zh
         <div class="col-md-8">
 
             <ol class="post-list">
-<!--             全量的数据-->
-                {% assign posts = site.posts | where:"lang", "zh"  %}
-<!--             // 每页请求数量-->
-                {% assign paging_size = site.paginate | default: 6 %}
-<!--             // 初始化当前页数 -->
+                {% assign posts = site.posts | where:"lang", "zh" | sort: "date" | reverse %}
+                {% assign paging_size = site.posts_per_page | default: 6 %}
                 {% assign current_page = 1 %}
-<!--                // 如果全量数量大于当前请求 计算当前数量 -->
-                {% if posts.size > paging_size %}
-<!--                // 目前请求第几页-->
-                    {% if page.url contains '/page' %}
-                        {% assign current_page = page.url | split: '/' | last | replace: 'page', '' | plus: 0 %}
-                    {% endif %}
-                    {% assign offset = current_page | minus: 1 | times: paging_size %}
-<!--                // 把值取出来-->
-                    {% assign posts_on_current_page = posts | slice: offset, paging_size %}
-                {% else %}
-<!--                否则全量返回-->
-                    {% assign posts_on_current_page = posts %}
+                {% if page.url contains '/page' %}
+                    {% assign current_page = page.url | split: '/' | last | replace: 'page', '' | plus: 0 %}
                 {% endif %}
+                {% assign offset = current_page | minus: 1 | times: paging_size %}
+                {% assign posts_on_current_page = posts | slice: offset, paging_size %}
 
                 {% for post in posts_on_current_page %}
-                 {% if post.lang == 'zh' %}
                     <li class="post-list-item">
                         <h2 class="post-list-title">
                             <a class="hvr-underline-from-center" href="{{ post.url }}">{{ post.title }}</a>
@@ -61,12 +49,50 @@ lang: zh
                             <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
                         </p>
                     </li>
-                  {% endif %}
                 {% endfor %}
             </ol>
 
             <!-- Pagination -->
-            {% include pagination.html %}
+            {% assign total_pages = posts.size | plus: 0.0 | divided_by: paging_size | ceil %}
+            {% if total_pages > 1 %}
+            {% assign prev_page = current_page | minus: 1 %}
+            {% assign next_page = current_page | plus: 1 %}
+            <div class="pagination text-align">
+                <div class="btn-group">
+
+                    {% if prev_page >= 1 %}
+                        {% if prev_page == 1 %}
+                            <a href="/" class="btn btn-outline">&laquo;</a>
+                        {% else %}
+                            <a href="/page{{ prev_page }}/" class="btn btn-outline">&laquo;</a>
+                        {% endif %}
+                    {% else %}
+                        <button disabled="disabled" class="btn btn-outline">&laquo;</button>
+                    {% endif %}
+
+                    {% if current_page == 1 %}
+                        <a href="javascript:;" class="active btn btn-outline">1</a>
+                    {% else %}
+                        <a href="/" class="btn btn-outline">1</a>
+                    {% endif %}
+
+                    {% for count in (2..total_pages) %}
+                        {% if count == current_page %}
+                            <a href="javascript:;" class="active btn btn-outline">{{ count }}</a>
+                        {% else %}
+                            <a href="/page{{ count }}/" class="btn btn-outline">{{ count }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if total_pages > current_page %}
+                        <a href="/page{{ next_page }}/" class="btn btn-outline">&raquo;</a>
+                    {% else %}
+                        <button disabled="disabled" class="btn btn-outline">&raquo;</button>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endif %}
 
         </div>
 
@@ -76,4 +102,3 @@ lang: zh
 
     </div>
 </section>
-
