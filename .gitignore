@@ -5,3 +5,9 @@ _site
 .jekyll-cache
 **/*.iml
 .DS_S*
+
+# 忽略 Bundler 的配置
+.bundle/
+
+# 忽略本地安装的 gem 包
+vendor/

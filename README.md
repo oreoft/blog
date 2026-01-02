@@ -1,5 +1,15 @@
 # 个人博客
 
+## 运行
+```shell
+# 如果是 mac 先设置vendor目录
+bundle config set --local path 'vendor/bundle'
+# 如果是 mac 然后安装
+bundle install
+# 然后启动
+bundle exec jekyll serve
+```
+
 ## 博客配置与技术笔记
 
 ### 核心目录结构
