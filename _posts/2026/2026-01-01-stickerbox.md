@@ -15,7 +15,9 @@ AI 现在很火，不管是软件产品还是硬件产品层出不穷。最近�
 
 我在官网看的时候发现现在下单要等到 2 月份才能发货，不过我运气不错，看到的时候很早，官网 12. 23 号就发货了(虽然我也是 11 月下单的)，非常期待。
 
-![image-20260101222510113](/Users/oreoft/Library/Application Support/typora-user-images/image-20260101222510113.png?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![image-20260101222510113](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260102104727995.png?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+
+
 <center>官网的宣传图，看起来很有趣</center><br>
 
 ![image-20260101222348551](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260101222348628.png?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
