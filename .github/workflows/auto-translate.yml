@@ -1,0 +1,48 @@
+name: Auto Translate Posts
+
+on:
+  push:
+    branches:
+      - main  # 监听 main 分支
+    paths:
+      - '_posts/**/*.md'  # 只监听 _posts 下的文件变化
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 明确授予写权限，以便 push 代码
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 获取完整历史以进行 diff
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install openai pyyaml frontmatter python-frontmatter
+
+      - name: Translate new/updated posts
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: "https://api.allm.chat/v1" # 也可以配置在 secrets 中: ${{ secrets.OPENAI_BASE_URL }}
+        run: |
+          python .github/scripts/translate_posts.py
+
+      - name: Commit translated files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add en/_posts/
+          # 检查是否有暂存的更改
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-translate: Update English posts [skip ci]"
+            git push
+          else
+            echo "No new translations to commit"
+          fi
