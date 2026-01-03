@@ -3,14 +3,14 @@
     <div class="search-modal-overlay" onclick="closeSearchModal()"></div>
     <div class="search-modal-content">
         <div class="search-modal-header">
-            <h3>{% if page.lang == 'en' %}Search Articles{% else %}搜索文章{% endif %}</h3>
-            <button class="search-modal-close" onclick="closeSearchModal()" aria-label="Close">
+            <h3>{{ 'search.title' | t }}</h3>
+            <button class="search-modal-close" onclick="closeSearchModal()" aria-label="{{ 'search.close' | t }}">
                 <span class="octicon octicon-x"></span>
             </button>
         </div>
         <div class="search-modal-body">
             <input type="text" id="modal-search-input" class="form-control" 
-                   placeholder="{% if page.lang == 'en' %}Enter keywords to search articles...{% else %}输入关键词搜索文章...{% endif %}" 
+                   placeholder="{{ 'search.placeholder' | t }}" 
                    autofocus>
             <div id="modal-search-results" class="search-results"></div>
         </div>
@@ -74,10 +74,10 @@
         }
         
         // 根据当前语言选择 JSON 文件
-        var currentLang = '{% if page.lang == "en" %}en{% else %}zh{% endif %}';
+        var currentLang = '{{ page.lang | default: "zh" }}';
         var jsonPath = currentLang === 'en' ? '/en/search-en.json' : '/search-zh.json';
-        var dateLabel = currentLang === 'en' ? 'Date: ' : '日期: ';
-        var noResultsText = currentLang === 'en' ? '<div class="search-result-item"><p>No articles found</p></div>' : '<div class="search-result-item"><p>没有找到相关文章</p></div>';
+        var dateLabel = '{{ "search.date_label" | t }}';
+        var noResultsText = '<div class="search-result-item"><p>{{ "search.no_results" | t }}</p></div>';
         
         try {
             searchInstance = SimpleJekyllSearch({

@@ -20,11 +20,7 @@
 {% elsif page.comments != false %}
 <div class="giscus-comments">
     <p style="color: #999; font-size: 14px; padding: 20px; text-align: center;">
-        {% if page.lang == 'en' %}
-        Comments are not configured yet. Please configure Giscus in _config.yml.
-        {% else %}
-        评论系统尚未配置，请在 _config.yml 中配置 Giscus。
-        {% endif %}
+        {{ 'giscus.not_configured' | t }}
     </p>
 </div>
 {% endif %}

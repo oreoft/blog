@@ -39,6 +39,23 @@ zh:
     power_by: "Power by"
     icp: "鄂ICP备20003707号"
     top: "TOP"
+  search:
+    title: "搜索文章"
+    placeholder: "输入关键词搜索文章..."
+    no_results: "没有找到相关文章。"
+    close: "关闭"
+    date_label: "日期: "
+  sidebar:
+    selected_articles: "精选文章"
+    open_source_software: "开源软件"
+    stars: "星标"
+    forks: "分支"
+    last_updated: "最后更新"
+  giscus:
+    not_configured: "评论系统尚未配置，请在 _config.yml 中配置 Giscus。"
+  header:
+    switch_to_chinese: "切换到中文"
+    switch_to_english: "切换到英文"
 
 en:
   site:
@@ -81,3 +98,20 @@ en:
     power_by: "Power by"
     icp: "鄂ICP备20003707号"
     top: "TOP"
+  search:
+    title: "Search Articles"
+    placeholder: "Enter keywords to search articles..."
+    no_results: "No articles found."
+    close: "Close"
+    date_label: "Date: "
+  sidebar:
+    selected_articles: "Selected articles"
+    open_source_software: "Open source software"
+    stars: "stars"
+    forks: "forks"
+    last_updated: "Last updated"
+  giscus:
+    not_configured: "Comments are not configured yet. Please configure Giscus in _config.yml."
+  header:
+    switch_to_chinese: "Switch to Chinese"
+    switch_to_english: "Switch to English"

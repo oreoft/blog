@@ -29,11 +29,7 @@
 <!--</div>-->
 
 {% assign current_lang = page.lang | default: 'en' %}
-{% if current_lang == 'en' %}
-<h3 class="sidebar-title">Selected articles</h3>
-{% elsif current_lang == 'zh' %}
-<h3 class="sidebar-title">精选文章</h3>
-{% endif %}
+<h3 class="sidebar-title">{{ 'sidebar.selected_articles' | t }}</h3>
 {% for article in site.classes[current_lang]  %}
 <div class="card text-center">
     <div class="thumbnail">
@@ -55,11 +51,7 @@
 
 <br/>
 
-{% if current_lang == 'en' %}
-<h3 class="sidebar-title">Open source software</h3>
-{% elsif current_lang == 'zh' %}
-<h3 class="sidebar-title">开源软件</h3>
-{% endif %}
+<h3 class="sidebar-title">{{ 'sidebar.open_source_software' | t }}</h3>
 {% for repo in site.soft[current_lang] | limit: site.side_bar_repo_limit %}
 <div class="card text-center">
     <div class="thumbnail">
@@ -75,13 +67,13 @@
                 <p class="card-text">{{ repo.description }}</p>
             </div>
             <div class="card-text">
-                <span data-toggle="tooltip" class="meta-info" title="{{ repo.stargazers_count }} stars">
+                <span data-toggle="tooltip" class="meta-info" title="{{ repo.stargazers_count }} {{ 'sidebar.stars' | t }}">
                     <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
                 </span>
-                <span data-toggle="tooltip" class="meta-info" title="{{ repo.forks_count }} forks">
+                <span data-toggle="tooltip" class="meta-info" title="{{ repo.forks_count }} {{ 'sidebar.forks' | t }}">
                     <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
                 </span>
-                <span data-toggle="tooltip" class="meta-info" title="Last updated：{{ repo.updated_at }}">
+                <span data-toggle="tooltip" class="meta-info" title="{{ 'sidebar.last_updated' | t }}：{{ repo.updated_at }}">
                     <span class="octicon octicon-clock"></span>
                     <time datetime="{{ repo.updated_at }}" title="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
                 </span>

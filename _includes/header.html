@@ -49,9 +49,9 @@
                 <div class="item">
                     <a href="javascript:void(0)" onclick="switchLanguage('{% if page.lang == 'en' %}zh{% else %}en{% endif %}')">
                         {% if page.lang == 'en' %}
-                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="Switch to Chinese" class="naviation__lang_img">
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="{{ 'header.switch_to_chinese' | t }}" class="naviation__lang_img">
                         {% else %}
-                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="Switch to English" class="naviation__lang_img">
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="{{ 'header.switch_to_english' | t }}" class="naviation__lang_img">
                         {% endif %}
                     </a>
                 </div>
