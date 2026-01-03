@@ -6,18 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title_en: Oreoft
-subtitle_en: Believe in the light and become the light
-subtitle2_en: There are no reason why you cannot become an expert in the field you love
-name_en: Oreoft
-description_en: description
-keywords_ne: Developer, Programmer, increase-efficiency, Geek, Coder
-
-title:  没有气的汽水
-subtitle: 是折腾，也是热爱呀
-subtitle2: 你没有理由不成为你热爱领域的专家
-name: 没有气的汽水
-description:
+# title: 移至 _data/i18n.yml
+# subtitle: 移至 _data/i18n.yml
+# subtitle2: 移至 _data/i18n.yml
+# name: 移至 _data/i18n.yml
+# description: 移至 _data/i18n.yml
 keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek.
 
 # 通用设置相关
@@ -68,108 +61,11 @@ syntax_highlighter_opts:
 
 # 下面基本都是页面配置
 # Navigation. top menu list
-# _blank表示新网页，_self小时在本页
-menus:
-  en:
-    -
-      href: /en
-      label: Home
-      target: _self
-
-    -
-      href: /en/about
-      label: About
-      target: _self
-
-    -
-      href: /en/link
-      label: FriendLink
-      target: _self
-
-    -
-      href: /en/archives
-      label: Archives
-      target: _self
-  zh:
-      - href: /
-        label: Home
-        target: _self
-
-      - href: /about
-        label: About
-        target: _self
-
-      - href: /link
-        label: FriendLink
-        target: _self
-
-      - href: /archives
-        label: Archives
-        target: _self
+# 菜单内容已移至 _data/i18n.yml，此处保留配置项以备将来扩展
+menus: []
 
 # Navigation. main menu list
-# subnav可以加二级分类
-navs:
-  en:
-    - href: /en/code
-      label: Code
-      target: _self
-
-    - href: /en/base
-      label: Base
-      target: _self
-
-    - href: /en/tools
-      label: Tools
-      target: _self
-
-    - href: /en/other
-      label: Other
-      target: _self
-      subnav:
-        - subHref: /en/linux
-          subLabel: Linux
-        - subHref: /en/middleware
-          subLabel: Middleware
-
-  zh:
-    - href: /code
-      label: Code
-      target: _self
-#      subnav:
-#        - subHref: /zh/java
-#          subLabel: Java
-#        - subHref: /zh/spring_boot
-#          subLabel: Spring Boot
-
-    - href: /base
-      label: Base
-      target: _self
-#      subnav:
-#        - subHref: /zh/cc
-#          subLabel: 通俗计组
-#        - subHref: /zh/ds
-#          subLabel: 数据结构
-#        - subHref: /zh/cn
-#          subLabel: 计算机网络
-        # -
-        #   subHref: /ee
-        #   subLabel: 电工知识
-        # -
-        #   subHref: recommend
-        #   subLabel: 软件推荐
-
-    - href: /tools
-      label: Tools
-      target: _self
-    - href: /other
-      label: Other
-      target: _self
-      subnav:
-        - subHref: /linux
-          subLabel: Linux
-        - subHref: /middleware
-          subLabel: Middleware
+navs: []
 
 
 # Sidebar to show popular repo

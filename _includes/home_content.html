@@ -1,0 +1,65 @@
+<section class="jumbotron">
+    <div class="container">
+        <h1 id="header"></h1>
+        <script>
+            let texts = ['{{ "site.subtitle" | t }}', '{{ "site.subtitle2" | t }}'];
+            document.getElementById("header").innerHTML = texts[Math.floor(Math.random() * texts.length)];
+        </script>
+        <div id="jumbotron-meta-info">
+             {% assign lang = page.lang | default: 'zh' %}
+             {% for nav in site.data.i18n[lang].menus.labels %}
+                <span class="meta-info-index hvr-grow">
+                    <a href="{{ nav.href }}" title="{{ nav.label | t }}" target="{{ nav.target | default: _self }}">{{ nav.label | t }}</a>
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="content container">
+
+    <div class="row">
+
+        <!-- Post List -->
+        <div class="col-md-8">
+
+            <ol class="post-list">
+                {% assign lang = page.lang | default: 'zh' %}
+                {% assign posts = site.posts | where:"lang", lang | sort: "date" | reverse %}
+                {% assign paging_size = site.posts_per_page | default: 6 %}
+                {% assign current_page = 1 %}
+                {% if page.url contains '/page' %}
+                    {% assign current_page = page.url | split: '/' | last | replace: 'page', '' | plus: 0 %}
+                {% endif %}
+                {% assign offset = current_page | minus: 1 | times: paging_size %}
+                {% assign posts_on_current_page = posts | slice: offset, paging_size %}
+
+                {% for post in posts_on_current_page %}
+                    <li class="post-list-item">
+                        <h2 class="post-list-title">
+                            <a class="hvr-underline-from-center" href="{{ post.url }}">{{ post.title }}</a>
+                        </h2>
+                        <p class="post-list-description">
+                            {{ post.excerpt | strip_html | strip }}
+                        </p>
+                        <p class="post-list-meta">
+                            <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ol>
+
+            <!-- Pagination -->
+            {% assign total_pages = posts.size | plus: 0.0 | divided_by: paging_size | ceil %}
+            {% if total_pages > 1 %}
+            {% include pagination.html %}
+            {% endif %}
+
+        </div>
+
+        <div class="col-md-4">
+            {% include sidebar-popular-repo.html %}
+        </div>
+
+    </div>
+</section>
+

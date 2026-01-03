@@ -1,20 +1,17 @@
 <div>
-<!--    英文-->
-    {% if page.lang == 'en' %}
     <p align="right" style="margin-top: 15px; font-size: 11px;color: #cc0000;">
-        <strong>(Retrieved from this site with permission of the author and source <a href="https://www.someget.cn"> Oreoft</a>)）</strong></br>
-    </p>
-<!--    中文-->
-    {% elsif page.lang == 'zh' %}
-    <p align="right" style="margin-top: 15px; font-size: 11px;color: #cc0000;">
-        <strong>（转载本站文章请注明作者和出处 <a href="https://www.someget.cn/zh">没有气的汽水</a>）</strong></br>
+        <strong>
+            {{ 'post.copyright.statement_prefix' | t }}
+            <a href="{{ site.url }}{{ page.url | replace:'index.html','' }}"> {{ 'post.copyright.author' | t }}</a>{{ 'post.copyright.statement_suffix' | t }}
+        </strong></br>
     </p>
 
+    {% if page.lang == 'zh' %}
     <p align="center" >
         </br>
         </br>
         <strong>┌┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┐</strong></br>
-        <strong>├ 文章已经完啦, 想要第一时间收到文章更新可以关注↓ ┤</strong></br>
+        <strong>├ {{ 'post.copyright.end_title' | t }} ┤</strong></br>
         <strong>└┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┘</strong>
         <img src='https://someget.oss-accelerate.aliyuncs.com/assets/images/wx_share.png' width=80%></img>
     </p>

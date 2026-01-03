@@ -5,21 +5,22 @@
     <!-- Favicon Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="https://someget.oss-accelerate.aliyuncs.com/assets/images/logo.png">
 
-    {% if page.url contains '/en/' %}
-    <title>{% if page.titlebar %} {{ page.titlebar | escape }} - Oreoft' blog {% elsif page.title %} {{ page.title | escape }} - Oreoft's blog {% else %}{{ site.title_en | escape }}{% endif %}</title>
-    {% else %}
-    <title>{% if page.titlebar %} {{ page.titlebar | escape }} - Oreoft' blog {% elsif page.title %} {{ page.title | escape }} - Oreoft's blog {% else %}{{ site.title | escape }}{% endif %}</title>
-    {% endif %}
+    <title>
+        {% if page.titlebar %}
+            {{ page.titlebar | escape }} - {{ 'site.title' | t }}
+        {% elsif page.title %}
+            {{ page.title | escape }} - {{ 'site.title' | t }}
+        {% else %}
+            {{ 'site.title' | t | escape }}
+        {% endif %}
+    </title>
+
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
-    <meta name="description"
-          content="{% if page.excerpt %}{{ page.excerpt | escape }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | escape }}{% else %}{{ 'site.description' | t }}{% endif %}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    {% if page.url contains '/en/' %}
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title_en }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-    {% else %}
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-    {% endif %}
+    
+    <link rel="alternate" type="application/rss+xml" title="{{ 'site.title' | t }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Third-Party CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
@@ -28,7 +29,6 @@
     <link rel="stylesheet" href="https://someget.oss-accelerate.aliyuncs.com/assets/css/user-content.min.css">
     <link rel="stylesheet" href="https://someget.oss-accelerate.aliyuncs.com/assets/css/syntax.css">
     <link rel="stylesheet" href="https://someget.oss-accelerate.aliyuncs.com/assets/css/gitalk.css">
-
     
 
     <!-- My CSS -->

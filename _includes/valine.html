@@ -1,9 +1,5 @@
 <br><br><br><br><br>
-{% if page.lang == 'en' %}
-<blockquote><p>Here is the comment section, welcome to leave a message to discuss or point out mistakes hhhh</p></blockquote>
-{% elsif page.lang == 'zh' %}
-<blockquote><p>下面是评论区，欢迎大家留言探讨或者指出错误哈</p></blockquote>
-{% endif %}
+<blockquote><p>{{ 'post.comment_tip' | t }}</p></blockquote>
 <script src='https://www.unpkg.com/valine@1.4.14/dist/Valine.min.js'></script>
 <div id="vcomments"></div>
 <script>

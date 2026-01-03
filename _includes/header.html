@@ -13,66 +13,78 @@
     <div class="site-header-topbar">
         <div class="container">
             <div class="topbar-menu">
-                {% assign current_menu = site.menus[page.lang] | default: site.menus.en %}
-                {% for menu in current_menu %}
-                <div class="item">
-                    <a href="{{ menu.href }}"
-                       target="{{ menu.target | default: _self }}"
-                       title="{{ menu.label }}">
-                        {{ menu.label }}
-                    </a>
-                </div>
-                {% endfor %}
-<!--                切换中英文菜单-->
+                <!-- 顶部菜单 (硬编码结构，文案从 i18n 获取) -->
+                {% assign lang_prefix = '' %}
                 {% if page.lang == 'en' %}
-                <div class="item">
-                    <a href="/">
-                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="" class="naviation__lang_img">
-                    </a>
-                </div>
-                {% elsif page.lang == 'zh' %}
-                <div class="item">
-                    <a href="/en">
-                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="" class="naviation__lang_img">
-                    </a>
-                </div>
+                  {% assign lang_prefix = '/en' %}
                 {% endif %}
+
+                <div class="item">
+                    <a href="{{ lang_prefix }}/" target="_self" title="{{ 'menu.home' | t }}">
+                        {{ 'menu.home' | t }}
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="{{ lang_prefix }}/about" target="_self" title="{{ 'menu.about' | t }}">
+                        {{ 'menu.about' | t }}
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="{{ lang_prefix }}/link" target="_self" title="{{ 'menu.link' | t }}">
+                        {{ 'menu.link' | t }}
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="{{ lang_prefix }}/archives" target="_self" title="{{ 'menu.archives' | t }}">
+                        {{ 'menu.archives' | t }}
+                    </a>
+                </div>
+
+                <!-- 切换中英文菜单 -->
+                <div class="item">
+                    <a href="javascript:void(0)" onclick="switchLanguage('{% if page.lang == 'en' %}zh{% else %}en{% endif %}')">
+                        {% if page.lang == 'en' %}
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-CN.png" alt="Switch to Chinese" class="naviation__lang_img">
+                        {% else %}
+                        <img src="https://someget.oss-accelerate.aliyuncs.com/assets/images/flag-US.png" alt="Switch to English" class="naviation__lang_img">
+                        {% endif %}
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
-        {% if page.lang == 'en' %}
-            <a id="site-header-brand" href="/en" title="{{ site.name }}">
-                <span class="octicon octicon-thumbsup"></span>
-                {{ site.name_en }}
-            </a>
-        {% elsif page.lang == 'zh' %}
-            <a id="site-header-brand" href="/" title="{{ site.name }}">
-                <span class="octicon octicon-thumbsup"></span>
-                {{ site.name }}
-            </a>
-        {% endif %}
+        <a id="site-header-brand" href="{{ lang_prefix }}/" title="{{ 'site.name' | t }}">
+            <span class="octicon octicon-thumbsup"></span>
+            {{ 'site.name' | t }}
+        </a>
 
         <nav class="site-header-nav" role="navigation">
-            {% assign current_lang = page.lang | default: 'en' %}
-            {% for nav in site.navs[page.lang] %}
-            <div class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
-                <a href="{{ nav.href }}"
-                   target="{{ nav.target | default: _self }}"
-                   title="{{ nav.label }}">
-                    {{ nav.label }}
+            <!-- 主导航菜单 -->
+            <div class="{% if page.menu == 'code' %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
+                <a href="{{ lang_prefix }}/code" target="_self" title="{{ 'menu.code' | t }}">
+                    {{ 'menu.code' | t }}
                 </a>
-                {% if nav.subnav %}
-                <ul class="submenu">
-                    {% for subItem in nav.subnav %}
-                    <li><a href="{{ subItem.subHref }}"
-                           target="{{ subItem.target | default: _self }}"
-                     >{{ subItem.subLabel }}</a></li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
             </div>
-            {% endfor %}
+            <div class="{% if page.menu == 'base' %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
+                <a href="{{ lang_prefix }}/base" target="_self" title="{{ 'menu.base' | t }}">
+                    {{ 'menu.base' | t }}
+                </a>
+            </div>
+            <div class="{% if page.menu == 'tools' %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
+                <a href="{{ lang_prefix }}/tools" target="_self" title="{{ 'menu.tools' | t }}">
+                    {{ 'menu.tools' | t }}
+                </a>
+            </div>
+            <div class="{% if page.menu == 'other' %} selected {% endif %} site-header-nav-item hvr-underline-from-center">
+                <a href="{{ lang_prefix }}/other" target="_self" title="{{ 'menu.other' | t }}">
+                    {{ 'menu.other' | t }}
+                </a>
+                <ul class="submenu">
+                    <li><a href="{{ lang_prefix }}/linux" target="_self">{{ 'menu.linux' | t }}</a></li>
+                    <li><a href="{{ lang_prefix }}/middleware" target="_self">{{ 'menu.middleware' | t }}</a></li>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>

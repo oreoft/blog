@@ -1,0 +1,81 @@
+zh:
+  site:
+    title: "没有气的汽水"
+    subtitle: "是折腾，也是热爱呀"
+    subtitle2: "你没有理由不成为你热爱领域的专家"
+    name: "没有气的汽水"
+    description: "Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek."
+  menu:
+    home: "首页"
+    about: "关于我"
+    link: "友链"
+    archives: "归档"
+    code: "代码"
+    base: "基础"
+    tools: "工具"
+    other: "其他"
+    linux: "Linux"
+    middleware: "中间件"
+    labels: []
+  pagination:
+    prev: "上一页"
+    next: "下一页"
+  post:
+    prev: "上一篇"
+    next: "下一篇"
+    directory: "文章目录"
+    comment_tip: "由于 valine 停止维护且有 XSS 漏洞，建议不要填写隐私信息，且评论需要通过后台审核后才能显示。如果你想快速联系我，请通过首页底部的邮件联系。"
+    copyright:
+      statement_prefix: "本博客所有文章除特别声明外，均采用 "
+      author: " @Oreoft "
+      statement_suffix: " 许可协议。转载请注明出处！"
+      end_title: "记得关注公众号：没有气的汽水"
+    toc: "文章目录"
+  archives:
+    title: "一网打尽"
+    subtitle: "本站所有的文章都会不分类按照实际时间展示在此"
+  footer:
+    power_by: "Power by"
+    icp: "鄂ICP备20003707号"
+    top: "TOP"
+
+en:
+  site:
+    title: "Oreoft"
+    subtitle: "Believe in the light and become the light"
+    subtitle2: "There are no reason why you cannot become an expert in the field you love"
+    name: "Oreoft"
+    description: "Developer, Programmer, increase-efficiency, Geek, Coder"
+  menu:
+    home: "Home"
+    about: "About"
+    link: "FriendLink"
+    archives: "Archives"
+    code: "Code"
+    base: "Base"
+    tools: "Tools"
+    other: "Other"
+    linux: "Linux"
+    middleware: "Middleware"
+    labels: []
+  pagination:
+    prev: "Previous"
+    next: "Next"
+  post:
+    prev: "Previous"
+    next: "Next"
+    directory: "Table of Contents"
+    comment_tip: "Since Valine is no longer maintained and has XSS vulnerabilities, it is recommended not to fill in private information. Comments will only be displayed after manual approval. If you want to contact me quickly, please use the email at the bottom of the home page."
+    copyright:
+      statement_prefix: "All articles in this blog, unless otherwise stated, are licensed under "
+      author: " @Oreoft "
+      statement_suffix: ". Please indicate the source when reprinting!"
+      end_title: "Follow me on WeChat: 没有气的汽水"
+    toc: "Table of Contents"
+  archives:
+    title: "Catch All"
+    subtitle: "All the articles on this site will be displayed here according to the actual time without categorization."
+  footer:
+    power_by: "Power by"
+    icp: "鄂ICP备20003707号"
+    top: "TOP"
