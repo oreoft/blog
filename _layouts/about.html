@@ -19,5 +19,11 @@ css: ['sidebar-post-nav.css']
         </div>
         {% endif %}
     </div>
-    {% include valine.html %}
+    
+    <!-- Comments - 只在 about 和 link 页面显示 -->
+    {% if page.permalink == '/about/' or page.permalink == '/en/about/' or page.permalink == '/link/' or page.permalink == '/en/link/' %}
+    <div class="comment">
+        {% include giscus.html %}
+    </div>
+    {% endif %}
 </article>

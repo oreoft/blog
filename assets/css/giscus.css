@@ -1,0 +1,155 @@
+/* Giscus 评论区域样式优化 */
+.giscus-comments {
+    margin-top: 50px;
+    padding: 35px 30px;
+    position: relative;
+    /* 使用深色背景，与页面白色背景形成对比，隔离评论区域 */
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #2d2d2d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* 评论区域标题样式 - 使用伪元素创建美观的标题 */
+.giscus-comments::before {
+    content: "💬 评论讨论";
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    /* 深色背景下使用浅色文字，确保清晰可见 */
+    color: #e1e4e8;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #3d3d3d;
+    position: relative;
+    letter-spacing: 0.5px;
+    background: transparent !important;
+}
+
+/* 标题下方的装饰线 */
+.giscus-comments::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    /* 深色背景下使用更亮的蓝色渐变 */
+    background: linear-gradient(90deg, #58a6ff, #79b8ff);
+    border-radius: 2px;
+    margin-top: -14px;
+    margin-bottom: 30px;
+    transition: width 0.3s ease;
+}
+
+.giscus-comments:hover {
+    /* hover 时增强阴影效果 */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    border-color: #404040;
+}
+
+.giscus-comments:hover::after {
+    width: 80px;
+}
+
+/* Giscus iframe 样式 */
+.giscus-comments iframe {
+    border-radius: 8px;
+    overflow: hidden;
+    /* iframe 背景与容器保持一致 */
+    background: #1a1a1a;
+}
+
+/* 评论区域间距优化 */
+.comment {
+    margin-top: 60px;
+    padding-top: 40px;
+    /* 评论容器保持透明，让 giscus-comments 的背景显示 */
+    background: transparent !important;
+}
+
+/* 确保 Giscus 内容有合适的宽度和样式 */
+.giscus-comments > * {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* 暗色主题适配 - 当系统使用深色主题时，使用稍微不同的深色背景 */
+@media (prefers-color-scheme: dark) {
+    .giscus-comments {
+        /* 深色主题下使用稍微亮一点的深色背景 */
+        background: #161b22;
+        border-color: #30363d;
+    }
+    
+    .giscus-comments:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        border-color: #484f58;
+    }
+    
+    .giscus-comments::before {
+        color: #c9d1d9 !important;
+        border-bottom-color: #30363d !important;
+    }
+    
+    .giscus-comments::after {
+        background: linear-gradient(90deg, #58a6ff, #79b8ff);
+    }
+    
+    .giscus-comments iframe {
+        background: #161b22;
+    }
+}
+
+/* 确保父容器是透明的，让 giscus-comments 的背景显示 */
+.comment {
+    background: transparent !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .giscus-comments {
+        margin-top: 30px;
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+    
+    .giscus-comments::before {
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+    
+    .giscus-comments::after {
+        margin-top: -14px;
+        margin-bottom: 20px;
+        width: 50px;
+    }
+    
+    .giscus-comments:hover::after {
+        width: 60px;
+    }
+    
+    .comment {
+        margin-top: 40px;
+        padding-top: 30px;
+    }
+}
+
+/* 加载动画优化 */
+@keyframes giscus-loading {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.giscus-comments[data-loading="true"] {
+    min-height: 200px;
+    position: relative;
+}
+
+.giscus-comments[data-loading="true"]::before {
+    animation: giscus-loading 1.5s ease-in-out infinite;
+}

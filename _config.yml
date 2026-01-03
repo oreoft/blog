@@ -16,7 +16,7 @@ keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代�
 # 通用设置相关
 email: meetyifan@gmail.com
 encoding: "utf-8"
-repository: oreoft/oreoft.github.io
+repository: oreoft/blog
 url: https://www.someget.cn
 github_url: https://github.com/oreoft
 enforce_ssl: https://www.someget.cn
@@ -33,6 +33,9 @@ plugins:
   - jekyll-geo-pattern
   - rouge
   - kramdown
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
 
 # 分页配置
 # 每页显示的文章数量（中英文共用）
@@ -133,3 +136,30 @@ soft:
 #       RSS        #
 # ---------------- #
 subscribe_rss: /feed.xml
+
+# ---------------- #
+#    SEO 配置      #
+# ---------------- #
+# jekyll-seo-tag 会自动从 site.title, site.description 等读取配置
+# 如果需要自定义，可以在这里添加
+# twitter:
+#   username: your_twitter_username
+# author: Oreoft
+
+# ---------------- #
+#   Giscus 评论    #
+# ---------------- #
+# 配置说明：
+# 1. 在 GitHub 仓库设置中启用 Discussions
+# 2. 访问 https://github.com/apps/giscus 安装 Giscus App
+# 3. 访问 https://giscus.app/ 配置并获取以下信息
+giscus:
+  repo: oreoft/blog  # 格式：owner/repo
+  repo_id: "R_kgDOKXCEdg"  # 从 giscus.app 获取
+  category: "Announcements"  # 从 giscus.app 获取
+  category_id: "DIC_kwDOKXCEds4C0gmi"  # 从 giscus.app 获取
+  mapping: pathname  # 可选：pathname, url, title, og:title
+  reactions_enabled: 1  # 1 启用，0 禁用
+  emit_metadata: 0  # 1 启用，0 禁用
+  theme: preferred_color_scheme  # light, dark, dark_dimmed, transparent_dark, preferred_color_scheme
+  lang: auto  # 自动检测语言，会根据页面语言自动切换

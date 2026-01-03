@@ -1,0 +1,31 @@
+{% if page.comments != false and site.giscus.repo_id %}
+<div class="giscus-comments" id="giscus-container">
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ site.giscus.repo }}"
+            data-repo-id="{{ site.giscus.repo_id }}"
+            data-category="{{ site.giscus.category }}"
+            data-category-id="{{ site.giscus.category_id }}"
+            data-mapping="{{ site.giscus.mapping | default: 'pathname' }}"
+            data-strict="0"
+            data-reactions-enabled="{{ site.giscus.reactions_enabled | default: 1 }}"
+            data-emit-metadata="{{ site.giscus.emit_metadata | default: 0 }}"
+            data-input-position="bottom"
+            data-theme="{{ site.giscus.theme | default: 'preferred_color_scheme' }}"
+            data-lang="{% if site.giscus.lang == 'auto' %}{% if page.lang == 'en' %}en{% else %}zh-CN{% endif %}{% else %}{{ site.giscus.lang }}{% endif %}"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+{% elsif page.comments != false %}
+<div class="giscus-comments">
+    <p style="color: #999; font-size: 14px; padding: 20px; text-align: center;">
+        {% if page.lang == 'en' %}
+        Comments are not configured yet. Please configure Giscus in _config.yml.
+        {% else %}
+        评论系统尚未配置，请在 _config.yml 中配置 Giscus。
+        {% endif %}
+    </p>
+</div>
+{% endif %}
+
