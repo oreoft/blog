@@ -1,4 +1,4 @@
-<section class="jumbotron geopattern" data-pattern-id="{{ page.title }}">
+<section class="jumbotron geopattern" data-pattern-id="{{ page.url }}">
     <div class="container">
         <div id="jumbotron-meta-info">        
             <h1>{% if page.title_i18n %}{{ page.title_i18n | t }}{% else %}{{ page.title }}{% endif %}</h1>
@@ -15,10 +15,8 @@
 </section>
 <script>
     $(document).ready(function(){
-
         $('.geopattern').each(function(){
             $(this).geopattern($(this).data('pattern-id'));
         });
-
     });
 </script>

@@ -1,0 +1,49 @@
+/* 统一使用 jekyll-geo-pattern 生成背景 */
+
+/* 1. 确保 Header 和 Jumbotron 使用 geopattern 生成的背景 */
+.site-header.geopattern,
+.jumbotron.geopattern {
+    background-color: transparent !important; /* 移除可能存在的背景色覆盖 */
+    color: #ffffff !important; /* 确保文字是白色 */
+    /* 强制背景平铺且不缩放，解决不同页面背景图案大小不一致的问题 */
+    background-size: auto !important;
+    background-repeat: repeat !important;
+    background-position: center top !important;
+}
+
+/* 2. 确保 Header 内部元素透明，以显示父元素的 geopattern 背景 */
+.site-header-topbar,
+.site-header .container,
+.site-header-nav,
+.site-header-nav-item,
+.site-header-nav-item.selected {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 3. 确保所有链接和文字颜色为白色，与深色背景形成对比 */
+.site-header-topbar .topbar-menu .item a,
+#site-header-brand,
+.site-header-nav .site-header-nav-item > a { /* 只针对一级菜单链接设为白色 */
+    color: #ffffff !important;
+}
+
+/* 修复下拉菜单（子菜单）样式：白底黑字 */
+.site-header-nav .site-header-nav-item .submenu {
+    background-color: #ffffff !important; /* 确保背景是白色 */
+}
+
+.site-header-nav .site-header-nav-item .submenu a {
+    color: #333333 !important; /* 子菜单文字改回深色，避免白底白字 */
+}
+
+.site-header-nav .site-header-nav-item .submenu a:hover {
+    color: #409eff !important; /* 鼠标悬停时的颜色（可选） */
+    background-color: #f5f5f5 !important;
+}
+
+/* 4. 选中项的样式微调 */
+.site-header-nav .site-header-nav-item.selected a {
+    color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}

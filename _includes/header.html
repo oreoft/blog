@@ -1,4 +1,8 @@
-<header class="site-header">
+{% assign header_pattern_id = page.url %}
+{% if page.menu == 'home' %}
+    {% assign header_pattern_id = 'site.name' | t %}
+{% endif %}
+<header class="site-header geopattern" data-pattern-id="{{ header_pattern_id }}">
     <!-- 百度的流量监控 -->
     <script>
         var _hmt = _hmt || [];
