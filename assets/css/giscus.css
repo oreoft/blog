@@ -1,6 +1,6 @@
 /* Giscus 评论区域样式优化 */
 .giscus-comments {
-    margin-top: 50px;
+    margin-top: 0;
     padding: 35px 30px;
     position: relative;
     /* 使用深色背景，与页面白色背景形成对比，隔离评论区域 */
@@ -61,8 +61,8 @@
 
 /* 评论区域间距优化 */
 .comment {
-    margin-top: 60px;
-    padding-top: 40px;
+    margin-top: 20px;
+    padding-top: 20px;
     /* 评论容器保持透明，让 giscus-comments 的背景显示 */
     background: transparent !important;
 }
@@ -130,8 +130,8 @@
     }
     
     .comment {
-        margin-top: 40px;
-        padding-top: 30px;
+        margin-top: 30px;
+        padding-top: 20px;
     }
 }
 
