@@ -1,70 +1,75 @@
 ---
+css:
+- about.css
+- sidebar-popular-repo.css
+- ../../bower_components/flag-icon-css/css/flag-icon.min.css
+lang: en
 layout: about
+menu: about
+permalink: /en/about/
+subtitle: <span class="mega-octicon octicon-octoface"></span>&nbsp;&nbsp; I am a programmer
 title: About Me
 titlebar: About Me
-menu: about
-subtitle:  <span class="mega-octicon octicon-octoface"></span>&nbsp;&nbsp; I am a programmer         
-css: ['about.css', 'sidebar-popular-repo.css', '../../bower_components/flag-icon-css/css/flag-icon.min.css']
-permalink: /en/about/
-lang: en
 ---
 
+## About Me
 
-## About me.
+A programmer who graduated in 2020 and is currently in my odyssey era, aiming to work hard and become an outstanding developer.
 
-I am currently a graduate student in a computer-related field. I love keeping records, English is not my first language, but I'm trying to write in English! My goal is to become a good developer.
+I love coding, technology, and learning. I enjoy that feeling of making the world obey my commands with code. Coding makes my logic tighter and my thinking more flexible. I like the design journey from “0” to “1”, and I also like carving that “1” into “∞” like an artist.
 
-I love programming, I love technology, I love learning. I like to indulge in the feeling of using code to make the world obey my orders, coding makes my logic more meticulous and my thinking more flexible. Like from 'zero' to 'one' design process, but also like a master artist like this 'one' carefully carved into '∞'.
+I also love hardware, tinkering, and knowledge. I’m amazed by those tiny magical silicon blocks that represent the pinnacle of human ingenuity, and I’m in awe of how fast technology evolves and how many possibilities it brings. Browsing for “junk” on Xianyu is a hobby outside of work. I enjoy building PCs, Hackintosh, soft routers, and NAS. I’m extremely sensitive to performance specs—I may not need it, but you can’t be without it.
 
-I also love hardware, tossing, and knowledge. Surprised at the highest crystallization of human wisdom on behalf of the small magical silicon square, sighing technology is changing rapidly to give us endless possibilities, in the ebay poking a piece of garbage is considered to be a hobby after work, like to DIY Computer, Hackintosh, SoftRouter, NAS. performance parameters party is very sensitive, I can not, but you can not do without.
+I love life too—myself, and the unknown. I admire the charm of classical poetry and look up to Su Dongpo’s spirit. I also long for poetry and distant horizons. Walking along the road, life is short—so let’s try new fire with new tea. Enjoy poetry and wine while we’re still young.
 
-I also love life, love themselves, love the unknown. The rhyme of ancient poetry, worship Su Dongpo's wind. The same yearning for poetry and faraway places, walking in the road, life is short, and will be a new fire to try new tea. Poetry and wine while the year is young.
+## Why I Started This Blog
 
-## Original intention
+Building a blog is something I’ve always wanted to do but never actually did, because since high school I’ve benefited a lot from other experts’ blogs. So I made a promise to myself: someday I must have my own blog. Later in college, I didn’t have the motivation to write and kept it in my mind—honestly, the main reason was that college was just too much fun.... Then preparing for the CS graduate entrance exam took up a ton of time (and damn it, I still didn’t get in, sob). Now that I’ve been working for a while, I’ve realized that for technical folks, a blog is still really important. With new thoughts piled onto old ones, I wrote this About page—does this count as my first post?
 
-Build a blog this can be really I have always wanted to do but did not do things before, because from high school on in other's blog in a lot of benefits. So had set up a flag, later must also have their own blog 
+Besides that original seed in my heart, I’ve also summarized a few reasons for writing a blog—also as a reminder to myself to keep going, not waste time, and stay true to my original intention:
 
-In addition to the initial seed in my heart, I summarized a few reasons for blogging, and also to tell myself that I hope I can not be deserted, and stick to writing blog content and not forgetting the original intention:
+**1. Strengthen memory and improve my ability to explain things clearly**
 
-**1. Enhancement of memorization and ability to explain things clearly**
-
-> I'm a perfectionist I'm perfect in the sense that I do things that make me feel good about myself in my own mind, and I'm extremely strict about typography, formatting, the content of messages I send to others, screenshots with or without *Alpha* channels, and the like. This makes me take more time to express my thoughts before I blog, and before I express my thoughts I need to reorganize and review the content, re-understand and re-absorb it and clear my thoughts and logic.
+> I’m a perfectionist—maybe a fake one... because I’m pretty messy. But jokes aside, my “perfection” is about doing things in a way that makes me feel comfortable. I have extremely strict requirements for layout, formatting, the content of messages I send to others, whether screenshots include an *Alpha* channel, and so on. This means before writing a blog post, I’ll spend more time expressing my thoughts. And before I can express them, I need to reorganize and review the content—understand it again, absorb it again, and sort out the structure and logic.
 >
-> *Often times a lot of things you think you understand, but when you rephrase them or re-record them with pen and paper, you feel clueless.*
+> *A lot of the time, you think you understand something, but when you try to explain it again or write it down with pen and paper, you suddenly don’t know where to start.*
 
-**2. The Sharing Spirit of the Internet**
+**2. The spirit of sharing on the internet**
 
-> By sharing, I get a direct and quick return that is not material but spiritual. I will be very addicted to this spiritual reward, which has nothing to do with utilitarianism，just like。
+> By sharing, I can get direct and fast feedback. It’s not material—it’s spiritual. I get pretty addicted to that kind of spiritual return. No utilitarianism, just like.
 
-**3. Record the growing up**
+**3. Record the little bits of growth**
 
-> I should still be in grad school in Chicago when I write this about, and I don't know what the future holds, but I don't want me to look back without a little record left behind。
+> When I wrote this About page, I had just graduated this year. I was working and learning at a startup in Wuhan. I don’t know what the future will look like, but I don’t want to look back one day and find I left no record at all.
 >
-> Each of us should have a similar experience: after a long time suddenly look back at what they used to do and say, will feel very silly, but because of these silly years so that we continue to grow, in the process of our growth continue to correct their own position, to correct their own mistakes.
+> I think everyone has had experiences like this: after a long time, you suddenly look back at what you did or said before and feel it was incredibly stupid. WeChat even introduced the “visible for three days” feature to save you from embarrassment. But it’s exactly those stupid years that make us grow—constantly adjusting our position and correcting our mistakes along the way.
 >
-> By the way，Suddenly a quarter of my life is almost gone, and sometimes it's kinda nostalgic to see the finished records, even though it was pretty senseless at the time, and I regret that I didn't keep more records in high school and college.。
+> By the way, somehow a quarter of my life is almost gone. Sometimes it’s kind of nostalgic to look at old records—even though at the time I felt nothing. It’s a pity I didn’t leave more records in high school and college.
 
 **4. Explore more unknown worlds**
 
-> The world is not just limited to my home, my company, my circle of friends, I feel that the Internet is a parallel space where I can experience a bigger world. Through blogging, I know that there are many other people in the world who read blogs, write blogs and are with me as I am. In this parallel space these people and knowledge are waiting for me somewhere in the world.。
+> The world isn’t limited to my home, my company, or my social circle. I think the internet is a parallel space where I can experience a much bigger world. By writing a blog, I know there are many people out there just like me—reading blogs, writing blogs, together with me. In this parallel space, these people and this knowledge are waiting for me somewhere in a corner of the world.
 
-**5. Helping and giving back to those who want to get help**
+**5. Help and give back to people who want help** 
 
-> I put this point to the end on purpose, this is the source that I encountered the most in my work and every time it motivates me to write something. As a newcomer, exploring an unknown field of knowledge, often get mad, sometimes the environment is not well-built, and when I am lucky, I can soon come across a very good article to solve my difficulties and troubles. But most of the time I don't find an article that I can understand.
+> I intentionally put this last, and it’s also what I encounter most at work—the source that motivates me to write something each time. As a newbie exploring unknown knowledge areas, I often get my face full of dust. Sometimes I can’t even set up the environment. When I’m lucky, I quickly run into a great article that solves my difficulties and frustrations. But most of the time, I can’t find an article that I can understand just right.
 >
-> I came across an article that just solved my problem and I'm grateful for it, I'm going to write a blog about it as a knowledge give back and let the technology take over. I didn't come across an article that just solved my problem, and if I do, I'm going to share my knowledge and fill in the blanks in case someone else is like me and doesn't come across an article that solves the problem。
+> If I find an article that solves my problem, I’m grateful—and I’ll write a blog post as a knowledge return, passing the technical baton. If I can’t find an article that solves my problem, and I manage to solve it myself, I’ll share what I learned—just in case someone out there is like me and couldn’t find an article that addresses this issue.
 
-## Contact info
-- If you're interested in me.
-  If there are errors in my posts.
-  If you want to know me.
-  If you think I might be able to help you.
-  You can contact me.
-- Email：meetyifan@gmail.com
+## Contact
+- If you’re interested in me,
+if my articles have mistakes,
+if you want to get to know me,
+if you think I might be able to help you,
+you can contact me
+- Email: meetyifan@gmail.com
 
-## Site timeline
-- 2019, Jul.,  the site was built and hosted on GitHub Pages.
-- 2020, Mar.,  blog migrated to AliCloud servers.
-- 2020, Aug.,  Blog upgraded with https encryption.
-- 2021, Aug.,  Blog add comment function.
-- 2023, Oct.,  Blog compatible with English.
+## Key Milestones of This Site
+
+- July 2019: Site created and hosted on Github Pages.
+- March 2020: Blog migrated to an Alibaba Cloud server.
+- August 2020: Blog upgraded to HTTPS encryption.
+- August 2021: Blog added a commenting feature.
+- October 2023: Blog started supporting English.
+- December 2025: Blog migrated to Vercel.
+- January 2026: Upgraded and refactored comments / Chinese-English compatibility / basic components.
