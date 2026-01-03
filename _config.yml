@@ -62,13 +62,7 @@ syntax_highlighter_opts:
    coderay_line_numbers:  nil
 
 
-# 下面基本都是页面配置
-# Navigation. top menu list
-# 菜单内容已移至 _data/i18n.yml，此处保留配置项以备将来扩展
-menus: []
-
-# Navigation. main menu list
-navs: []
+# 菜单配置已移至 _data/i18n.yml
 
 
 # Sidebar to show popular repo
@@ -77,60 +71,10 @@ side_bar_repo_limit: 6 # Number of repos to show
 
 
 
-# labels. my blog key words
-labels:
-  -
-    href: “”
-    label:   
-    target: _self
-  -
-    href: “”
-    label: 
-    target: _self
-  -
-    href: “”
-    label: 
-    target: _blank
-
-# selected articles
-classes:
-  zh:
-    - href: /other/2021/01/11/510smin_1
-      name: 2021年买的最值的东西
-      describe: 联想510smini小主机
-#    - href: /linux/2021/06/20/jekyll_install
-#      name: Linux安装jekyll
-#      describe: 自己建站的一些经验
-    - href: /other/2021/10/05/coding_name01
-      name: 工程实践中关于命名那些事
-      describe: 自己总结的命名规范希望能给大家参考
-    - href: /other/2020/10/03/m73
-      name: 联想m73黑苹果折腾记
-      describe: 为什么电子垃圾往往会有第二春
-  en:
-    - href: /en/java/2022/05/15/cache-anno01.html
-      name: Data automatic caching annotations
-      describe: Automatic cache annotation based on AOP implementation
-
-#    - href: /en/other/2021/10/05/coding_name01
-#      name: Naming in Engineering Practice
-#      describe: The naming convention for coding summarized by myself hopefully can give you a reference
-#
-#    - href: /en/other/2020/10/03/m73
-#      name: Lenovo m73 black apple toss
-#      describe: Why e-waste often has a second life
-
-
-# soft
-soft: 
-  en:
-    - html_url: https://github.com/oreoft/cache-anno
-      name: Cache-anno
-      description: Automatically caching method data annotations
-  zh:
-    - html_url: https://github.com/oreoft/cache-anno
-      name: Cache-anno
-      description: 自动缓存方法数据注解
+# 数据配置已移至 _data 目录，符合 Jekyll 最佳实践
+# - 精选文章：_data/selected_articles.yml
+# - 开源软件：_data/open_source_software.yml
+# - 国际化文本：_data/i18n.yml
 
 # ---------------- #
 #       RSS        #

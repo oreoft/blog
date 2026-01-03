@@ -1,0 +1,14 @@
+# 开源软件配置
+# 使用关联 ID 结构，每个条目有唯一 id，中英文版本共享同一个 id
+# 添加中文条目时，只需补充英文翻译即可实现同步
+repositories:
+  - id: cache_anno
+    zh:
+      html_url: https://github.com/oreoft/cache-anno
+      name: Cache-anno
+      description: 自动缓存方法数据注解
+    en:
+      html_url: https://github.com/oreoft/cache-anno
+      name: Cache-anno
+      description: Automatically caching method data annotations
+

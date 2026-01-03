@@ -1,0 +1,33 @@
+# 精选文章配置
+# 使用关联 ID 结构，每个条目有唯一 id，中英文版本共享同一个 id
+# 添加中文条目时，只需补充英文翻译即可实现同步
+articles:
+  - id: 510smin_1
+    zh:
+      href: /other/2021/01/11/510smin_1
+      name: 2021年买的最值的东西
+      describe: 联想510smini小主机
+    en:
+      href: /en/other/2021/01/11/510smin_1
+      name: The Best Purchase of 2021
+      describe: Lenovo 510smini mini PC
+
+  - id: coding_name01
+    zh:
+      href: /other/2021/10/05/coding_name01
+      name: 工程实践中关于命名那些事
+      describe: 自己总结的命名规范希望能给大家参考
+    en:
+      href: /en/other/2021/10/05/coding_name01
+      name: Naming in Engineering Practice
+      describe: The naming convention for coding summarized by myself hopefully can give you a reference
+
+  - id: m73
+    zh:
+      href: /other/2020/10/03/m73
+      name: 联想m73黑苹果折腾记
+      describe: 为什么电子垃圾往往会有第二春
+    en:
+      href: /en/other/2020/10/03/m73
+      name: Lenovo m73 black apple toss
+      describe: Why e-waste often has a second life
