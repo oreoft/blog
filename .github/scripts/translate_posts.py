@@ -108,16 +108,21 @@ def get_changed_files_from_git():
     for line in result.stdout.strip().split('\n'):
         if not line:
             continue
-            
-        # 1. 必须是 _posts 下的 markdown 文件
+        
+        full_path = os.path.join(os.getcwd(), line)
+        
+        # 1. 处理 _posts 下的文章
         if line.startswith('_posts/') and line.endswith('.md'):
-            full_path = os.path.join(os.getcwd(), line)
-            
-            # 2. 必须是有效的年份目录
+            # 必须是有效的年份目录
             if not is_valid_post_path(full_path):
                 continue
-
-            # 3. 文件必须存在（处理删除的情况）
+            # 文件必须存在（处理删除的情况）
+            if os.path.exists(full_path):
+                if is_chinese_post(full_path):
+                    changed.append(full_path)
+        
+        # 2. 处理页面文件：zh/about.md 和 zh/link.md
+        elif line in ['zh/about.md', 'zh/link.md']:
             if os.path.exists(full_path):
                 if is_chinese_post(full_path):
                     changed.append(full_path)
@@ -178,10 +183,19 @@ def process_post(zh_path, force=False):
     """
     try:
         zh_path_obj = Path(zh_path)
-        # 计算相对路径: _posts/2021/xxx.md -> 2021/xxx.md
-        rel_path = zh_path_obj.relative_to(Path(os.getcwd()) / '_posts')
-        # 构造英文路径: en/_posts/2021/xxx.md
-        en_path = Path(os.getcwd()) / 'en' / '_posts' / rel_path
+        
+        # 判断是 _posts 下的文章还是页面文件
+        if '_posts' in zh_path_obj.parts:
+            # _posts 下的文章：_posts/2021/xxx.md -> en/_posts/2021/xxx.md
+            rel_path = zh_path_obj.relative_to(Path(os.getcwd()) / '_posts')
+            en_path = Path(os.getcwd()) / 'en' / '_posts' / rel_path
+        else:
+            # 页面文件：zh/about.md -> en/about.md, zh/link.md -> en/link.md
+            if zh_path_obj.name in ['about.md', 'link.md']:
+                en_path = Path(os.getcwd()) / 'en' / zh_path_obj.name
+            else:
+                print(f"Unknown file type: {zh_path}")
+                return False
         
         # 策略检查
         if en_path.exists() and not force:
@@ -200,10 +214,20 @@ def process_post(zh_path, force=False):
         if 'title' in post.metadata:
             res = translate_text(f"Translate title to English: {post.metadata['title']}")
             if res: post.metadata['title'] = res.strip().strip('"')
+        
+        if 'titlebar' in post.metadata:
+            res = translate_text(f"Translate titlebar to English: {post.metadata['titlebar']}")
+            if res: post.metadata['titlebar'] = res.strip().strip('"')
             
         if 'excerpt' in post.metadata:
             res = translate_text(f"Translate excerpt to English: {post.metadata['excerpt']}")
             if res: post.metadata['excerpt'] = res.strip()
+        
+        # 更新 permalink（如果是页面文件）
+        if 'permalink' in post.metadata and '_posts' not in zh_path_obj.parts:
+            permalink = post.metadata['permalink']
+            if permalink.startswith('/') and not permalink.startswith('/en'):
+                post.metadata['permalink'] = '/en' + permalink
             
         # 2. 翻译正文
         if post.content.strip():

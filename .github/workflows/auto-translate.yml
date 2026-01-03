@@ -6,6 +6,8 @@ on:
       - main  # 监听 main 分支
     paths:
       - '_posts/**/*.md'  # 只监听 _posts 下的文件变化
+      - 'zh/about.md'     # 监听 about 页面
+      - 'zh/link.md'      # 监听 link 页面
 
 jobs:
   translate:
@@ -25,7 +27,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install openai pyyaml frontmatter python-frontmatter
+          pip uninstall -y frontmatter || true
+          pip install openai pyyaml python-frontmatter
 
       - name: Translate new/updated posts
         env:
@@ -38,7 +41,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add en/_posts/
+          git add en/_posts/ en/about.md en/link.md
           # 检查是否有暂存的更改
           if ! git diff --staged --quiet; then
             git commit -m "Auto-translate: Update English posts [skip ci]"

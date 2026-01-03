@@ -1,0 +1,295 @@
+<!-- 搜索弹窗 -->
+<div id="search-modal" class="search-modal" style="display: none;">
+    <div class="search-modal-overlay" onclick="closeSearchModal()"></div>
+    <div class="search-modal-content">
+        <div class="search-modal-header">
+            <h3>{% if page.lang == 'en' %}Search Articles{% else %}搜索文章{% endif %}</h3>
+            <button class="search-modal-close" onclick="closeSearchModal()" aria-label="Close">
+                <span class="octicon octicon-x"></span>
+            </button>
+        </div>
+        <div class="search-modal-body">
+            <input type="text" id="modal-search-input" class="form-control" 
+                   placeholder="{% if page.lang == 'en' %}Enter keywords to search articles...{% else %}输入关键词搜索文章...{% endif %}" 
+                   autofocus>
+            <div id="modal-search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+(function() {
+    var searchInitialized = false;
+    var searchInstance = null;
+    
+    // 打开搜索弹窗
+    window.openSearchModal = function() {
+        var modal = document.getElementById('search-modal');
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+            
+            // 初始化搜索（只初始化一次）
+            if (!searchInitialized) {
+                initSearch();
+            }
+            
+            // 聚焦到输入框
+            setTimeout(function() {
+                var input = document.getElementById('modal-search-input');
+                if (input) {
+                    input.focus();
+                }
+            }, 100);
+        }
+    };
+    
+    // 关闭搜索弹窗
+    window.closeSearchModal = function() {
+        var modal = document.getElementById('search-modal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // 恢复滚动
+            
+            // 清空搜索结果
+            var results = document.getElementById('modal-search-results');
+            if (results) {
+                results.innerHTML = '';
+            }
+            
+            // 清空输入框
+            var input = document.getElementById('modal-search-input');
+            if (input) {
+                input.value = '';
+            }
+        }
+    };
+    
+    // 初始化搜索功能
+    function initSearch() {
+        if (typeof SimpleJekyllSearch === 'undefined') {
+            console.error('SimpleJekyllSearch library not loaded');
+            return;
+        }
+        
+        // 根据当前语言选择 JSON 文件
+        var currentLang = '{% if page.lang == "en" %}en{% else %}zh{% endif %}';
+        var jsonPath = currentLang === 'en' ? '/en/search-en.json' : '/search-zh.json';
+        var dateLabel = currentLang === 'en' ? 'Date: ' : '日期: ';
+        var noResultsText = currentLang === 'en' ? '<div class="search-result-item"><p>No articles found</p></div>' : '<div class="search-result-item"><p>没有找到相关文章</p></div>';
+        
+        try {
+            searchInstance = SimpleJekyllSearch({
+                searchInput: document.getElementById('modal-search-input'),
+                resultsContainer: document.getElementById('modal-search-results'),
+                json: jsonPath,
+                searchResultTemplate: '<div class="search-result-item"><h3><a href="{url}" onclick="closeSearchModal()">{title}</a></h3><p class="search-meta">' + dateLabel + '{date}</p><p class="search-excerpt">{excerpt}</p></div>',
+                noResultsText: noResultsText,
+                limit: 10,
+                fuzzy: false
+            });
+            searchInitialized = true;
+        } catch (e) {
+            console.error('Failed to initialize search:', e);
+        }
+    }
+    
+    // 按 ESC 键关闭弹窗
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var modal = document.getElementById('search-modal');
+            if (modal && modal.style.display === 'block') {
+                closeSearchModal();
+            }
+        }
+    });
+    
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            // 如果弹窗已经打开，初始化搜索
+            var modal = document.getElementById('search-modal');
+            if (modal && modal.style.display === 'block') {
+                initSearch();
+            }
+        });
+    }
+})();
+</script>
+
+<style>
+/* 搜索弹窗样式 */
+.search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.search-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.search-modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    animation: searchModalSlideIn 0.3s ease-out;
+    margin: auto;
+}
+
+@keyframes searchModalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.search-modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #24292e;
+}
+
+.search-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #586069;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.search-modal-close:hover {
+    color: #24292e;
+}
+
+.search-modal-body {
+    padding: 25px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#modal-search-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #e1e4e8;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+}
+
+#modal-search-input:focus {
+    outline: none;
+    border-color: #0366d6;
+    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.1);
+}
+
+.search-results {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    background: #fff;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    border-color: #0366d6;
+    box-shadow: 0 2px 8px rgba(3, 102, 214, 0.15);
+    transform: translateY(-2px);
+}
+
+.search-result-item h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.search-result-item h3 a {
+    color: #0366d6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.search-result-item h3 a:hover {
+    color: #0256cc;
+    text-decoration: underline;
+}
+
+.search-meta {
+    color: #586069;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.search-excerpt {
+    color: #586069;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 8px 0 0 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .search-modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .search-modal-header {
+        padding: 15px 20px;
+    }
+    
+    .search-modal-body {
+        padding: 20px;
+    }
+    
+    .search-modal-header h3 {
+        font-size: 18px;
+    }
+}
+</style>
+
