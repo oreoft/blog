@@ -33,17 +33,17 @@
 {% for article in site.data.selected_articles.articles %}
   {% assign lang_data = article[current_lang] %}
   {% if lang_data and lang_data.href and lang_data.name %}
-    <div class="card text-center">
-        <div class="thumbnail">
+<div class="card text-center">
+    <div class="thumbnail">
             <div class="card-image geopattern" data-pattern-id="{{ lang_data.name }}">
-                <div class="card-image-cell">
-                    <h3 class="card-title">
+            <div class="card-image-cell">
+                <h3 class="card-title">
                         <a href="{{ lang_data.href }}" target="_blank">{{ lang_data.name }}</a>
-                    </h3>
-                </div>
+                </h3>
             </div>
-            <div class="caption">
-                <div class="card-description">
+        </div>
+        <div class="caption">
+            <div class="card-description">
                     <p class="card-text">{{ lang_data.describe }}</p>
                 </div>
             </div>
@@ -61,42 +61,42 @@
   {% if lang_data and lang_data.html_url and lang_data.name %}
     {% if repo_count < site.side_bar_repo_limit %}
       {% assign repo_count = repo_count | plus: 1 %}
-      <div class="card text-center">
-          <div class="thumbnail">
+<div class="card text-center">
+    <div class="thumbnail">
               <div class="card-image geopattern" data-pattern-id="{{ lang_data.name }}">
-                  <div class="card-image-cell">
-                      <h3 class="card-title">
+            <div class="card-image-cell">
+                <h3 class="card-title">
                           <a href="{{ lang_data.html_url }}" target="_blank">{{ lang_data.name }}</a>
-                      </h3>
-                  </div>
-              </div>
-              <div class="caption">
-                  <div class="card-description">
+                </h3>
+            </div>
+        </div>
+        <div class="caption">
+            <div class="card-description">
                       <p class="card-text">{{ lang_data.description }}</p>
-                  </div>
+            </div>
                   {% if lang_data.stargazers_count or lang_data.forks_count or lang_data.updated_at %}
-                  <div class="card-text">
+            <div class="card-text">
                       {% if lang_data.stargazers_count %}
                       <span data-toggle="tooltip" class="meta-info" title="{{ lang_data.stargazers_count }} {{ 'sidebar.stars' | t }}">
                           <span class="octicon octicon-star"></span> {{ lang_data.stargazers_count }}
-                      </span>
+                </span>
                       {% endif %}
                       {% if lang_data.forks_count %}
                       <span data-toggle="tooltip" class="meta-info" title="{{ lang_data.forks_count }} {{ 'sidebar.forks' | t }}">
                           <span class="octicon octicon-git-branch"></span> {{ lang_data.forks_count }}
-                      </span>
+                </span>
                       {% endif %}
                       {% if lang_data.updated_at %}
                       <span data-toggle="tooltip" class="meta-info" title="{{ 'sidebar.last_updated' | t }}：{{ lang_data.updated_at }}">
-                          <span class="octicon octicon-clock"></span>
+                    <span class="octicon octicon-clock"></span>
                           <time datetime="{{ lang_data.updated_at }}" title="{{ lang_data.updated_at }}">{{ lang_data.updated_at | date: '%Y-%m-%d' }}</time>
-                      </span>
+                </span>
                       {% endif %}
-                  </div>
+            </div>
                   {% endif %}
-              </div>
-          </div>
-      </div>
+        </div>
+    </div>
+</div>
     {% endif %}
   {% endif %}
 {% endfor %}

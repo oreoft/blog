@@ -18,9 +18,41 @@
         </div>
     </div>
     <!-- Third-Party JS -->
-           <script type="text/javascript" src="https://someget.oss-accelerate.aliyuncs.com/assets/js/geopattern.min.js"></script>
-           <!-- My JS -->
-           <script type="text/javascript" src="https://someget.oss-accelerate.aliyuncs.com/assets/js/script.js"></script>
+    <script type="text/javascript" src="https://someget.oss-accelerate.aliyuncs.com/assets/js/geopattern.min.js"></script>
+
+    <!-- 首页每日更换背景 Pattern -->
+    {% if page.menu == 'home' %}
+    <script>
+        (function() {
+            try {
+                var date = new Date();
+                var day = date.getDay(); // 0-6 (周日是0)
+                // 将星期几作为后缀拼接到 pattern-id 上
+                // 这样每天生成的字符串都不一样，对应的背景图案也就不一样
+                var suffix = " - " + day; 
+                
+                var updatePatternId = function(selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        var originalId = el.getAttribute('data-pattern-id');
+                        if (originalId) {
+                            el.setAttribute('data-pattern-id', originalId + suffix);
+                        }
+                    }
+                };
+                
+                // 更新 Header 和 Jumbotron
+                updatePatternId('.site-header.geopattern');
+                updatePatternId('.jumbotron.geopattern');
+            } catch (e) {
+                console.error('Failed to update pattern id', e);
+            }
+        })();
+    </script>
+    {% endif %}
+
+    <!-- My JS -->
+    <script type="text/javascript" src="https://someget.oss-accelerate.aliyuncs.com/assets/js/script.js"></script>
            <script type="text/javascript" src="/assets/js/locale-switch.js"></script>
            <script type="text/javascript" src="/assets/js/code-copy.js"></script>
            

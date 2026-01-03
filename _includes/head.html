@@ -10,9 +10,9 @@
             {{ page.titlebar | escape }} - {{ 'site.title' | t }}
         {% elsif page.title %}
             {{ page.title | escape }} - {{ 'site.title' | t }}
-        {% else %}
+    {% else %}
             {{ 'site.title' | t | escape }}
-        {% endif %}
+    {% endif %}
     </title>
 
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
