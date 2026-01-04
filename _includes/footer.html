@@ -55,6 +55,36 @@
     <script type="text/javascript" src="https://someget.oss-accelerate.aliyuncs.com/assets/js/script.js"></script>
            <script type="text/javascript" src="/assets/js/locale-switch.js"></script>
            <script type="text/javascript" src="/assets/js/code-copy.js"></script>
+    <!-- Header 滚动玻璃态 -->
+    <script>
+        (function() {
+            var header = document.querySelector('.site-header');
+            if (!header) return;
+            var threshold = Math.max(window.innerHeight * 0.1, 60);
+            function toggle() {
+                var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+                var active = y > threshold;
+                header.classList.toggle('is-glass', active);
+                if (active) {
+                    header.style.setProperty('background-color', 'rgba(255, 255, 255, 0.14)', 'important');
+                    header.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
+                    header.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
+                    header.style.setProperty('box-shadow', '0 4px 16px rgba(0, 0, 0, 0.22)', 'important');
+                } else {
+                    header.style.setProperty('background-color', 'transparent', 'important');
+                    header.style.setProperty('backdrop-filter', 'none', 'important');
+                    header.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+                    header.style.setProperty('box-shadow', 'none', 'important');
+                }
+            }
+            window.addEventListener('scroll', toggle, { passive: true });
+            window.addEventListener('resize', function() {
+                threshold = Math.max(window.innerHeight * 0.1, 60);
+                toggle();
+            });
+            toggle();
+        })();
+    </script>
            
            <!-- 搜索弹窗 -->
            {% include search-modal.html %}

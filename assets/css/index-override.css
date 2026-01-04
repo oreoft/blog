@@ -3,12 +3,20 @@
 /* 1. 确保 Header 和 Jumbotron 使用 geopattern 生成的背景 */
 .site-header.geopattern,
 .jumbotron.geopattern {
-    background-color: transparent !important; /* 移除可能存在的背景色覆盖 */
     color: #ffffff !important; /* 确保文字是白色 */
     /* 强制背景平铺且不缩放，解决不同页面背景图案大小不一致的问题 */
     background-size: auto !important;
     background-repeat: repeat !important;
     background-position: center top !important;
+}
+
+.jumbotron.geopattern {
+    background-color: transparent !important;
+}
+
+/* Header 初始透明，让底部的 GeoPattern 透过；需要时玻璃态再叠加色块 */
+.site-header.geopattern {
+    background-image: none !important;
 }
 
 /* 2. 确保 Header 内部元素透明，以显示父元素的 geopattern 背景 */
@@ -46,4 +54,28 @@
 .site-header-nav .site-header-nav-item.selected a {
     color: #ffffff !important;
     border-bottom-color: #ffffff !important;
+}
+
+/* 玻璃态 Header：滚动后叠加半透明+模糊 */
+.site-header.geopattern {
+    transition:
+        background-color 0.25s ease,
+        backdrop-filter 0.25s ease,
+        -webkit-backdrop-filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.site-header.geopattern.is-glass,
+.site-header.geopattern.site-header-nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.14) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+}
+
+.site-header.geopattern:not(.is-glass):not(.site-header-nav-scrolled) {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
 }
