@@ -79,3 +79,135 @@
     box-shadow: none !important;
     background-color: transparent !important;
 }
+
+/* 默认隐藏汉堡按钮（仅移动端显示），避免桌面出现小点 */
+.topbar-hamburger {
+    display: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+.topbar-hamburger span {
+    display: block;
+}
+
+/* 移动端适配：Header 收紧排版与字号 */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 8px 0 !important;
+    }
+    .site-header-topbar {
+        padding: 0 !important;
+        height: 0;
+        min-height: 0;
+        position: relative;
+    }
+    .site-header-topbar .container {
+        position: relative;
+        display: block;
+        height: 0;
+        padding: 0;
+    }
+    .topbar-hamburger {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 6px;
+        padding: 4px;
+        cursor: pointer;
+        z-index: 10000;
+    }
+    .topbar-hamburger span {
+        display: block;
+        height: 2px;
+        background: #ffffff;
+        border-radius: 2px;
+    }
+    .site-header-topbar .topbar-menu {
+        position: absolute;
+        top: 46px;
+        right: 6px;
+        left: auto;
+        margin-top: 0;
+        max-width: 320px;
+        min-width: 200px;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border-radius: 8px;
+        padding: 10px 12px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 9999;
+    }
+    .site-header-topbar .topbar-menu .item a {
+        font-size: 15px !important;
+        padding: 4px 2px !important;
+        display: block;
+    }
+    .site-header.topbar-open .site-header-topbar .topbar-menu {
+        display: flex;
+    }
+    .site-header-topbar {
+        position: relative;
+    }
+    .site-header-topbar .topbar-menu .item img {
+        margin-top: 2px;
+    }
+    .site-header .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px 18px 16px;
+    }
+    #site-header-brand {
+        font-size: 26px !important;
+        line-height: 1.2;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    #site-header-brand .octicon {
+        font-size: 26px !important;
+    }
+    .site-header-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        padding: 0 8px;
+        margin-top: 4px;
+    }
+    .site-header-nav .site-header-nav-item > a {
+        font-size: 16px !important;
+        padding: 4px 6px;
+    }
+
+    /* 吸顶后隐藏汉堡，防止露出 */
+    .site-header.site-header-nav-scrolled .topbar-hamburger,
+    .site-header.is-glass .topbar-hamburger {
+        display: none !important;
+    }
+}
+
+/* 吸顶/玻璃态时，导航文字变深色（与左侧品牌一致） */
+.site-header.geopattern.is-glass .site-header-topbar .topbar-menu .item a,
+.site-header.geopattern.site-header-nav-scrolled .site-header-topbar .topbar-menu .item a,
+.site-header.geopattern.is-glass #site-header-brand,
+.site-header.geopattern.site-header-nav-scrolled #site-header-brand,
+.site-header.geopattern.is-glass .site-header-nav .site-header-nav-item > a,
+.site-header.geopattern.site-header-nav-scrolled .site-header-nav .site-header-nav-item > a {
+    color: #1f2933 !important; /* 深色文字 */
+    text-shadow: none !important;
+    border-color: #1f2933 !important;
+}

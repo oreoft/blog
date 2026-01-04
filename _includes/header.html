@@ -3,19 +3,11 @@
     {% assign header_pattern_id = 'site.name' | t %}
 {% endif %}
 <header class="site-header geopattern" data-pattern-id="{{ header_pattern_id }}">
-    <!-- 百度的流量监控 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?672c60c153858ae812087b74c8e9a6a5";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-
     <div class="site-header-topbar">
         <div class="container">
+            <button class="topbar-hamburger" type="button" aria-label="Toggle menu" onclick="toggleTopbarMenu()">
+                <span></span><span></span><span></span>
+            </button>
             <div class="topbar-menu">
                 <!-- 顶部菜单 (硬编码结构，文案从 i18n 获取) -->
                 {% assign lang_prefix = '' %}

@@ -85,6 +85,26 @@
             toggle();
         })();
     </script>
+
+    <!-- 顶部菜单汉堡切换（移动端） -->
+    <script>
+        (function() {
+            var header = document.querySelector('.site-header');
+            var btn = document.querySelector('.topbar-hamburger');
+            if (!header || !btn) return;
+
+            window.toggleTopbarMenu = function() {
+                header.classList.toggle('topbar-open');
+            };
+
+            // 当窗口变大时，确保关闭汉堡展开
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    header.classList.remove('topbar-open');
+                }
+            });
+        })();
+    </script>
            
            <!-- 搜索弹窗 -->
            {% include search-modal.html %}
