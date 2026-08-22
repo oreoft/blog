@@ -27,10 +27,10 @@
 """
 
 import os
-import sys
 import subprocess
-import re
+import sys
 from pathlib import Path
+
 from openai import OpenAI
 
 # 尝试导入 frontmatter
@@ -141,7 +141,7 @@ def is_chinese_post(file_path):
         print(f"Error checking file language {file_path}: {e}")
     return False
 
-def translate_text(text, model="gpt-5.6-luna"): # 使用更经济的模型，根据需要调整
+def translate_text(text, model="gpt-5.4"): # 使用更经济的模型，根据需要调整
     """调用 LLM 进行翻译"""
     if not client:
         print("Error: OpenAI client not initialized")
