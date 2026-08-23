@@ -8,7 +8,12 @@
    - **全量补全模式**（`--all`）：遍历所有中文文章与页面，仅补全缺失的英文文件，绝不覆盖已有翻译。
    - **指定文件模式**：直接传入一个或多个文件路径进行翻译（若英文文件已存在则跳过）。
 
-2. **配置**：
+2. **翻译范围**（所有模式共用同一套规则，见 `is_translatable`）：
+   - `_posts/<四位年份>/*.md` 下的中文文章。
+   - `zh/` 下的 `.md` 页面，**排除 `UNTRANSLATED_PAGES` 黑名单**。黑名单页面（如 patriotic.md）是有意不提供英文版的，
+     无论 CI 触发、`--all` 还是手动指定文件，都不会被翻译。
+
+3. **配置**：
    - 依赖环境变量 `OPENAI_API_KEY`、`OPENAI_BASE_URL`（可选）和 `OPENAI_MODEL`（可选，默认 gpt-5.4）。
 """
 
@@ -73,6 +78,12 @@ client = OpenAI(
     base_url=OPENAI_BASE_URL
 ) if OPENAI_API_KEY else None
 
+# zh/ 目录下**不**自动翻译的页面黑名单（相对 zh/ 的路径）。
+# 这些页面是有意不提供英文版的；zh/ 下其余 .md 页面默认都会同步到 en/。
+# 注意：修改这里时同步更新 .github/workflows/auto-translate.yml 里 paths 的 `!zh/...` 排除项。
+UNTRANSLATED_PAGES = frozenset({
+})
+
 
 # --- 辅助逻辑 ---
 
@@ -100,21 +111,28 @@ def is_valid_post_path(file_path):
 
 def is_valid_page_path(file_path):
     """
-    判断文件路径是否为 zh/ 目录下的页面文件
+    判断文件路径是否为 zh/ 目录下**允许翻译**的页面文件（.md 且不在 UNTRANSLATED_PAGES 黑名单内）
     例如:
     - zh/about.md -> True
     - zh/link.md -> True
-    - zh/patriotic.md -> True
+    - zh/patriotic.md -> False（有意不翻译）
     """
     path = Path(file_path).resolve()
     try:
-        path.relative_to(REPO_ROOT / 'zh')
-        if path.suffix == '.md':
-            return True
+        rel = path.relative_to(REPO_ROOT / 'zh')
+        return path.suffix == '.md' and rel.as_posix() not in UNTRANSLATED_PAGES
     except ValueError:
-        pass
+        return False
 
-    return False
+
+def is_translatable(file_path):
+    """
+    统一的翻译范围判断：所有入口（CI diff / --all / 指定文件）都必须经过这里。
+    满足以下任一条件才会翻译：
+    - 合法的年份文章（is_valid_post_path）
+    - 不在黑名单内的 zh/ 页面（is_valid_page_path）
+    """
+    return is_valid_post_path(file_path) or is_valid_page_path(file_path)
 
 
 def get_target_en_path(zh_path) -> Path:
@@ -203,6 +221,16 @@ def process_post(zh_path, force=False):
             print(f"File not found: {zh_path}")
             return False
 
+        # 范围保护：非年份文章、非白名单页面一律跳过（无论哪种模式）
+        if not is_translatable(zh_path_obj):
+            print(f"Skipping {zh_path}: not in translation scope "
+                  f"(must be _posts/<year>/*.md or a zh/*.md page not listed in UNTRANSLATED_PAGES)")
+            return False
+
+        if not is_chinese_post(zh_path_obj):
+            print(f"Skipping {zh_path}: not a Chinese source file (lang != zh)")
+            return False
+
         en_path = get_target_en_path(zh_path_obj)
         if en_path is None:
             print(f"Skipping {zh_path}: file is neither in _posts/ nor in zh/")
@@ -288,6 +316,7 @@ def get_changed_files_from_git():
     ]
 
     raw_files = []
+    any_succeeded = False
     for cmd in diff_commands:
         try:
             result = subprocess.run(
@@ -297,12 +326,18 @@ def get_changed_files_from_git():
                 text=True,
                 check=True
             )
+            any_succeeded = True
             output = result.stdout.strip()
             if output:
                 raw_files = output.split('\n')
                 break
         except subprocess.CalledProcessError:
             continue
+
+    if not any_succeeded:
+        # 与"确实没有变更"区分开，便于在 CI 日志里排查
+        print("Warning: all git diff commands failed; cannot detect changed files.")
+        return []
 
     changed = []
     for line in raw_files:
@@ -311,18 +346,12 @@ def get_changed_files_from_git():
             continue
 
         full_path = REPO_ROOT / line
-
-        # 1. 处理 _posts 下的文章
-        if line.startswith('_posts/') and line.endswith('.md'):
-            if not is_valid_post_path(full_path):
-                continue
-            if full_path.exists() and is_chinese_post(full_path):
-                changed.append(full_path)
-
-        # 2. 处理 zh/ 下的页面文件
-        elif line.startswith('zh/') and line.endswith('.md'):
-            if full_path.exists() and is_chinese_post(full_path):
-                changed.append(full_path)
+        if not line.endswith('.md') or not full_path.exists():
+            continue  # 非 md 或已删除的文件
+        if not is_translatable(full_path):
+            continue
+        if is_chinese_post(full_path):
+            changed.append(full_path)
 
     return changed
 
@@ -350,17 +379,18 @@ def run_batch_mode():
                         if process_post(full_path, force=False):
                             count += 1
 
-    # 2. 扫描 zh 目录
+    # 2. 扫描 zh/ 目录（黑名单页面由 is_translatable 过滤）
     zh_dir = REPO_ROOT / 'zh'
     if zh_dir.exists():
         for root, _, files in os.walk(zh_dir):
             for file in sorted(files):
-                if file.endswith('.md'):
-                    full_path = Path(root) / file
-                    if is_chinese_post(full_path):
-                        total_scanned += 1
-                        if process_post(full_path, force=False):
-                            count += 1
+                full_path = Path(root) / file
+                if not is_translatable(full_path):
+                    continue
+                if is_chinese_post(full_path):
+                    total_scanned += 1
+                    if process_post(full_path, force=False):
+                        count += 1
 
     print(f"\nBatch processing complete. Scanned {total_scanned} Chinese files, translated {count} missing files.")
 

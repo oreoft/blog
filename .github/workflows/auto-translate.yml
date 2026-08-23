@@ -6,7 +6,7 @@ on:
       - main  # 监听 main 分支
     paths:
       - '_posts/**/*.md'  # 监听 _posts 下的文件变化
-      - 'zh/**/*.md'      # 监听 zh 目录下的所有页面变化
+      - 'zh/**/*.md'      # 监听 zh 目录下的页面变化
   workflow_dispatch:
     inputs:
       mode:
@@ -41,12 +41,14 @@ jobs:
 
       - name: Determine translation arguments
         id: parse_args
+        # 通过 env 传入上下文变量，避免 ${{ }} 直接内联进 shell 造成脚本注入
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_MODE: ${{ github.event.inputs.mode }}
         run: |
-          EVENT_NAME="${{ github.event_name }}"
           ARGS=""
-          
+
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            INPUT_MODE="${{ github.event.inputs.mode }}"
             echo "Workflow dispatched manually with mode: $INPUT_MODE"
             if [ "$INPUT_MODE" = "all" ]; then
               ARGS="--all"
@@ -65,15 +67,16 @@ jobs:
               ARGS=""
             fi
           fi
-          
+
           echo "flags=$ARGS" >> "$GITHUB_OUTPUT"
 
       - name: Translate posts
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: "https://api.allm.chat/v1"  # 也可以配置在 secrets 中: ${{ secrets.OPENAI_BASE_URL }}
+          TRANSLATE_FLAGS: ${{ steps.parse_args.outputs.flags }}
         run: |
-          python .github/scripts/translate_posts.py ${{ steps.parse_args.outputs.flags }}
+          python .github/scripts/translate_posts.py $TRANSLATE_FLAGS
 
       - name: Commit translated files
         run: |
