@@ -5,23 +5,32 @@ on:
     branches:
       - main  # 监听 main 分支
     paths:
-      - '_posts/**/*.md'  # 只监听 _posts 下的文件变化
-      - 'zh/about.md'     # 监听 about 页面
-      - 'zh/link.md'      # 监听 link 页面
+      - '_posts/**/*.md'  # 监听 _posts 下的文件变化
+      - 'zh/**/*.md'      # 监听 zh 目录下的所有页面变化
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: '翻译模式 (all: 扫描并补全所有缺失翻译, incremental: 仅同步最后一次提交变动)'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - 'all'
+          - 'incremental'
 
 jobs:
   translate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 明确授予写权限，以便 push 代码
+      contents: write  # 授予写权限以便 push 代码
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # 获取完整历史以进行 diff
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -30,18 +39,47 @@ jobs:
           pip uninstall -y frontmatter || true
           pip install openai pyyaml python-frontmatter
 
-      - name: Translate new/updated posts
+      - name: Determine translation arguments
+        id: parse_args
+        run: |
+          EVENT_NAME="${{ github.event_name }}"
+          ARGS=""
+          
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            INPUT_MODE="${{ github.event.inputs.mode }}"
+            echo "Workflow dispatched manually with mode: $INPUT_MODE"
+            if [ "$INPUT_MODE" = "all" ]; then
+              ARGS="--all"
+            else
+              ARGS=""
+            fi
+          else
+            # Push 事件：检查 commit 信息中是否带有 --all 标记
+            COMMIT_MSG=$(git log -1 --pretty=%B)
+            echo "Commit message: $COMMIT_MSG"
+            if echo "$COMMIT_MSG" | grep -qiE -- "(--all|\[--all\])"; then
+              echo "Detected --all flag in commit message -> running with --all"
+              ARGS="--all"
+            else
+              echo "Standard incremental mode"
+              ARGS=""
+            fi
+          fi
+          
+          echo "flags=$ARGS" >> "$GITHUB_OUTPUT"
+
+      - name: Translate posts
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_BASE_URL: "https://api.allm.chat/v1" # 也可以配置在 secrets 中: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_BASE_URL: "https://api.allm.chat/v1"  # 也可以配置在 secrets 中: ${{ secrets.OPENAI_BASE_URL }}
         run: |
-          python .github/scripts/translate_posts.py
+          python .github/scripts/translate_posts.py ${{ steps.parse_args.outputs.flags }}
 
       - name: Commit translated files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add en/_posts/ en/about.md en/link.md
+          git add en/
           # 检查是否有暂存的更改
           if ! git diff --staged --quiet; then
             git commit -m "Auto-translate: Update English posts [skip ci]"

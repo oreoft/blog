@@ -14,3 +14,7 @@ vendor/
 
 # 私人笔记/设计文档,不进版本库
 docs/
+
+# Python
+__pycache__/
+*.py[cod]
