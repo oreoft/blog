@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 加了个分片，把线上写挂了一个多小时
-excerpt: Redis 内存满了，清了一轮冷数据只下来 5 个 G，索性直接加一个分片扩容。结果 slot 刚开始迁移 12 秒，推荐服务的 ZADD 就开始疯狂报错。以为是服务没感知到新节点，重启一下就好，结果重启完还在报。顺着那句"reachable node: None"往下挖，最后挖到 redis-py 客户端里一行"节点超时就从名单里删掉"的代码上。
+title: redis加了个分片，把线上写挂了一个多小时
+excerpt: Redis 内存满了，清了一轮冷数据只下来 5 个 G，索性直接加一个分片扩容。结果 slot 刚开始迁移 12 秒，推荐服务的 ZADD 就开始疯狂报错。以为是服务没感知到新节点，重启一下就好，结果重启完还在报。顺着那句"reachable node:None"往下挖，最后挖到 redis-py 客户端里一行"节点超时就从名单里删掉"的代码上。
 category: middleware
 keywords: redis, valkey, elasticache, redis-py, cluster, resharding, moved, 生产事故, 客户端 bug
 lang: zh

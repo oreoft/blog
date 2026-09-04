@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 一次雪崩排查：一次同步阻塞的调用，冻住了整个事件循环
+title: 一次同步阻塞的调用，冻住了整个事件循环
 excerpt: 服务莫名其妙被批量摘流重建，数据库看着也挺稳定，排查了半天才发现是一个第三方 SDK 在 async 函数里悄悄做了同步阻塞调用，把事件循环冻住了几秒钟，牵连出一整条雪崩链路
 category: cloud
 keywords: python, asyncio, event loop, gunicorn, alb, health check, ecs, connection pool, timeout
