@@ -1,5 +1,17 @@
 {
   "buildCommand": "bundle exec jekyll build",
+  "redirects": [
+    {
+      "source": "/zh",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "outputDirectory": "_site",
   "rewrites": [
     {

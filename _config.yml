@@ -51,7 +51,12 @@ port: 4000
 source:      .
 destination: ./_site
 quiet:    false
-defaults: []
+# zh/ 下的页面会被自动翻译到 en/，这里的 front matter 不能写在源文件里，否则会被带到英文页
+defaults:
+  - scope:
+      path: "zh/index.html"
+    values:
+      sitemap: false
 exclude:
   - AGENTS.md
   - CLAUDE.md

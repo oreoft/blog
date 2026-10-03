@@ -37,6 +37,10 @@ function switchLanguage(targetLang) {
   
   // 2. 计算目标 URL
   var currentPath = window.location.pathname;
+  // /zh/ 是首页的旧地址，按首页处理
+  if (currentPath === '/zh/' || currentPath === '/zh') {
+    currentPath = '/';
+  }
   var newPath = currentPath;
   
   if (targetLang === 'en') {
