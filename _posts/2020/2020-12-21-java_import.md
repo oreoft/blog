@@ -2,7 +2,7 @@
 layout: post
 title: java的import总结
 excerpt: 两种导入形式和improt static
-category: java, tools
+category: java
 keywords: java, tools
 lang: zh
 ---
