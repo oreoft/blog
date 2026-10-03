@@ -1,5 +1,6 @@
 ---
 layout: null
-feed_lang: zh
+permalink: /en/feed.xml
+feed_lang: en
 ---
 {%- include feed.xml lang=page.feed_lang %}

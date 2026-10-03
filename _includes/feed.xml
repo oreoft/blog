@@ -1,0 +1,28 @@
+{%- assign feed_lang = include.lang | default: 'zh' -%}
+{%- assign i18n = site.data.i18n[feed_lang] -%}
+{%- if feed_lang == 'en' -%}{%- assign feed_path = '/en/feed.xml' -%}{%- assign home_path = '/en/' -%}{%- else -%}{%- assign feed_path = '/feed.xml' -%}{%- assign home_path = '/' -%}{%- endif -%}
+{%- assign feed_posts = site.posts | where: "lang", feed_lang -%}<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ i18n.site.title | xml_escape }}</title>
+    <description>{{ i18n.site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ home_path }}</link>
+    <language>{% if feed_lang == 'en' %}en{% else %}zh-CN{% endif %}</language>
+    <atom:link href="{{ site.url }}{{ feed_path }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in feed_posts limit:10 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ site.url }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

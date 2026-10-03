@@ -13,7 +13,7 @@
             <a href="javascript:window.scrollTo(0,0)" >{{ 'footer.top' | t }}</a>
         </div>
         <div class="rss">
-            <a href="{{ site.subscribe_rss }}"><span class="octicon octicon-rss" style="color:orange;"></span></a>
+            <a href="{% if page.lang == 'en' %}/en{% endif %}{{ site.subscribe_rss }}"><span class="octicon octicon-rss" style="color:orange;"></span></a>
             {{ 'footer.power_by' | t }} <a href="https://jekyllrb.com">Jekyll</a>
         </div>
     </div>

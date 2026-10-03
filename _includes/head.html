@@ -21,7 +21,7 @@
     <!-- jekyll-seo-tag 会自动生成 Open Graph, Twitter Cards, JSON-LD 等 SEO 标签 -->
     {% seo %}
     
-    <link rel="alternate" type="application/rss+xml" title="{{ 'site.title' | t }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ 'site.title' | t }}" href="{{ site.url }}{% if page.lang == 'en' %}/en{% endif %}/feed.xml">
 
     <!-- Third-Party CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
