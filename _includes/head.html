@@ -7,6 +7,7 @@
 
     <title>{% if page.titlebar %}{{ page.titlebar | escape }} - {{ 'site.title' | t }}{% elsif page.title %}{{ page.title | escape }} - {{ 'site.title' | t }}{% else %}{{ 'site.title' | t | escape }}{% endif %}</title>
 
+    {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
 
     <!-- jekyll-seo-tag 会自动生成 Open Graph, Twitter Cards, JSON-LD 等 SEO 标签；页面标题用上面手写的（带站名） -->

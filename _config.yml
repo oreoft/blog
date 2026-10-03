@@ -67,6 +67,22 @@ defaults:
       path: "zh/index.html"
     values:
       sitemap: false
+  # 404 和搜索页不进 sitemap，也不让搜索引擎收录
+  - scope:
+      path: "404.md"
+    values:
+      sitemap: false
+      noindex: true
+  - scope:
+      path: "zh/search.md"
+    values:
+      sitemap: false
+      noindex: true
+  - scope:
+      path: "en/search.md"
+    values:
+      sitemap: false
+      noindex: true
 exclude:
   - AGENTS.md
   - CLAUDE.md
