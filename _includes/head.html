@@ -16,7 +16,6 @@
     </title>
 
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | escape }}{% else %}{{ 'site.description' | t }}{% endif %}">
 
     <!-- jekyll-seo-tag 会自动生成 Open Graph, Twitter Cards, JSON-LD 等 SEO 标签 -->
     {% seo %}
