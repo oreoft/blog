@@ -8,6 +8,6 @@ subtitle: <span class="mega-octicon octicon-git-commit"></span>&nbsp;&nbsp;
 css: ['blog-page.css']
 permalink: /middleware/
 lang: zh
-keys: mysql, redis
+keys: middleware, mysql, redis
 ---
 {% include blog-page.html %}

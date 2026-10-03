@@ -4,11 +4,11 @@
         <ul id="posts-list">
             {% assign posts = site.posts | where:"lang", page.lang %}
             <!--            拿到这个page的对应关键词-->
-            {% assign pageKeysArray = page.keys | replace "", " " | split: "," %}
+            {% assign pageKeysArray = page.keys | remove: " " | split: "," %}
             <!--            遍历所有对应语言文章-->
             {% for post in posts %}
             <!--            过滤出重叠的关键词-->
-            {% assign intersected_array = post.keywords | replace "", " " | split: "," | intersect: pageKeysArray | size %}
+            {% assign intersected_array = post.keywords | remove: " " | split: "," | intersect: pageKeysArray | size %}
             <!--            如果类型有包含或者关键词有重叠 则过滤出-->
             {% if pageKeysArray contains post.category or intersected_array > 0 %}
             <li class="posts-list-item">
