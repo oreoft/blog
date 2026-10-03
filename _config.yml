@@ -53,6 +53,16 @@ destination: ./_site
 quiet:    false
 # zh/ 下的页面会被自动翻译到 en/，这里的 front matter 不能写在源文件里，否则会被带到英文页
 defaults:
+  # og:locale 和默认分享图（jekyll-seo-tag 读取）
+  - scope:
+      path: ""
+    values:
+      locale: zh_CN
+      image: https://someget.oss-accelerate.aliyuncs.com/assets/images/logo.png
+  - scope:
+      path: "en"
+    values:
+      locale: en_US
   - scope:
       path: "zh/index.html"
     values:
@@ -111,7 +121,11 @@ subscribe_rss: /feed.xml
 # 如果需要自定义，可以在这里添加
 # twitter:
 #   username: your_twitter_username
-# author: Oreoft
+author: Oreoft
+# 默认分享图是竖版 logo，用小卡片，避免被裁成大图
+twitter:
+  card: summary
+logo: https://someget.oss-accelerate.aliyuncs.com/assets/images/logo.png
 
 # ---------------- #
 #   Giscus 评论    #
