@@ -52,6 +52,24 @@ source:      .
 destination: ./_site
 quiet:    false
 defaults: []
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - README.md
+  - LICENSE
+  - bower.json
+  - vercel.json
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - docs
+  - .github
+  - .idea
+  - .claude
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
+  - node_modules
 
 # 插件相关
 kramdown:
