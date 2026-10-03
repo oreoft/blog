@@ -17,6 +17,7 @@ zh:
     other: "其他"
     linux: "Linux"
     middleware: "中间件"
+    cloud: "云服务"
     labels: []
   pagination:
     prev: "上一页"
@@ -76,6 +77,7 @@ en:
     other: "Other"
     linux: "Linux"
     middleware: "Middleware"
+    cloud: "Cloud"
     labels: []
   pagination:
     prev: "Previous"
