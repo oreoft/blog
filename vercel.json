@@ -26,10 +26,6 @@
   ],
   "rewrites": [
     {
-      "source": "/en/:path*",
-      "destination": "/en/:path*/index.html"
-    },
-    {
       "source": "/:path*",
       "destination": "/:path*/index.html"
     }

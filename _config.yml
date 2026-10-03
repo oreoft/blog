@@ -16,6 +16,7 @@ keywords: Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代�
 # 通用设置相关
 email: meetyifan@gmail.com
 encoding: "utf-8"
+timezone: Asia/Shanghai
 repository: oreoft/blog
 url: https://www.someget.cn
 github_url: https://github.com/oreoft
