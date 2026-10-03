@@ -30,12 +30,8 @@ oss_optimization:
 
 ## Gem的插件
 plugins:
-  - jekyll-geo-pattern
-  - rouge
-  - kramdown
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-feed
 
 # 分页配置
 # 每页显示的文章数量（中英文共用）

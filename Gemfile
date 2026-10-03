@@ -1,8 +1,5 @@
-source 'https://gems.ruby-china.com'
+source 'https://rubygems.org'
 
-gem 'jekyll-geo-pattern'
-gem 'kramdown'
-gem 'jekyll-octicons'
+gem 'jekyll', '~> 4.4'
 gem 'jekyll-seo-tag'
 gem 'jekyll-sitemap'
-gem 'jekyll-feed'
