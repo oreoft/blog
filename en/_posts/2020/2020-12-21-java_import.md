@@ -1,51 +1,53 @@
 ---
-category: java, tools
+category: java
 excerpt: Two Import Forms and `import static`
 keywords: java, tools
 lang: en
 layout: post
-title: A Summary of Java Imports
+title: Java `import` Summary
 ---
 
-## Preface
+## Introduction
 
-When I was reading *Java 8 in Action*, I saw a lot of code handled like this:
+While reading *Java 8 in Action*, I came across many snippets like this:
 
 ![image-20210624200118873](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210624200118.png)
 
-<center>Call functions yourself at the two highlighted spots</center>
+<center>Two highlighted sections invoking functions directly</center>
 
-I was really curious. Later I found out that `import static` can import static members from a package, so you can reference them without the class name and use them directly in your code. Thinking about it, in real projects we often statically import constants from `constant` (for example, Redis key constants in a project)... turns out if your fundamentals aren’t solid, everything shakes... I’ve been using it all the time without even knowing, so I specifically wanted to summarize `import` and record it here.
+I was quite curious at first, but later realized that `import static` allows you to import static members of a package or class. This way, you don't need to prefix them with the class name and can use them directly in your code. Thinking about it, constants in project constant classes (like Redis key constants) are indeed often statically imported... It really shows that without a solid foundation, things can easily get shaky. I had been using it all along without truly understanding it, so I decided to write a summary about `import` and document it here.
 
-## `lang` package — imported by default
+## The lang Package - Default Import
 
-Common types like `Long`, `String`, etc. are used so frequently that there’s a high chance you’ll use them in almost every class. The JDK puts them under the `java.lang` package—`lang` as in *language*. This package contains Java’s language fundamentals. So `java.lang` is imported by default, and you don’t need to import it yourself.
+Common types such as `Long` and `String` are used so frequently that they are likely needed in almost every class. The JDK places them under the `java.lang` package—where `lang` stands for language, providing the core language fundamentals of Java. Therefore, the `lang` package is imported by default, meaning you never need to import it manually.
 
-## Import styles
+## Forms of Import
 
-### Single-type import
+### Single-Type Import
 
-Single-type import is easy to understand. Most of the time we import by type... and of course, most of the time the IDE imports for us. Most IDEs default to single-type imports: import whatever class you need.
+Single-type import is quite straightforward. Most of our imports are done by specific type... Of course, in practice, our IDEs usually handle imports for us, and most IDEs default to single-type imports—importing only the specific class that is needed:
 
-```import java.util.List;``
-
-### On-demand import
-
-On-demand type import, like ``` import java.util.*```. The `*` is basically a wildcard, meaning you import based on the package rather than importing a single type. One thing to note: when people see the wildcard, they often assume it imports *all* classes under `java.util`. In reality, it doesn’t. The wildcard just tells the compiler where to search when resolving types. This has no impact on runtime performance; what it affects is compile time, because it takes longer to search. Next, I’ll explain how the compiler finds classes during compilation.
-
-## How the compiler loads classes
-
-The Java compiler locates the classes you need to import from the `bootstrap`, `extension`, and `system` paths. These are all top-level directories. The compiler determines an absolute path like this:
-
-```html
-Top-level directory → package name → class name (filename.class)
+```java
+import java.util.List;
 ```
 
-With a **single-type import**, since the package name and filename are known, the absolute path is determined directly, and it only needs to search once to find the class file.
+### Type-Import-on-Demand (On-Demand Import)
 
-With an **on-demand import**, it’s a bit more troublesome. Because the class name is not fixed, the compiler needs to do permutations and combinations and list all possible absolute paths.
+Type-import-on-demand uses syntax like `import java.util.*`. The asterisk `*` acts as a wildcard, importing types based on package demand rather than individually. It is worth noting that when seeing the wildcard, people often mistakenly believe that all classes under `java.util` are immediately loaded into memory. In fact, this wildcard merely specifies the search directories when resolving types. It has zero impact on runtime execution speed; the only impact is on compilation speed because the compiler spends more time searching for classes. Let's look at how the compiler finds classes during compilation.
 
-For example, we need to use `List`, but we imported two wildcard packages:
+## How the Compiler Loads Classes
+
+The Java compiler locates classes to import from the bootstrap, extension, and system paths. These directories are all top-level directories, and the compiler determines an absolute path using the following structure:
+
+```html
+Top-level directory → Package name → Class name (filename.class)
+```
+
+In **Single-Type Import**, because both the package name and file name are explicitly known, the absolute path is determined directly, requiring only a single search to locate the desired class file.
+
+In **On-Demand Import**, things get slightly more involved. Because the class name is not specified upfront, the compiler needs to evaluate permutations and list all possible absolute paths.
+
+For example, suppose we need to import the `List` class, but we use two on-demand wildcard imports:
 
 ```java
 import java.util.*;
@@ -55,28 +57,30 @@ public static void main(String[]args){
 }
 ```
 
-Then the compiler will search for the `List` class in the following order:
+The compiler will follow these steps to locate the `List` class:
 
-1. First search the unnamed package (i.e., check whether there’s a `List` class in code without a declared `package`)
-2. Then search the current package for a `List` class
-3. Then check whether ```java.lang.List``` exists (this is imported by default, so it’s also checked)
-4. Then check whether ```java.util.List``` exists
-5. Note: even though it has already found it, the compiler will continue and check ```java.sql.List```
+1. Search the unnamed (default) package first to check if there is a `List` class without a package declaration.
+2. Search the current package to check if a `List` class exists.
+3. Check whether `java.lang.List` can be found (since `java.lang` is imported by default, it gets checked too).
+4. Check whether `java.util.List` can be found.
+5. Note: Even though it has already found one at this point, the compiler will still keep searching: `java.sql.List`.
 
-Basically it will stitch together absolute paths for all wildcard imports and try every possibility. If it finds two matches, the compiler will throw an error.
+Essentially, it will construct absolute paths for all wildcard imports and exhaust every possibility. If more than one matching class is found (e.g., both `java.util.List` and `java.sql.List`), the compiler will throw an ambiguous reference error.
 
-## Static import
+## Static Import
 
-Using ```import static``` instead of ``import`` enables static import. Both the single-type and on-demand forms above can be used with static import. Static import brings the static members of the imported class into the current class (because static members don’t require object instantiation; they’re initialized when the class is loaded and stored in the method area). Then in this class, you can call static methods directly by method name (as if the method were defined in this class), without needing `ClassName.staticMethodName`.
+Using `import static` instead of `import` enables static imports. Both single-type and on-demand imports can be used statically. A static import brings the static members of an imported class into the current class scope (since static members do not require instantiation, they are initialized when the class is loaded and stored in the method area / metaspace). You can then directly invoke static methods by their name within the class—just like a method declared directly inside the current class—without needing `ClassName.staticMethodName()`.
 
-The **benefit** of doing this is that it can simplify some operations. For example, some constants are already long; add the class name, and if there’s a naming conflict you might even need to include the package name—one reference can turn into two lines of code. Static import is much more convenient and looks cleaner.
+**Advantages:**
+It can simplify code significantly. For example, some constant names are already quite long; adding the class name—or even the package name if there is a naming collision—can turn a single reference into two lines of code. Using static imports makes the code much cleaner and more concise.
 
-The **downside** is that static import can make code harder to read. Especially when importing methods: `ClassName.staticMethodName`—the class name and method name complement each other. A bare method name, when you’re not familiar with the codebase, makes it hard to infer meaning from the name alone. Also, if you statically import the same static method or static member variable from two different classes, it will cause an error—for example, wrapper classes all have `MAX_VALUE`.
+**Disadvantages:**
+Static imports can make code harder to read. When invoking methods, `ClassName.staticMethodName()` provides complementary context. A bare method name without context can be hard to understand unless you are already very familiar with the codebase. Furthermore, if you import two classes that share the same static method name or static variable (for example, wrapper classes that all have `MAX_VALUE`), it will cause a compilation error.
 
-## Afterword
+## Conclusion
 
-You can see there’s actually a lot going on behind the imports that the IDE automatically handles for us—learning really is a long road. In practice, keeping your imports tidy is also very important. Because of changing requirements and team arrangements, I’ve seen company projects with over 200 lines of imports—terrifying to look at... and exhausting to deal with. I suggest that besides building good habits around 448 code formatting, you should also aim for good habits around optimizing imports.
+As you can see, even everyday imports that the IDE automatically handles for us involve quite a lot of underlying details—proving that learning is a long and continuous journey. In daily development, keeping your imports organized is also crucial. Due to shifting requirements and personnel changes, I've seen project files in enterprise codebases with over two hundred lines of imports, which looks terrifying and is exhausting to scroll through. In addition to cultivating good code formatting habits, I suggest everyone also make a habit of optimizing their imports regularly.
 
 ![image-20210625162603484](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210625162603.png)
 
-<center>IntelliJ shortcut for optimizing imports</center>
+<center>IntelliJ IDEA Optimize Imports Shortcut</center>

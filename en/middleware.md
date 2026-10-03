@@ -1,13 +1,14 @@
 ---
-layout: page
-title: Middleware Learning Record
-titlebar: Middleware Learning Record
-subtitle: <span class="mega-octicon octicon-git-commit"></span>&nbsp;&nbsp;
-     <a>Some mainstream middleware learning records I will put here, I hope to learn more write more know more, ohh 😋</a><br/>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-css: ['blog-page.css']
-permalink: /en/middleware/
+css:
+- blog-page.css
+keys: middleware, mysql, redis
 lang: en
-keys: redis, mysql
+layout: page
+permalink: /en/middleware/
+subtitle: "<span class=\"mega-octicon octicon-git-commit\"></span>&nbsp;&nbsp; <a>一些主流中间件学习记录我会放这里，希望学得越多写的越多懂得越多，嘿嘿\U0001F60B</a><br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+title: Middleware Learning Notes
+titlebar: Middleware Learning Notes
 ---
+
 {% include blog-page.html %}
