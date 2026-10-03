@@ -4,30 +4,30 @@
 articles:
   - id: 510smin_1
     zh:
-      href: /other/2021/01/11/510smin_1
+      href: /other/2021/01/11/510smin_1.html
       name: 2021年买的最值的东西
       describe: 联想510smini小主机
     en:
-      href: /en/other/2021/01/11/510smin_1
+      href: /en/other/2021/01/11/510smin_1.html
       name: The Best Purchase of 2021
       describe: Lenovo 510smini mini PC
 
   - id: coding_name01
     zh:
-      href: /other/2021/10/05/coding_name01
+      href: /other/2021/10/05/coding_name01.html
       name: 工程实践中关于命名那些事
       describe: 自己总结的命名规范希望能给大家参考
     en:
-      href: /en/other/2021/10/05/coding_name01
+      href: /en/other/2021/10/05/coding_name01.html
       name: Naming in Engineering Practice
       describe: The naming convention for coding summarized by myself hopefully can give you a reference
 
   - id: m73
     zh:
-      href: /other/2020/10/03/m73
+      href: /other/2020/10/03/m73.html
       name: 联想m73黑苹果折腾记
       describe: 为什么电子垃圾往往会有第二春
     en:
-      href: /en/other/2020/10/03/m73
+      href: /en/other/2020/10/03/m73.html
       name: Lenovo m73 black apple toss
       describe: Why e-waste often has a second life
