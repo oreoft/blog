@@ -18,6 +18,11 @@ on:
           - 'all'
           - 'incremental'
 
+# 同一时间只跑一个翻译任务，排队执行，避免两个任务同时 push 冲突
+concurrency:
+  group: auto-translate
+  cancel-in-progress: false
+
 jobs:
   translate:
     runs-on: ubuntu-latest
@@ -75,6 +80,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_BASE_URL: "https://api.allm.chat/v1"  # 也可以配置在 secrets 中: ${{ secrets.OPENAI_BASE_URL }}
           TRANSLATE_FLAGS: ${{ steps.parse_args.outputs.flags }}
+          TRANSLATE_BASE_SHA: ${{ github.event.before }}
         run: |
           python .github/scripts/translate_posts.py $TRANSLATE_FLAGS
 
@@ -86,6 +92,7 @@ jobs:
           # 检查是否有暂存的更改
           if ! git diff --staged --quiet; then
             git commit -m "Auto-translate: Update English posts [skip ci]"
+            git pull --rebase origin main
             git push
           else
             echo "No new translations to commit"

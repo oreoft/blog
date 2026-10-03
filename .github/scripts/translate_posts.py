@@ -309,7 +309,12 @@ def get_changed_files_from_git():
     """
     获取提交/变更中新增或修改的中文文章与页面列表
     """
-    diff_commands = [
+    diff_commands = []
+    # CI 里由 workflow 传入本次 push 之前的 commit，一次推多个 commit 时也能覆盖全部改动
+    base_sha = os.environ.get('TRANSLATE_BASE_SHA', '').strip()
+    if base_sha and set(base_sha) != {'0'}:
+        diff_commands.append(['git', 'diff', '--name-only', base_sha, 'HEAD'])
+    diff_commands += [
         ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
         ['git', 'diff', '--name-only', 'HEAD'],
         ['git', 'diff', '--name-only', '--cached']
