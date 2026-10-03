@@ -4,7 +4,7 @@ zh:
     subtitle: "是折腾，也是热爱呀"
     subtitle2: "你没有理由不成为你热爱领域的专家"
     name: "没有气的汽水"
-    description: "Java,C/C++,数据结构,生活故事,NAS,装机,开发者,编程,代码,开源,效率,Developer,Programmer,Coder,Geek."
+    description: "Oreoft 的技术博客，记录 Java、数据库与中间件、云服务、Linux 和效率工具上的实践、线上问题排查和折腾心得。"
   menu:
     home: "首页"
     about: "关于我"
@@ -64,7 +64,7 @@ en:
     subtitle: "Believe in the light and become the light"
     subtitle2: "There are no reason why you cannot become an expert in the field you love"
     name: "Oreoft"
-    description: "Developer, Programmer, increase-efficiency, Geek, Coder"
+    description: "Oreoft's tech blog: hands-on notes on Java, databases and middleware, cloud, Linux and developer tools, plus write-ups of real production incidents."
   menu:
     home: "Home"
     about: "About"
