@@ -38,7 +38,7 @@ zh:
     subtitle: "本站所有的文章都会不分类按照实际时间展示在此"
   footer:
     power_by: "Power by"
-    icp: "鄂ICP备20003707号"
+    icp: "赣ICP备20003707号"
     top: "TOP"
   search:
     title: "搜索文章"
@@ -98,7 +98,7 @@ en:
     subtitle: "All the articles on this site will be displayed here according to the actual time without categorization."
   footer:
     power_by: "Power by"
-    icp: "鄂ICP备20003707号"
+    icp: "赣ICP备20003707号"
     top: "TOP"
   search:
     title: "Search Articles"
