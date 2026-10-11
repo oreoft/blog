@@ -136,6 +136,7 @@ subscribe_rss: /feed.xml
 #   username: your_twitter_username
 author: Oreoft
 twitter:
+  username: kunj4r
   card: summary_large_image
 logo: /assets/images/logo-512.png
 
