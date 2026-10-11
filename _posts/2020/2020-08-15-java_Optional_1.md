@@ -126,7 +126,7 @@ Optional.ofNullable(student.get("age")).
 
 ## 后言
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408091744.png)
+![Optional 类里所有的方法和属性](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408091744.png)
 
 <center>里面所有的方法和属性</center>
 

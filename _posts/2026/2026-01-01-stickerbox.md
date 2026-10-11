@@ -32,7 +32,7 @@ AI 现在很火，不管是软件产品还是硬件产品层出不穷。最近�
 
 打开包装，整体质感还是挺不错的。比较惊喜的是里面还有一张卡片带有签名，我特意摸了一下，确实是手写签名的痕迹，而不是批量印上去的，这种小细节让人感觉很有诚意。
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260102093101277.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![开箱全家福](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260102093101277.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
 <center>开箱全家福</center><br>
 
 ![IMG_8347](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260101225621677.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
@@ -58,7 +58,7 @@ AI 现在很火，不管是软件产品还是硬件产品层出不穷。最近�
 
 开机后需要链接 WiFi 并绑定设备。屏幕亮度还挺不错的，显示很清晰。
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260101230804547.png?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![连接WiFi界面](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260101230804547.png?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
 <center>连接WiFi界面</center><br>
 
 ![IMG_8355](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20260101230222692.PNG?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)

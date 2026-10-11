@@ -77,7 +77,7 @@ PVE（Proxmox VE）是一个基于 Debian 的虚拟化系统，装在物理机�
 
 动手之前，先把机器拆开清一下灰。
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003100309797.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![两根 16G 内存，右边是 1T 的 SSD](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003100309797.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
 <center>两根 16G 内存，右边是 1T 的 SSD</center><br>
 
 里面就是那两根 16G 的内存，还是在内存涨价之前买的，旁边是 1T 的 SK Hynix NVMe SSD。整体来说配置还是非常不错的。
@@ -89,17 +89,17 @@ PVE（Proxmox VE）是一个基于 Debian 的虚拟化系统，装在物理机�
 
 清灰的时候还看到底盖上有一个 SATA 接口，我就想起手上正好有一块 2.5 寸的机械硬盘。
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003100159596.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![从硬盘盒里拆出来的老机械盘](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003100159596.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
 <center>从硬盘盒里拆出来的老机械盘</center><br>
 
 这是从一台很老的苹果电脑上拆下来的盘，十几年前的了。拆下来之后一直没怎么用，就当备用盘，当时还给它买了个硬盘盒当移动硬盘用。现在有了 NVMe 的移动硬盘盒，它就更用不上了。干脆放进小主机里，以后当备用盘或者存储盘。
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003095643186.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![把机械盘装进底盖的硬盘位](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003095643186.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
 <center>把机械盘装进底盖的硬盘位</center><br>
 
 老硬盘比较厚，虽然也是 2.5 寸，但有 9.5mm，其实不太塞得进去，塞完之后底盖还有点鼓起来。不过把 4 个角的螺丝拧紧之后，其实也没有翘起来特别多。
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003095629924.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
+![装完之后底盖鼓起来一点](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20261003095629924.jpg?x-oss-process=image/auto-orient,1/resize,w_1200,limit_0/format,webp/quality,Q_80)
 <center>装完之后底盖鼓起来一点</center><br>
 
 就是"肚子"圆鼓鼓的，看起来有点滑稽，不过不影响使用。这块盘后来格式化了，专门给 PVE 存虚拟机备份。
