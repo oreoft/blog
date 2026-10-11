@@ -19,6 +19,16 @@
     </div>
     <!-- Third-Party JS -->
     <script type="text/javascript" src="https://someget.oss-accelerate.aliyuncs.com/assets/js/geopattern.min.js"></script>
+    <script>
+        // 背景统一用重叠圆图案，颜色按 pattern-id 从几种低饱和色里取，避免出现刺眼的随机色
+        window.somegetPattern = function (el) {
+            var colors = ['#3D6E92', '#3D3D40', '#5B4636', '#2F4B40', '#4B5867', '#6B635B'];
+            var id = String($(el).data('pattern-id') || '');
+            var h = 0;
+            for (var i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+            $(el).geopattern(id, { generator: 'overlappingCircles', color: colors[h % colors.length] });
+        };
+    </script>
 
     <!-- 首页每日更换背景 Pattern -->
     {% if page.menu == 'home' %}

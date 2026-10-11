@@ -55,7 +55,7 @@ defaults:
       path: ""
     values:
       locale: zh_CN
-      image: https://someget.oss-accelerate.aliyuncs.com/assets/images/logo.png
+      image: /assets/images/og-image.jpg
   - scope:
       path: "en"
     values:
@@ -135,10 +135,9 @@ subscribe_rss: /feed.xml
 # twitter:
 #   username: your_twitter_username
 author: Oreoft
-# 默认分享图是竖版 logo，用小卡片，避免被裁成大图
 twitter:
-  card: summary
-logo: https://someget.oss-accelerate.aliyuncs.com/assets/images/logo.png
+  card: summary_large_image
+logo: /assets/images/logo-512.png
 
 # ---------------- #
 #   Giscus 评论    #

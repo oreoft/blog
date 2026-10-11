@@ -178,8 +178,10 @@
         align-items: center;
         gap: 8px;
     }
-    #site-header-brand .octicon {
-        font-size: 26px !important;
+    #site-header-brand .site-header-brand-logo {
+        width: 30px;
+        height: 30px;
+        margin-right: 0;
     }
     .site-header-nav {
         justify-content: center;
@@ -210,4 +212,14 @@
     color: #1f2933 !important; /* 深色文字 */
     text-shadow: none !important;
     border-color: #1f2933 !important;
+}
+
+/* 站点标题前的 logo */
+#site-header-brand .site-header-brand-logo {
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.3em;
+    vertical-align: -0.15em;
+    border-radius: 22%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
