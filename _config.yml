@@ -93,6 +93,10 @@ exclude:
   - docs
   - .github
   - .idea
+  - api
+  - node_modules
+  - package.json
+  - package-lock.json
   - .claude
   - .bundle
   - .jekyll-cache

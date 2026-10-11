@@ -18,3 +18,5 @@ docs/
 # Python
 __pycache__/
 *.py[cod]
+# Vercel 函数依赖
+node_modules/
