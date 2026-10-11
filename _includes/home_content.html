@@ -1,6 +1,6 @@
 <section class="jumbotron geopattern" data-pattern-id="{{ 'site.name' | t }}">
     <div class="container">
-        <h1 id="header"></h1>
+        <h1 id="header">{{ "site.subtitle2" | t }}</h1>
         <script>
             let texts = ['{{ "site.subtitle" | t }}', '{{ "site.subtitle2" | t }}'];
             document.getElementById("header").innerHTML = texts[Math.floor(Math.random() * texts.length)];

@@ -18,6 +18,10 @@
 
     <!-- jekyll-seo-tag 会自动生成 Open Graph, Twitter Cards, JSON-LD 等 SEO 标签；页面标题用上面手写的（带站名） -->
     {% seo title=false %}
+    {% unless page.title %}
+    <meta property="og:title" content="{{ 'site.title' | t | escape }}" />
+    <meta name="twitter:title" content="{{ 'site.title' | t | escape }}" />
+    {% endunless %}
     
     {% if page.hreflang %}
     <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ page.hreflang.zh }}">

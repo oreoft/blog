@@ -4,7 +4,7 @@ title: About Me
 titlebar: 关于我
 menu: about
 subtitle:  <span class="mega-octicon octicon-octoface"></span>&nbsp;&nbsp; I am a programmer         
-css: ['about.css', 'sidebar-popular-repo.css', '../../bower_components/flag-icon-css/css/flag-icon.min.css']
+css: ['about.css', 'sidebar-popular-repo.css']
 permalink: /about/
 lang: zh
 ---
