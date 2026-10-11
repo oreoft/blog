@@ -1,55 +1,54 @@
 ---
 category: java
-excerpt: 'Translate excerpt to English: Using `Optional` in Java for Elegant Null
-  Checks'
+excerpt: Using `Optional` Elegantly for Null Checks in Java
 keywords: java
 lang: en
 layout: post
-title: Elegantly Handling Null Checks in Java with Optional
+title: Using `Optional` in Java for Elegant Null Checks
 ---
 
-## Preface
+## Introduction
 
-`Exception in thread "main" java.lang.NullPointerException`  
-I’m sure you’ve run into this a lot—or at least used to—because early on, when you’re still inexperienced and not thinking things through, it’s totally normal for your code to not be that robust. But after getting burned a few times, you learn your lesson 😏.
+`Exception in thread "main" java.lang.NullPointerException`
+I’m sure everyone runs into this a lot, or at least used to run into it a lot. When you’re new to coding, it’s totally normal to lack experience and miss some edge cases. Code that isn’t very robust is completely normal at that stage, but after getting burned a few times, you remember the lesson 😏.
 
-Null checks are super common and basically everywhere in project code. Optional, added in JDK 8, can reduce some redundant code and make null checking a bit more elegant. You’ve probably seen or heard about it in other articles. I actually read a bunch of those too and felt like they made sense, but they were so long-winded that after finishing I still didn’t really know how to use it. Later, I saw coworkers using it in real code, started following along, then went back to read the source and other posts—and it suddenly clicked. So now I believe: become an “API engineer” first, then go dig into the internals.
+Null checks are extremely common and all over project code. `Optional`, added in JDK 8, can reduce redundant code to some extent and make null checking more elegant. You’ve probably seen or heard about it in other articles. I had read other people’s posts about it too, and I felt like they made sense, but after a whole lot of explanation, I still didn’t really know how to use it. Later, I saw coworkers using it in real code, started using it myself, and then went back to read the source code and other articles. Suddenly, everything clicked. So now I believe it’s better to become an API engineer first, and only then dive into the internals.
 
-## A quick explanation
+## A Simple Explanation
 
-From Optional’s (hereafter “opt”) source code, opt is basically a container. You can put your object into it so it becomes an opt object, then use opt’s methods to do null checks or other operations, and finally pull your object back out (or do other logic). That might sound a bit fancy, but what I really want to tell you is: to create an opt object, you put your variable into Optional’s static methods. Optional provides three methods:
+Looking at the source code of `Optional` (hereafter referred to as `opt`), `opt` is basically a container. This container can hold your object, turning it into an `opt` object. Then you can use `opt` methods to do null checks or other operations, and finally either extract your object from `opt` or continue with other logic. That might sound a bit fancy, but what I really want to tell you is this: to create an `opt` object, you need to put your variable into one of `opt`’s static methods. `Optional` provides three methods:
 
 ![image-20210408091539829](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408091539.png)
 
-<center>Three static methods of Optional</center>
+<center>The three static methods of Optional</center>
 
 
 
-Usually we create an Optional container like this:
+Usually, we create an `Optional` container like this:
 
 ```java
 Integer num = null;
-// Usually we just chain calls directly and won’t keep a reference to this opt
+// Usually we just chain the call directly instead of assigning this opt to a reference
 Optional<Integer> optNum = Optional.ofNullable(num);
 ```
 
-## Leveling up as an API engineer
+## API Engineer Advanced Level
 
 ### Creating an opt object
 
-As you can see above, using `of()` / `ofNullable()` in opt lets you wrap the variable you want to null-check. `empty()` creates an empty Optional object. Umm... for me it’s not that useful—honestly this should be a private method, because only internal code should call it.
+As you can see above, you can use `of()` / `ofNullable()` in `opt` to wrap the variable you want to null-check. `empty()` creates an empty `Optional` object. Emmm... for me, it’s not that useful. Honestly, this probably should have been a private method, since it’s mostly called internally.
 
-So what’s the difference between `of` and `ofNullable`? Here’s the conclusion first: I generally don’t use `of` either. Just look at the source—`of` eventually calls `Objects.requireNonNull`. If you’re familiar with it, you know: isn’t this basically the NPE source?
+So what’s the difference between `of` and `ofNullable`? Let me give the conclusion first: I generally don’t use `of` either. Just look at the source code. `of` eventually calls `Objects.requireNonNull`. If you’re familiar with it, you’ll know right away—this is basically the source of an NPE.
 
 ```java
     public static <T> T requireNonNull(T obj) {
-        if (obj == null) // if it's null here, it throws NPE directly
+        if (obj == null) // If it's null here, it directly throws a NullPointerException
             throw new NullPointerException();
         return obj;
     }
 ```
 
-Now let’s look at `ofNullable`:
+Now let’s look at the source code of `ofNullable`:
 
 ```java
     public static <T> Optional<T> ofNullable(T value) {
@@ -57,50 +56,50 @@ Now let’s look at `ofNullable`:
     }
 ```
 
-Pretty obvious which one to use. `ofNullable` checks first: if it’s `null`, it calls `empty()` to create an empty opt object; if it’s not `null`, it calls `of()` to create an opt container and wrap your value.
+Obviously, it’s pretty clear which one to use. `ofNullable` performs a check first. If the value is `null`, it calls `empty()` to create an empty `opt` object. If it’s not `null`, it calls `of()` to create an `opt` container and wrap your value.
 
 
 
-Also, if you’re using IntelliJ IDEA, you can use the postfix shortcut I mentioned before to wrap your variable into an opt. The trigger is `.opt`.
+By the way, if you’re using IDEA, you can use the postfix shortcut I mentioned before to wrap your variable into `opt`. The trigger is `.opt`.
 
 ![2021-04-08 09.27.25](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408092851.gif)
 
-<center>This comes built-in with IDEA—no need to add it yourself. Give it a try</center>
+<center>This comes built into IDEA, no need to add it yourself. Give it a try.</center>
 
 
 
-### Provide a default value when null
+### Provide a default value if null
 
 ```java
 Optional.ofNullable(num)
 ```
 
-Now we’re at this step. Usually after a null check, if the variable is null, we’ll give it an initial value so it can safely continue through the rest of the flow.
+Now that we’ve reached this step, in most cases after checking for null, if we find the variable is null, we’ll give it an initial value so the following process can continue safely.
 
-Here you can use `orElse()`. This method means: if this opt is `empty` (don’t forget—if your value is `null`, opt will create an `empty` object), then return the argument you pass into `orElse`. Otherwise, it takes out the value wrapped inside the opt container. Show code:
+Here you can use the `orElse()` method. What it does is: if this `opt` is `empty` (don’t forget, if your value is `null`, the `opt` class will create an `empty` object), then it returns the argument you passed into `orElse`. Otherwise, it extracts and returns the variable wrapped inside the `opt` container. Show code:
 
 ```java
         Integer num = null;
-        // whether num is null; if not, result is its own value; if yes, result is 1
+        // Is num null? If not, result is its own value; if yes, result is 1
         Integer result = Optional.ofNullable(num).orElse(1);
-        System.out.println(String.format("result的值是%d", result));
+        System.out.println(String.format("The value of result is %d", result));
 
 输出结果为 result的值是1
 ```
 
 ![image-20210408093557434](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408093557.png)
 
-<center>Similar features—feel free to explore on your own</center>
+<center>There are similar methods too—feel free to explore them yourself</center>
 
 
 
 ### Whether it exists
 
-Besides providing a default value when null, you might have other needs during null checking—for example, you just want to know whether it’s null. Sure, we can do that with `Objects.isNull()` or `==`, but opt also provides a method (`isPresent`). Usually after a long chain of calls, having this is pretty satisfying.
+Besides assigning a default value when null, there are other null-checking needs too. For example, maybe I just want to know whether it’s null. Of course, we can directly use `Objects.isNull()` or just `==` to do that, but `opt` also provides a method for this: `isPresent`. It feels especially nice to use when you have a long chain of method calls and need this kind of check at the end.
 
 ```java
         Integer num = null;
-        // check whether this opt object exists (more precisely, whether it's empty)
+        // Check whether this opt object exists (more accurately, whether it is empty)
         boolean present = Optional.ofNullable(num).isPresent();
         System.out.println(present);
 输出结果为 false
@@ -110,25 +109,25 @@ Besides providing a default value when null, you might have other needs during n
 
 ### What to do if it exists
 
-Pay attention: above was `isPresent`, now we’re talking about `ifPresent`. Don’t mix up `is` and `if`.
+Pay attention here: above we talked about `isPresent`, and now we’re going to talk about `ifPresent`. Don’t mix up `is` and `if`.
 
-Most of the time, after null checking, we still want to execute some logic. opt provides `ifPresent`, where you pass in a Consumer lambda. This is basically a standard pattern. Note: if the object wrapped in your opt is a list, then the lambda parameter in `ifPresent` is the entire list, not each element inside the list.
+In most cases, after checking whether a value is null, we still want to execute some logic. `opt` provides the `ifPresent` method, where you pass in a `Consumer` lambda expression. This is basically a fixed usage pattern. Also note: if the object wrapped inside your `opt` is a `List`, then the lambda parameter inside `ifPresent` is that whole `List`, not each individual element inside it.
 
 ```java
-// Simulate fetching Xiaoming's info from the database; intentionally not letting you know his age
+// Simulate fetching Xiaoming's information from the database, intentionally not telling you Xiaoming's age
 student.put("name", "小明");
 student.put("age", UNKNOWN);
-// Check whether Xiaoming's age is null; if not null, determine whether he's an adult
+// Check whether Xiaoming's age is null; if not, determine whether Xiaoming is an adult
 Optional.ofNullable(student.get("age")).
   ifPresent(e -> student.put("isAdult", UNKNOWN >= 18 ? 1 : 0));
 ```
 
 
 
-## Afterword
+## Final Thoughts
 
-![](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408091744.png)
+![Optional 类里所有的方法和属性](https://mypicgogo.oss-cn-hangzhou.aliyuncs.com/tuchuang20210408091744.png)
 
-<center>All methods and fields inside</center>
+<center>All methods and fields inside it</center>
 
-But the methods I covered above are the ones I use most often at work. I’d recommend getting comfortable with these first, then taking a look at the rest of Optional’s methods. Optional doesn’t actually contain much—reading the source won’t take long either.
+But the methods I introduced above are the ones I use frequently at work. I’d suggest getting comfortable with these first, and then taking a look at the other methods inside `Optional`. Actually, there isn’t much in `Optional`, and reading through the source code doesn’t take much time either.
